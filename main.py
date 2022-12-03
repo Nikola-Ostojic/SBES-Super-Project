@@ -10,7 +10,7 @@ app.config['TEMPLATES_AUTO_RELOAD'] = True
 def home():
     app.logger.info("Home")
 
-    jsonData = json.load(open('config.json', 'r'))
+    pages = json.load(open('config.json', 'r'))
 
     
 

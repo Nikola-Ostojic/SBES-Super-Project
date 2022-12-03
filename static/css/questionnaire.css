@@ -1,0 +1,90 @@
+body{
+    margin: 0px;
+    background-color: rgb(238, 238, 238);
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.home-wrapper{
+    display: flex;
+}
+
+.questions-wrapper{
+    display: flex;
+    justify-content: center;  
+    flex-direction: column;
+    padding: 1rem 10%;
+}
+
+.page-container{
+    padding: 1rem 1rem 1rem 3rem;
+}
+
+.page{
+    border: 3px solid rgba(100, 194, 136, 0);
+    border-bottom: 3px solid rgba(103, 202, 141, 0.5);
+    background-color: white;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.3rem;
+}
+
+.question-container{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2rem;
+}
+
+.question-no{
+    margin-right: 1rem;
+}
+
+.page-title{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.question{
+    margin-bottom: 0.8rem;
+}
+
+.answer{
+    background-color: white;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    border: 2px solid rgba(157, 188, 169, 0.5);
+}
+
+.bar-wrapper{
+    background-color: gainsboro;
+}
+
+.progress-bar{
+    width: 100%;
+    height: 0.5rem;
+    background-color: rgb(166, 220, 187);
+    box-shadow: 2px 2px 3px gray;
+    margin-bottom: 1rem;
+}
+
+.progress{
+    height: 0.5rem;
+    background-color: rgb(45, 183, 91);
+    width: 35%;
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+}
+
+
+
+/* Animations/hovers... */
+
+.page:hover{
+    border: 3px solid rgba(103, 202, 141, 0.5);
+}
+
+.answer:hover{
+    border: 2px solid rgba(35,164,166, 0.7);
+}
