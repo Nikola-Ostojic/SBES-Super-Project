@@ -16,6 +16,8 @@
 
 {% block body %}
 <h1>Questionnaire</h1>
-{{pages}}
+{% for page in pages %}
+{{page.title}}
+{% endfor %}
 {% endblock %}
 
