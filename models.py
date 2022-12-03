@@ -1,10 +1,9 @@
 import uuid
 
 class Page:
-    def __init__(self, index,title,calculation_type, formula, questions = None):
+    def __init__(self, index,title, formula, questions = None):
         self.index = index
-        self.title = title
-        self.calculation_type = calculation_type
+        self.title = title        
         self.formula = formula
         self.questions = questions if questions else []
 

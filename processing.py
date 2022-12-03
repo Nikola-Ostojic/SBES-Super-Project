@@ -1,8 +1,8 @@
 from models import Page,Question,Answer
 import json
 
-def process(json_name):
-    json_data = json.load(open(json_name, 'r'))
+def process(config_name):
+    json_data = json.load(open(config_name, 'r'))
     formula = json_data['formula']
     pages = parse_pages(json_data['pages'])
     return formula, pages
@@ -18,7 +18,7 @@ def parse_pages(pages):
             for answer in question['answers']:                
                 answ = parse_answer(answer)
                 q.answers.append(answ)
-        result.append(page)
+        result.append(pg)
     return result
 
 def parse_answer(answer):
@@ -36,7 +36,21 @@ def parse_question(question):
 
 def parse_page(page):
     index = page['index']
-    title = page['title']
-    calculation_type = page['calculationType']
+    title = page['title']    
     formula = page['formula']
-    return Page(index,title,calculation_type,formula)
+    return Page(index,title,formula)
+
+
+def add_page_to_json(config_name,index,title,formula):
+    try:
+        config_data = json.load(open(config_name, 'r'))
+        data = {"index":int(index),"title":str(title),"formula":str(formula)}
+        config_data['pages'].append(data)
+
+        json_data = json.dumps(config_data)
+        with open(config_name, "w") as file:
+            file.write(json_data)        
+        return True
+    except Exception as e:
+        print(str(e), flush=True)
+        return False
