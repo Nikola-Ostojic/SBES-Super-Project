@@ -18,7 +18,7 @@ def parse_pages(pages):
             for answer in question['answers']:                
                 answ = parse_answer(answer)
                 q.answers.append(answ)
-        result.append(page)
+        result.append(pg)
     return result
 
 def parse_answer(answer):

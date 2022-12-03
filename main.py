@@ -9,7 +9,7 @@ formula, pages = process(CONFIG_NAME)
 
 @app.route('/home')
 def home():        
-    process(CONFIG_NAME)
+    formula, pages = process(CONFIG_NAME)
     html = render_template("questionnaire.html", pages=pages)
     return html
 

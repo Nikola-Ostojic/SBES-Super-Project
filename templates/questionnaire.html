@@ -16,64 +16,46 @@
 
 {% block body %}
 <main>
-    <p class="page-title">Page no. 1</p>
-    <div class="bar-wrapper">
-        <div class="progress-bar">
-            <div class="progress">
-
+    <div class="header-title">
+        <p class="page-title">{{ pages[0].title }} </p>
+        <div class="bar-wrapper">
+            <div class="progress-bar">
+                <div class="progress">
+    
+                </div>
             </div>
         </div>
     </div>
     <div class="home-wrapper">
         <div class="page-container">
-            <div class="page">
-                <span>Page asgd gasd gdas gads do. 1</span>
+            {% for item in pages %}
+            <div class="page page-{{item.index}}">
+                <span>{{item.title}}</span>
             </div>
-            <div class="page">
-                <span>Page no. 2</span>
-            </div>
-            <div class="page">
-                <span>Page no. 3</span>
-            </div>
+            {% endfor %}
         </div>
-        <div class="questions-wrapper">
+        {% for item in pages %}
+        <div index="{{item.index}}" class="questions-wrapper {% if item.index != 1 %} hidden {%endif%}">
+            {% for question in item.questions %}
             <div class="question-container">
                 <div class="question-no">
-                    <span>1.</span>
+                    <span>{{loop.index}}.</span>
                 </div>
                 <div class="question-text">
                     <div class="question">
-                        <span>Ovo je prvo pitanje, da vidimo kako ce ovo izgledati na frontu sugavom, gsdajhglu slah dglusdahgu asdhguasdh lguasdhgklu asdlguhasug l</span>
+                        <span>{{question.question}}</span>
                     </div>
-                    <div class="answer">
-                        <input type="radio" name="answer1">
-                        <span>Da</span>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="answer1">
-                        <span>Ne</span>
-                    </div>
+                        {% for answer in question.answers %}
+                        <div class="answer">
+                            <input type="{{question.answer_type}}" name="answer-{{question.id}}" value="{{answer.weight}}">
+                            <span>{{ answer.text }}</span>
+                        </div>
+                        {% endfor %}
                 </div>
             </div>
-            <div class="question-container">
-                <div class="question-no">
-                    <span>2.</span>
-                </div>
-                <div class="question-text">
-                    <div class="question">
-                        <span>Ovo je prvo pitanje, da vidimo kako ce ovo izgledati na frontu sugavom, gsdajhglu slah dglusdahgu asdhguasdh lguasdhgklu asdlguhasug l</span>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="answer2">
-                        <span>Da</span>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="answer2">
-                        <span>Ne</span>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
+        {% endfor %}
     </div>
 </main>
 
