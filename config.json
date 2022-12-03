@@ -1,0 +1,23 @@
+{	
+	"formula":"CONST",
+	"pages":[{
+		"name":"KEY",
+		"typeOfCalculation":"CONST",
+		"formula":"CONST",
+		"questions": [
+	    {
+	      "id":"KEY",
+	      "question": "question",
+	      "page": 1,
+	      "answerType": "chkbox/radio/number",
+	      "weightType": "factor/value",
+	      "answers": [
+	        {
+	          "text": "text",
+	          "weight": "3.8"
+	        }
+	      ]
+	    }
+	  ]
+	}]
+}
