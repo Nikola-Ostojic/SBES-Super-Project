@@ -15,9 +15,69 @@
 {% endblock %}
 
 {% block body %}
-<h1>Questionnaire</h1>
-{% for page in pages %}
-{{page.title}}
-{% endfor %}
+<main>
+    <p class="page-title">Page no. 1</p>
+    <div class="bar-wrapper">
+        <div class="progress-bar">
+            <div class="progress">
+
+            </div>
+        </div>
+    </div>
+    <div class="home-wrapper">
+        <div class="page-container">
+            <div class="page">
+                <span>Page asgd gasd gdas gads do. 1</span>
+            </div>
+            <div class="page">
+                <span>Page no. 2</span>
+            </div>
+            <div class="page">
+                <span>Page no. 3</span>
+            </div>
+        </div>
+        <div class="questions-wrapper">
+            <div class="question-container">
+                <div class="question-no">
+                    <span>1.</span>
+                </div>
+                <div class="question-text">
+                    <div class="question">
+                        <span>Ovo je prvo pitanje, da vidimo kako ce ovo izgledati na frontu sugavom, gsdajhglu slah dglusdahgu asdhguasdh lguasdhgklu asdlguhasug l</span>
+                    </div>
+                    <div class="answer">
+                        <input type="radio" name="answer1">
+                        <span>Da</span>
+                    </div>
+                    <div class="answer">
+                        <input type="radio" name="answer1">
+                        <span>Ne</span>
+                    </div>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question-no">
+                    <span>2.</span>
+                </div>
+                <div class="question-text">
+                    <div class="question">
+                        <span>Ovo je prvo pitanje, da vidimo kako ce ovo izgledati na frontu sugavom, gsdajhglu slah dglusdahgu asdhguasdh lguasdhgklu asdlguhasug l</span>
+                    </div>
+                    <div class="answer">
+                        <input type="radio" name="answer2">
+                        <span>Da</span>
+                    </div>
+                    <div class="answer">
+                        <input type="radio" name="answer2">
+                        <span>Ne</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="{{ url_for('static', filename='js/questionnaire.js')}}"></script>
+
 {% endblock %}
 
