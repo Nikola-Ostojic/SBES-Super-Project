@@ -7,9 +7,12 @@ body{
 
 .home-wrapper{
     display: flex;
+    position: relative;
+    top: 7rem;
 }
 
 .questions-wrapper{
+    width: 100%;
     display: flex;
     justify-content: center;  
     flex-direction: column;
@@ -18,15 +21,18 @@ body{
 
 .page-container{
     padding: 1rem 1rem 1rem 3rem;
+    width: 25%;
 }
 
 .page{
     border: 3px solid rgba(100, 194, 136, 0);
-    border-bottom: 3px solid rgba(103, 202, 141, 0.5);
     background-color: white;
     padding: 0.5rem 1rem;
     margin-bottom: 0.5rem;
     border-radius: 0.3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.5);
 }
 
 .question-container{
@@ -39,10 +45,25 @@ body{
     margin-right: 1rem;
 }
 
+.question-text{
+    width: 100%;
+}
+
+.selected{
+    border: 2px solid rgba(35,164,166, 0.7) !important;
+}
+
+.selected-page{
+    border: 3px solid rgba(35,164,166, 0.7) !important;
+}
+
 .page-title{
     text-align: center;
     font-size: 1.5rem;
-    font-weight: 500;
+    font-weight: 600;
+    background-color: white;
+    margin: 0px;
+    padding: 1rem;
 }
 
 .question{
@@ -55,6 +76,7 @@ body{
     padding: 0.5rem;
     border-radius: 0.3rem;
     border: 2px solid rgba(157, 188, 169, 0.5);
+    box-shadow: 1px 1px 2px rgba(128, 128, 128, 0.5);
 }
 
 .bar-wrapper{
@@ -77,7 +99,36 @@ body{
     border-bottom-right-radius: 0.3rem;
 }
 
+.header-title{
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+}
 
+.hidden{
+    display: none;
+}
+
+input[type=text]{
+    border: 0px;
+    font-size: 1rem;
+    outline: 0px;
+    width: 100%;
+}
+
+input[type=number]{
+    border: 0px;
+    font-size: 1rem;
+    outline: 0px;
+    width: 100%;
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}
 
 /* Animations/hovers... */
 
