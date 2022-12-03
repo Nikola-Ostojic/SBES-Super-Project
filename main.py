@@ -16,8 +16,6 @@ def home():
 
 @app.route('/admin')
 def admin():
-    app.logger.info("Admin")
-
     return render_template("admin.html")
 
 if __name__ == '__main__':    
