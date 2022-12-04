@@ -37,10 +37,108 @@
             <td>{{page.formula}}</td>
         </tr>
     </table>
+    <div class="questions-container">
+        {% if page.questions|length == 0 %}
+                <form id="question-form-{{page.index}}">
+                    <label for="questionIndex">Index</label>
+                    <input type="number" id="questionIndex" name="questionIndex">
+                    <label for="question">Question:</label>
+                    <input type="text" name="question" id="question">
+                    <label for="answer-type">Answer Type:</label>
+                    <label for="weight-type">Checkbox</label>
+                    <input type="radio" name="answerType" id="answer-type" value="checkbox">
+                    <label for="weight-type">Radio</label>
+                    <input type="radio" name="answerType" value="radio">
+                    <label for="weight-type">Number</label>
+                    <input type="radio" name="answerType" value="number">
+                    <label for="weight-type">Weight Type:</label>
+                    <label for="weight-type">Value</label>                
+                    <input type="radio" name="weightType" id="weight-type" value="value">
+                    <label for="weight-type">Factor</label>                
+                    <input type="radio" name="weightType" id="weight-type" value="factor">
+                    <button type="button" onclick="addQuestion({{page.index}})">Add Question</button>
+                </form>
+            {% endif %}
+        {% for question in page.questions %}
+            <table>
+                <tr><th>Question {{question.index}}</th></tr>
+                <tr>
+                    <td>Question</td>
+                    <td>{{question.question}}</td>
+                </tr>
+                <tr>
+                    <td>Answer Type</td>
+                    <td>{{question.answer_type}}</td>
+                </tr>
+                <tr>
+                    <td>Weight Type</td>
+                    <td>{{question.weight_type}}</td>
+                </tr>
+            </table>            
+            <div class="answers-container">
+                {% if question.answers|length == 0 %}
+                    <form id="answer-form-{{page.index}}-{{question.index}}">
+                        <label for="answerIndex">Index</label>
+                        <input type="number" name="answerIndex" id="answerIndex">
+                        <label for="text">Text</label>
+                        <input type="text" name="text" id="text">
+                        <label for="weight">Weight</label>                    
+                        <input type="number" name="weight" id="weight">
+                        <button type="button" onclick="addAnswer({{page.index}},{{question.index}})">Add Answer</button>
+                    </form>
+                {% endif %}   
+                {% for answer in question.answers %}
+                <table>
+                    <tr><th>Answer {{answer.index}}</th></tr>
+                    <tr>
+                        <td>Text</td>
+                        <td>{{answer.text}}</td>
+                    </tr>
+                    <tr>
+                        <td>Weight</td>
+                        <td>{{answer.weight}}</td>
+                    </tr>                    
+                </table>                             
+                {% if loop.index == question.answers|length%}
+                    <form id="answer-form-{{page.index}}-{{question.index}}">
+                        <label for="answerIndex">Index</label>
+                        <input type="number" name="answerIndex" id="answerIndex">
+                        <label for="text">Text</label>
+                        <input type="text" name="text" id="text">
+                        <label for="weight">Weight</label>                    
+                        <input type="number" name="weight" id="weight">
+                        <button type="button" onclick="addAnswer({{page.index}},{{question.index}})">Add Answer</button>
+                    </form>
+                {% endif %}
+                {% endfor %}
+            </div>            
+            {% if loop.index == page.questions|length %}
+                <form id="question-form-{{page.index}}">
+                    <label for="questionIndex">Index</label>
+                    <input type="number" id="questionIndex" name="questionIndex">
+                    <label for="question">Question:</label>
+                    <input type="text" name="question" id="question">
+                    <label for="answer-type">Answer Type:</label>
+                    <label for="weight-type">Checkbox</label>
+                    <input type="radio" name="answerType" id="answer-type" value="checkbox">
+                    <label for="weight-type">Radio</label>
+                    <input type="radio" name="answerType" value="radio">
+                    <label for="weight-type">Number</label>
+                    <input type="radio" name="answerType" value="number">
+                    <label for="weight-type">Weight Type:</label>
+                    <label for="weight-type">Value</label>                
+                    <input type="radio" name="weightType" id="weight-type" value="value">
+                    <label for="weight-type">Factor</label>                
+                    <input type="radio" name="weightType" id="weight-type" value="factor">
+                    <button type="button" onclick="addQuestion({{page.index}})">Add Question</button>
+                </form>
+            {% endif %}
+        {% endfor %}
+    </div>
     {% if loop.index == pages|length %}
     <form id="page-form">
-        <label for="index">Index:</label>
-        <input type="number" id="index" name="index" value="{{pages|length}}">
+        <label for="pageIndex">Index:</label>
+        <input type="number" id="pageIndex" name="pageIndex" value="{{pages|length}}">
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" placeholder="Title">
         <label for="formula">Formula:</label>
@@ -49,9 +147,6 @@
     </form>
     {% endif %}
     {% endfor %}
-
-
-
 </div>
 
 
