@@ -34,28 +34,37 @@
             </div>
             {% endfor %}
         </div>
-        {% for item in pages %}
-        <div index="{{item.index}}" class="questions-wrapper {% if item.index != 1 %} hidden {%endif%}">
-            {% for question in item.questions %}
-            <div class="question-container">
-                <div class="question-no">
-                    <span>{{loop.index}}.</span>
-                </div>
-                <div class="question-text">
-                    <div class="question">
-                        <span>{{question.question}}</span>
+        <form class="questions-wrapper" action="{{ url_for('result') }}" method="post">
+            {% for item in pages %}
+            <div index="{{item.index}}" class="{% if item.index != 1 %} hidden {%endif%}">
+                {% for question in item.questions %}
+                <div class="question-container">
+                    <div class="question-no">
+                        <span>{{loop.index}}.</span>
                     </div>
-                        {% for answer in question.answers %}
-                        <div class="answer">
-                            <input type="{{question.answer_type}}" name="answer-{{question.id}}" value="{{answer.weight}}">
-                            <span>{{ answer.text }}</span>
+                    <div class="question-text">
+                        <div class="question">
+                            <span>{{question.question}}</span>
                         </div>
-                        {% endfor %}
+                            {% for answer in question.answers %}
+                            <div class="answer">
+                                <input type="{{question.answer_type}}" name="answer-{{item.index}}-{{question.index}}" value="{{answer.weight}}">
+                                <span>{{ answer.text }}</span>
+                            </div>
+                            {% endfor %}
+                    </div>
                 </div>
+                {% endfor %}
             </div>
             {% endfor %}
-        </div>
-        {% endfor %}
+
+            <div class="button-wrapper">
+                <button class="button-previous">Previous</button>
+                <button class="button-next">Next</button>
+                <button class="button-submit hidden">Submit</button>
+            </div>
+        </form>
+       
     </div>
 </main>
 

@@ -33,6 +33,17 @@ def add_page():
     response = app.response_class(response="OK" if success else "ERR",status=200 if success else 400)
     return response
 
+@app.route('/result', methods=["POST"])
+def result():
+    res = []
+    counter = 1
+    for item in pages:
+        for question in item.questions:
+            counter += 1
+            res.append(request.form['answer-' + question.id])
+
+    response = app.response_class(response="OK" if res else "ERR",status=200 if res else 400)
+    return render_template("questionnaire.html", pages=res)
 
 if __name__ == '__main__':    
     app.run(debug=True, port=5000, host='0.0.0.0')
