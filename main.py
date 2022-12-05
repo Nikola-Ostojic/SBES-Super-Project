@@ -1,23 +1,37 @@
-from flask import Flask, render_template, url_for,request
+from flask import Flask, render_template, url_for,request, session
+from flask_session import Session
 from processing import process,add_page_to_json,add_question_to_json, add_answer_to_json
 from models import Page
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
+app.config["SESSION_PERMANENT"] = True
+app.config["PERMANENT_SESSION_LIFETIME"] = 30
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
 CONFIG_NAME = "config.json"
-FORMULA, PAGES = process(CONFIG_NAME)
 
 @app.route('/home')
 def home():        
-    FORMULA, PAGES = process(CONFIG_NAME)
-    html = render_template("questionnaire.html", pages=PAGES)
+    pages = None
+    if not session.get("pages"):
+        _, pages = process(CONFIG_NAME)            
+        session['pages'] = pages
+    else:  
+        pages = session.get('pages')
+    
+    
+    app.logger.info(pages)
+    app.logger.info(type(pages))
+
+    html = render_template("questionnaire.html", pages=pages)
     return html
 
 
 @app.route('/admin')
 def admin():    
-    app.logger.info(PAGES)
-    return render_template("admin.html", pages=PAGES)
+    _ , pages = process(CONFIG_NAME)
+    return render_template("admin.html", pages=pages)
 
 @app.route('/addPage', methods=["POST"])
 def add_page():
@@ -58,12 +72,13 @@ def add_answer():
     response = app.response_class(response="OK" if success else "ERR",status=200 if success else 400)
     return response
 
-if __name__ == '__main__':    
-    app.run(debug=True, port=5000, host='0.0.0.0')
-
 
 @app.route('/result', methods=["POST"])
 def result():
+    if('pages' not in session):
+        return "Session expired, please fill out the form again. Sorry for the inconvenience."
+    
+    pages = session['pages']
     res = []
     counter = 1
     for item in pages:
@@ -73,3 +88,7 @@ def result():
 
     response = app.response_class(response="OK" if res else "ERR",status=200 if res else 400)
     return render_template("questionnaire.html", pages=res)
+
+
+if __name__ == '__main__':    
+    app.run(debug=True, port=5000, host='0.0.0.0')
