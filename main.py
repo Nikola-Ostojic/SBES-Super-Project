@@ -6,7 +6,7 @@ from models import Page
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config["SESSION_PERMANENT"] = True
-app.config["PERMANENT_SESSION_LIFETIME"] = 30
+app.config["PERMANENT_SESSION_LIFETIME"] = 1800
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 CONFIG_NAME = "config.json"
@@ -75,7 +75,7 @@ def add_answer():
 
 @app.route('/result', methods=["POST"])
 def result():
-    if('pages' not in session):
+    if not session.get("pages"):
         return "Session expired, please fill out the form again. Sorry for the inconvenience."
     
     pages = session['pages']
