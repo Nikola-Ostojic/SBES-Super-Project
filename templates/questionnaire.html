@@ -28,16 +28,16 @@
     </div>
     <div class="home-wrapper">
         <div class="page-container">
-            {% for item in pages %}
-            <div class="page page-{{item.index}}">
-                <span>{{item.title}}</span>
+            {% for page in pages %}
+            <div class="page page-{{page.index}}">
+                <span>{{page.title}}</span>
             </div>
             {% endfor %}
         </div>
-        <form class="questions-wrapper" action="{{ url_for('result') }}" method="post">
-            {% for item in pages %}
-            <div index="{{item.index}}" class="{% if item.index != 1 %} hidden {%endif%}">
-                {% for question in item.questions %}
+        <form class="questions-wrapper" id="question-form">
+            {% for page in pages %}
+            <div index="{{page.index}}" class="{% if page.index != 1 %} hidden {%endif%}">
+                {% for question in page.questions %}
                 <div class="question-container">
                     <div class="question-no">
                         <span>{{loop.index}}.</span>
@@ -48,7 +48,7 @@
                         </div>
                             {% for answer in question.answers %}
                             <div class="answer">
-                                <input type="{{question.answer_type}}" name="answer-{{item.index}}-{{question.index}}" value="{{answer.weight}}">
+                                <input type="{{question.answer_type}}" name="answer-{{page.index}}-{{question.index}}{% if question.answer_type != 'radio'%}-{{answer.index}}{%endif%}" value="{{answer.weight}}">
                                 <span>{{ answer.text }}</span>
                             </div>
                             {% endfor %}

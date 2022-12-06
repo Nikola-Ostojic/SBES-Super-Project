@@ -1,5 +1,6 @@
 var lastPage = 1
 var pageNumber = 0
+var result = 0
 
 pageNumber = $('form').children().length - 1
 currentPage = 1
@@ -38,9 +39,28 @@ $('.button-previous').click(function (e) {
   })
 
 $('.button-submit').click(function(e){
+    e.preventDefault()
     var answers = $('input').val()
-    console.log(answers)
+    submitForm()
 })
+
+
+function submitForm(){
+    data = document.getElementById("question-form");
+    formData = new FormData(data);
+
+    $.ajax({
+        type: "POST",
+        url: "/result",
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function (response) {
+            result = response
+            window.location.href = "/result"
+        }
+    })
+}
 
 function goToPage(page, last){
     lastPage = last

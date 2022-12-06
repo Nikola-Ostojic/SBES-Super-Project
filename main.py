@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for,request, session
+from flask import Flask, render_template, url_for,request, session, redirect
 from flask_session import Session
 from processing import process,add_page_to_json,add_question_to_json, add_answer_to_json
 from models import Page
@@ -14,12 +14,13 @@ CONFIG_NAME = "config.json"
 @app.route('/home')
 def home():        
     pages = None
-    if not session.get("pages"):
-        _, pages = process(CONFIG_NAME)            
-        session['pages'] = pages
-    else:  
-        pages = session.get('pages')
+    # if not session.get("pages"):
+    #     _, pages = process(CONFIG_NAME)            
+    #     session['pages'] = pages
+    # else:  
+    #     pages = session.get('pages')
     
+    _, pages = process(CONFIG_NAME)
     
     app.logger.info(pages)
     app.logger.info(type(pages))
@@ -73,21 +74,33 @@ def add_answer():
     return response
 
 
-@app.route('/result', methods=["POST"])
+@app.route('/result', methods=["POST", "GET"])
 def result():
-    if not session.get("pages"):
-        return "Session expired, please fill out the form again. Sorry for the inconvenience."
-    
-    pages = session['pages']
+    # if not session.get("pages"):
+    #     return "Session expired, please fill out the form again. Sorry for the inconvenience."
+
+    _, pages = process(CONFIG_NAME)
+
+    if request.method == 'GET':
+        if(session['result']):
+            return render_template('result.html', result=session['result'])
+        else:
+            return redirect('home.html', pages=pages)    
+
     res = []
     counter = 1
-    for item in pages:
-        for question in item.questions:
-            counter += 1
-            res.append(request.form['answer-' + question.id])
+    for page in pages:
+        for question in page.questions:
+            for answer in question.answers:                
+                counter += 1
+                name = 'answer-' + str(page.index) + '-' + str(question.index)
+                if question.answer_type != 'radio':
+                    name += '-' + str(answer.index)
+                res.append(request.form.get(name))
 
+    session['result'] = 10
     response = app.response_class(response="OK" if res else "ERR",status=200 if res else 400)
-    return render_template("questionnaire.html", pages=res)
+    return response
 
 
 if __name__ == '__main__':    
