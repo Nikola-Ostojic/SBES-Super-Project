@@ -7,10 +7,27 @@ currentPage = 1
 lastPage = 1
 
 $('.answer').click(function (e) { 
-    let radio = $(this).find('input')
-    radio.prop("checked", true);
-    $(this).siblings().removeClass('selected')
-    $(this).addClass('selected')
+    let radio = $(this).find('input[type=radio]')
+    if (radio.length != 0){
+        radio.prop("checked", true);
+        $(this).siblings().removeClass('selected')
+        $(this).addClass('selected')
+    }
+   
+
+    let checkbox = $(this).find('input[type=checkbox]')
+    if(checkbox.length != 0){
+        if(checkbox.is(':checked')){
+            checkbox.prop("checked", false);
+            $(this).removeClass('selected')
+        }
+        else{
+            checkbox.prop("checked", true);
+            $(this).addClass('selected')
+        }
+    }
+   
+        
 });
 
 $(document).ready(function () {

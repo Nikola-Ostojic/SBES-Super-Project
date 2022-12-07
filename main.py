@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for,request, session, redirect
 from flask_session import Session
+from calculate import calculate_result
 from processing import process,add_page_to_json,add_question_to_json, add_answer_to_json
 from models import Page
 
@@ -87,19 +88,19 @@ def result():
         else:
             return redirect('home.html', pages=pages)    
 
-    res = []
-    counter = 1
+    res = {}
     for page in pages:
         for question in page.questions:
             for answer in question.answers:                
-                counter += 1
                 name = 'answer-' + str(page.index) + '-' + str(question.index)
                 if question.answer_type != 'radio':
                     name += '-' + str(answer.index)
-                res.append(request.form.get(name))
+                res[name] = request.form.get(name)
 
-    session['result'] = 10
-    response = app.response_class(response="OK" if res else "ERR",status=200 if res else 400)
+    result = calculate_result(res)
+
+    session['result'] = result
+    response = app.response_class(response="OK" if result else "ERR",status=200 if res else 400)
     return response
 
 
