@@ -51,6 +51,37 @@ function addAnswer(pageIndex,questionIndex){
     });
 }
 
+function collapse(page,question=null){
+    elements = null;
+
+    if (question){
+        elements = $('[data-page="' + page + '"][data-question="' + question + '"]')
+
+        
+    }else{        
+        elements = $('[data-page="' + page + '"]')
+    }
+    $.each(elements, function(){        
+        if ($(this).hasClass('hidden')){ 
+            if(question){
+                $(this).removeClass('hidden')
+            }else{
+                if(!$(this).attr('data-question')){
+                    $(this).removeClass('hidden')
+                }
+            }
+        }else{
+            if(question){
+                $(this).addClass('hidden')
+            }else{
+                if(!$(this).attr('data-question')){
+                    $(this).addClass('hidden')
+                }
+            }
+        }
+    })        
+}
+
 
 
 

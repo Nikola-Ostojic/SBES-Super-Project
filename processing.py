@@ -22,23 +22,26 @@ def parse_pages(pages):
     return result
 
 def parse_answer(answer):
+    id = answer['id']
     index = answer['index']
     text = answer['text']
     weight = answer['weight']
-    return Answer(index,text,weight)
+    return Answer(id,index,text,weight)
 
 def parse_question(question):
+    id = question['id']
     index = question['index']
     q = question['question']
     answer_type = question['answerType']
     weight_type = question['weightType']
-    return Question(index,q,answer_type,weight_type)
+    return Question(id,index,q,answer_type,weight_type)
 
 def parse_page(page):
+    id = page['id']
     index = page['index']
     title = page['title']    
     formula = page['formula']
-    return Page(index,title,formula)
+    return Page(id,index,title,formula)
 
 
 def add_page_to_json(config_name,index,title,formula):
