@@ -4,8 +4,7 @@
         {
             "id": 1,
             "index": 1,
-            "title": "TITLE5",
-            "formula": "CONST",
+            "title": "TITLE5",            
             "questions": [
                 {
                     "id": 1,
@@ -21,7 +20,7 @@
                             "weight": "3.8"
                         },
                         {
-                            "id":1,
+                            "id":2,
                             "index": 2,
                             "text": "text2",
                             "weight": 5
@@ -48,8 +47,7 @@
         {
             "id" : 2,
             "index": 2,
-            "title": "Ekstra",
-            "formula": "1 + 8 + 5",
+            "title": "Ekstra",            
             "questions": [
                 {
                     "id":1,

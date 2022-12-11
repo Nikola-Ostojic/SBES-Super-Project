@@ -13,7 +13,11 @@ def parse_pages(pages):
     for page in pages:        
         pg = parse_page(page)
         for question in page['questions']:
-            q = parse_question(question)            
+            q = parse_question(question)  
+            print(pg, flush=True)          
+            print(pg.questions, flush=True)                      
+            print(type(pg.questions), flush=True)                      
+            print(q, flush=True)          
             pg.questions.append(q)
             for answer in question['answers']:                
                 answ = parse_answer(answer)
@@ -39,9 +43,8 @@ def parse_question(question):
 def parse_page(page):
     id = page['id']
     index = page['index']
-    title = page['title']    
-    formula = page['formula']
-    return Page(id,index,title,formula)
+    title = page['title']        
+    return Page(id,index,title)
 
 
 def add_page_to_json(config_name,index,title,formula):
