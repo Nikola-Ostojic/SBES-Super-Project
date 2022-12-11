@@ -14,130 +14,31 @@
                     "weightType": "factor/value",
                     "answers": [
                         {
+                            "id":1,
                             "index": 1,
-                            "text": "zemljoradnja, stocarstvo, lov, ribolov, sumarstvo",
-                            "weight": 0
+                            "text": "text",
+                            "weight": "3.8"
                         },
                         {
                             "id":2,
                             "index": 2,
-                            "text": "industrija, rudarstvo, gradjevinstvo, zanatstvo, saobracaj",
-                            "weight": 2
-                        },
-                        {
-                            "index": 3,
-                            "text": "obrazovanje, nauka, kultura",
+                            "text": "text2",
                             "weight": 5
-                        },
-                        {
-                            "index": 4,
-                            "text": "trgovina, turizam, ugostiteljstvo, bankarstvo, osiguranje",
-                            "weight": 12
-                        },
-                        {
-                            "index": 5,
-                            "text": "zdravstvo, socijalna zastita, drzavna uprava",
-                            "weight": 10
-                        },
-                        {
-                            "index": 6,
-                            "text": "IKT sektor",
-                            "weight": 8
                         }
                     ]
                 },
                 {
-                    "index": 6,
-                    "question": "Broj zaposlenih?",
-                    "answerType": "number",
-                    "weightType": "",
-                    "answers": [
-                        {
-                            "index": 1,
-                            "text": "",
-                            "weight": ""
-                        }
-                    ]
-                },
-                {
-                    "index": 7,
-                    "question": "Da li se cuvaju podaci o licnosti/finansiski podaci zaposlenih?",
-                    "answerType": "radio",
-                    "weightType": "",
-                    "answers": [
-                        {
-                            "index": 1,
-                            "text": "Da",
-                            "weight": "Da"
-                        },
-                        {
-                            "index": 2,
-                            "text": "Ne",
-                            "weight": "Ne"
-                        }
-                    ]
-                },
-                {
-                    "index": 8,
-                    "question": "Da li se cuvaju finansiski podaci klijenata (podaci sa platnim karticama, vozacke dozvole, pasosi, bilo koji identifikacioni dokument)?",
-                    "answerType": "radio",
-                    "weightType": "",
-                    "answers": [
-                        {
-                            "index": 1,
-                            "text": "Da",
-                            "weight": "Da"
-                        },
-                        {
-                            "index": 2,
-                            "text": "Ne",
-                            "weight": "Ne"
-                        }
-                    ]
-                },
-                {
-                    "index": 9,
-                    "question": "Da li se cuvaju medicinski podaci klijenata?",
-                    "answerType": "radio",
-                    "weightType": "",
-                    "answers": [
-                        {
-                            "index": 1,
-                            "text": "Da",
-                            "weight": "Da"
-                        },
-                        {
-                            "index": 2,
-                            "text": "Ne",
-                            "weight": "Ne"
-                        }
-                    ]
-                },
-                {
+                    "id": 2,
                     "index": 2,
                     "question": "Nesto?",
                     "answerType": "checkbox",
-                    "weightType": "",
+                    "weightType": "factor",
                     "answers": [
                         {
+                            "id":1,
                             "index": 1,
-                            "text": "Internet",
-                            "weight": "3"
-                        },
-                        {
-                            "index": 2,
-                            "text": "Skladistenje podataka",
-                            "weight": "3"
-                        },
-                        {
-                            "index": 3,
-                            "text": "Marketing",
-                            "weight": "2"
-                        },
-                        {
-                            "index": 4,
-                            "text": "Ostalo",
-                            "weight": "2"
+                            "text": "pitanje?",
+                            "weight": 1.3
                         }
                     ]
                 }
