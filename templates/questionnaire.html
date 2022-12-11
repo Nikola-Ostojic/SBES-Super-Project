@@ -29,14 +29,14 @@
     <div class="home-wrapper">
         <div class="page-container">
             {% for page in pages %}
-            <div class="page page-{{page.index}}">
+            <div class="page page-{{page.id}}">
                 <span>{{page.title}}</span>
             </div>
             {% endfor %}
         </div>
         <form class="questions-wrapper" id="question-form">
             {% for page in pages %}
-            <div index="{{page.index}}" class="{% if page.index != 1 %} hidden {%endif%}">
+            <div index="{{page.id}}" class="{% if page.id != 1 %} hidden {%endif%}">
                 {% for question in page.questions %}
                 <div class="question-container">
                     <div class="question-no">
@@ -48,7 +48,7 @@
                         </div>
                             {% for answer in question.answers %}
                             <div class="answer">
-                                <input type="{{question.answer_type}}" name="answer-{{page.index}}-{{question.index}}{% if question.answer_type != 'radio'%}-{{answer.index}}{%endif%}" value="{{answer.weight}}">
+                                <input type="{{question.answer_type}}" name="answer-{{page.id}}-{{question.id}}{% if question.answer_type != 'radio'%}-{{answer.id}}{%endif%}" value="{{answer.weight}}">
                                 <span>{{ answer.text }}</span>
                             </div>
                             {% endfor %}

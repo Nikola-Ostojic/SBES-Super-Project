@@ -92,9 +92,9 @@ def result():
     for page in pages:
         for question in page.questions:
             for answer in question.answers:                
-                name = 'answer-' + str(page.index) + '-' + str(question.index)
+                name = 'answer-' + str(page.id) + '-' + str(question.id)
                 if question.answer_type != 'radio':
-                    name += '-' + str(answer.index)
+                    name += '-' + str(answer.id)
                 res[name] = request.form.get(name)
 
     result = calculate_result(res)
