@@ -54,6 +54,10 @@ body{
     background-color: #ADB5BD;
 }
 
+.admin-add-tab{
+    background-color: #6C757D;
+}
+
 .admin-tooling{
     display: flex;
     flex-direction: column;
@@ -130,6 +134,15 @@ body{
     align-items: center;
     padding: 2em;    
     gap: 1em;
+}
+
+.new-answer-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;    
+    gap: 1em; 
 }
 
 .tab-description-left{
