@@ -23,7 +23,7 @@
         <div class="admin-tabs">
             {% for page in pages %}
                 <div class="admin-tab admin-page-tab">
-                    <div class="tab-description-left">                        
+                    <div class="tab-description-left" onclick="showElement({{page.id}})">                        
                         <span class="tab-title">Strana {{page.index}}</span>
                     </div>                    
                     <div class="tab-description-right" onclick="collapse({{page.id}})">
@@ -32,7 +32,7 @@
                 </div>
                 {% for question in page.questions %}
                     <div class="admin-tab admin-question-tab hidden" data-page="{{page.id}}">
-                        <div class="tab-description-left">                        
+                        <div class="tab-description-left" onclick="showElement({{page.id}}, {{question.id}})">                        
                             <span class="tab-title">Pitanje {{question.index}}</span>
                         </div>                 
                         <div class="tab-description-right" onclick="collapse({{page.id}},{{question.id}})">
@@ -41,7 +41,7 @@
                     </div>
                     {% for answer in question.answers %}
                         <div class="admin-tab admin-answer-tab hidden" data-page="{{page.id}}" data-question="{{question.id}}">
-                            <div class="tab-description-left">                        
+                            <div class="tab-description-left" onclick="showElement({{page.id}},{{question.id}},{{answer.id}})">                        
                                 <span class="tab-title">Odgovor {{answer.index}}</span>
                             </div>                                                                  
                         </div>
@@ -53,37 +53,107 @@
     <div class="admin-tooling">
         <div class="admin-forms">
             {% for page in pages %}
-                <div class="admin-form-container">
-                    <h1>Strana {{page.index}}</h1>
-                    <h2>{{page.title}}</h2>
+                <div class="admin-form-container hidden" data-page="{{page.id}}">                    
+                        <h1>Strana {{page.index}}</h1>                        
 
-                    <form class="admin-form">
-                        <input type="number" value="{{}}">
-
-                        self.id = id
-                        self.index = index
-                        self.title = title        
-                        self.formula = formula
-                        self.questions = questions if questions else []
-                    </form>
-                </div>                
+                        <form class="admin-form">
+                            <div class="form-group">
+                                <label class="form-label" for="page-index">Redni broj strane:</label>
+                                <input class="form-input" type="number" id="page-index" placeholder="Redni broj strane:" value="{{page.index}}" name="index">                                
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="page-title">Naslov strane:</label>
+                                <input class="form-input" type="text" id="page-title" placeholder="Naslov strane:" value="{{page.title}}" name="title">                                                              
+                            </div>                            
+                           
+                            <button class="form-button" type="button">Izmeni stranu</button>                                             
+                        </form>
+                    </div>                                                    
                 {% for question in page.questions %}
+                    <div class="admin-form-container hidden" data-page="{{page.id}}" data-question="{{question.id}}">
+                        <h1>Pitanje {{question.index}} za stranu {{page.index}}</h1>
+                        <form class="admin-form">
+                            <div class="form-group">
+                                <label class="form-label" for="question-index">Redni broj: </label>
+                                <input class="form-input" type="number" id="question-index" placeholder="Redni broj:" value="{{question.index}}" name="index">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Tekst pitanja: </label>
+                                <input class="form-input" type="text" placeholder="Tekst pitanja:" value="{{question.question}}" name="question">    
+                            </div>
+                            
+                            <div class="form-radio-options"> 
+                                    <div class="form-options-container">
+                                        <h4>Tip odgovora:</h4>     
+                                        <div class="form-option">
+                                            <input  type="radio" id="answer-type-checkbox" value="checkbox"  name="answerType" {% if question.answer_type == "checkbox" %}checked{% endif %}>
+                                            <label  for="answer-type-checkbox">Više dozvoljenih odgovora</label>                            
+                                        </div>       
+                                        <div class="form-option">
+                                            <input  type="radio" id="answer-type-radio" value="radio"  name="answerType" {% if question.answer_type == "radio" %}checked{% endif %}>
+                                            <label  for="answer-type-radio">Jedan dozvoljen odgovor</label>
+                                        </div>
+                                        <div class="form-option">
+                                            <input  type="radio" id="answer-type-number" value="number" name="answerType" {% if question.answer_type == "number" %}checked{% endif %}>
+                                            <label  for="answer-type-number">Broj</label>
+                                        </div>                                                                                                                                                                
+                                    </div>
+                                        
+                                    <div class="form-options-container">
+                                        <h4>Tip vrednosti odgovora:</h4> 
+                                        <div class="form-option">
+                                            <input  type="radio" id="weight-type-factor" value="factor"  name="weightType" {% if question.weight_type == "factor" %}checked{% endif %}>
+                                            <label  for="weight-type-factor">Faktor</label>
+                                        </div>                           
+                                        <div class="form-option">
+                                            <input  type="radio" id="weight-type-value" value="value"  name="weightType" {% if question.weight_type == "value" %}checked{% endif %}>                            
+                                            <label  for="weight-type-value">Vrednost</label>
+                                        </div>                                        
+                                    </div>                                                                                                                                                                                                                                   
+
+                                </div>
+
+                                <button class="form-button" type="button">Izmeni pitanje</button>                                                         
+                        </form>  
+                    </div>                         
                     
                     {% for answer in question.answers %}
+                        <div class="admin-form-container hidden" data-page="{{page.id}}" data-question="{{question.id}}" data-answer="{{answer.id}}">
+                            <form class="admin-form">
+                                <h1>Odgovor {{answer.index}} za pitanje {{question.index}}</h1>
 
+                                <div class="form-group">
+                                    <label class="form-label" for="answer-index">Redni broj:</label>
+                                    <input class="form-input" id="answer-index" type="number" placeholder="Redni broj odgovora u pitanju:" value="{{answer.index}}" name="index">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="answer">Odgovor:</label>
+                                    <input class="form-input" id="answer" type="text" placeholder="Tekst odgovora:" value="{{answer.text}}" name="answer">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="weight">Vrednost:</label>
+                                    <input class="form-input" id="weight" type="number" placeholder="Vrednost odgovora:" value="{{answer.weight}}" name="weight">
+                                </div>                                
+
+                                <button class="form-button" type="button">Izmeni odgovor</button>
+                            </form>                            
+                        </div>                        
                     {% endfor %}
                 {% endfor %}            
-            {% endfor %}
-            
+            {% endfor %}  
         </div>
-        <div class="admin-advisor">
-            <div class="admin-config-log">
-
-            </div>
-            <div class="admin-publish">
-
-            </div>
-        </div>
-    </div>
-</div>
+                <div class="admin-advisor">
+                    <div class="admin-config-log">
+        
+                    </div>
+                    <div class="admin-publish">
+        
+                    </div>
+                </div>
+    </div>                  
+</div>            
 {% endblock %}

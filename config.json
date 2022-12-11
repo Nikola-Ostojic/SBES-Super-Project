@@ -4,8 +4,7 @@
         {
             "id": 1,
             "index": 1,
-            "title": "Podaci o Preduzecu i nacinu poslovanja",
-            "formula": "CONST",
+            "title": "TITLE5",            
             "questions": [
                 {
                     "id": 1,
@@ -20,6 +19,7 @@
                             "weight": 0
                         },
                         {
+                            "id":2,
                             "index": 2,
                             "text": "industrija, rudarstvo, gradjevinstvo, zanatstvo, saobracaj",
                             "weight": 2
@@ -146,8 +146,7 @@
         {
             "id" : 2,
             "index": 2,
-            "title": "Ekstra",
-            "formula": "1 + 8 + 5",
+            "title": "Ekstra",            
             "questions": [
                 {
                     "id":1,
