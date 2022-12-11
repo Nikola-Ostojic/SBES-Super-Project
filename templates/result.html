@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/questionnaire.css') }}">
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="{{ url_for('static', filename='js/questionnaire.js')}}"></script>
+{% endblock %}
+
+{% block head %}
+    <title>Result</title>
+{% endblock %}
+
+{% block body %}
+<main>
+    <h1>Result works</h1>
+    {{result}}
+</main>
+
+<script src="{{ url_for('static', filename='js/result.js')}}"></script>
+
+{% endblock %}
+

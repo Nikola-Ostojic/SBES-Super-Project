@@ -86,7 +86,8 @@ button{
 }
 
 .selected{
-    border: 2px solid rgba(35,164,166, 0.7) !important;
+    border: 2px solid rgba(35, 77, 166, 0.7) !important;
+    background-color: #0069710e !important;
 }
 
 .selected-page{
@@ -114,7 +115,10 @@ button{
     padding: 0.5rem;
     border-radius: 0.3rem;
     border: 2px solid rgba(157, 188, 169, 0.5);
-    box-shadow: 1px 1px 2px rgba(128, 128, 128, 0.5);
+
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
 .bar-wrapper{

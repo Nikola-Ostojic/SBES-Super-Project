@@ -1,15 +1,33 @@
 var lastPage = 1
 var pageNumber = 0
+var result = 0
 
 pageNumber = $('form').children().length - 1
 currentPage = 1
 lastPage = 1
 
 $('.answer').click(function (e) { 
-    let radio = $(this).find('input')
-    radio.prop("checked", true);
-    $(this).siblings().removeClass('selected')
-    $(this).addClass('selected')
+    let radio = $(this).find('input[type=radio]')
+    if (radio.length != 0){
+        radio.prop("checked", true);
+        $(this).siblings().removeClass('selected')
+        $(this).addClass('selected')
+    }
+   
+
+    let checkbox = $(this).find('input[type=checkbox]')
+    if(checkbox.length != 0){
+        if(checkbox.is(':checked')){
+            checkbox.prop("checked", false);
+            $(this).removeClass('selected')
+        }
+        else{
+            checkbox.prop("checked", true);
+            $(this).addClass('selected')
+        }
+    }
+   
+        
 });
 
 $(document).ready(function () {
@@ -38,9 +56,28 @@ $('.button-previous').click(function (e) {
   })
 
 $('.button-submit').click(function(e){
+    e.preventDefault()
     var answers = $('input').val()
-    console.log(answers)
+    submitForm()
 })
+
+
+function submitForm(){
+    data = document.getElementById("question-form");
+    formData = new FormData(data);
+
+    $.ajax({
+        type: "POST",
+        url: "/result",
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function (response) {
+            result = response
+            window.location.href = "/result"
+        }
+    })
+}
 
 function goToPage(page, last){
     lastPage = last
