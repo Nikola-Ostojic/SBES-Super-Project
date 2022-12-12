@@ -36,8 +36,7 @@ def parse_question(question):
     index = question['index']
     q = question['question']
     answer_type = question['answerType']
-    weight_type = question['weightType']
-    return Question(id,index,q,answer_type,weight_type)
+    return Question(id,index,q,answer_type)
 
 def parse_page(page):
     id = page['id']

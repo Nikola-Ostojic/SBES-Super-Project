@@ -9,12 +9,11 @@ class Page:
 
 
 class Question:
-    def __init__(self, id, index, question, answer_type, weight_type, answers = None):
+    def __init__(self, id, index, question, answer_type, answers = None):
         self.id = id
         self.index = index
         self.question = question
         self.answer_type = answer_type
-        self.weight_type = weight_type
         self.answers = answers if answers else []
         
 
