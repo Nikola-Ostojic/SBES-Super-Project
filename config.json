@@ -315,8 +315,8 @@
                     ]
                 },
                 {
-                    "id": 3,
-                    "index": 3,
+                    "id": 4,
+                    "index": 4,
                     "question": "Ispunjene su sledece tehnicke mere:",
                     "answerType": "checkbox",
                     "answers": [
@@ -568,7 +568,7 @@
                             "id": 1,
                             "index": 1,
                             "text": "Da",
-                            "weight": 0
+                            "weight": 1
                         },
                         {
                             "id": 2,
@@ -605,8 +605,8 @@
                     ]
                 },
                 {
-                    "id": 4,
-                    "index": 4,
+                    "id": 3,
+                    "index": 3,
                     "question": "ISO 27001 sertifikacija?",
                     "answerType": "radio",
                     "answers": [
