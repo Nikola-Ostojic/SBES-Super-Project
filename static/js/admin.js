@@ -1,10 +1,11 @@
-function addPage(){
-    data = document.getElementById("page-form");
-    formData = new FormData(data);    
+function editPage(pageId){
+    data = document.getElementById("edit-page-" + pageId);
+    formData = new FormData(data);  
+    formData.append('pageId', pageId)  
 
     $.ajax({
         type: "POST",
-        url: "/addPage",
+        url: "/editPage",
         data: formData,
         contentType: false,
         processData: false,
@@ -14,15 +15,15 @@ function addPage(){
     });
 }
 
-function addQuestion(index){
-    n = "question-form-" + index
-    data = document.getElementById(n)
-    formData = new FormData(data);
-    formData.append('pageIndex', index)
+function editQuestion(pageId,questionId){
+    data = document.getElementById("edit-question-" + pageId + "-" + questionId);
+    formData = new FormData(data);  
+    formData.append('pageId', pageId)  
+    formData.append('questionId', questionId)  
 
     $.ajax({
         type: "POST",
-        url: "/addQuestion",
+        url: "/editQuestion",
         data: formData,
         contentType: false,
         processData: false,
@@ -32,12 +33,31 @@ function addQuestion(index){
     });
 }
 
-function addAnswer(pageIndex,questionIndex){
-    n = "answer-form-" + pageIndex + "-" + questionIndex
+function editAnswer(pageId,questionId,answerId){
+    data = document.getElementById("edit-answer-" + pageId + "-" + questionId + "-" + answerId);
+    formData = new FormData(data);  
+    formData.append('pageId', pageId)  
+    formData.append('questionId', questionId)  
+    formData.append('answerId', answerId)
+
+    $.ajax({
+        type: "POST",
+        url: "/editAnswer",
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function (response) {
+            console.log(response)
+        }
+    });
+}
+
+function addAnswer(pageId,questionId){
+    n = "answer-form-" + pageId + "-" + questionId
     data = document.getElementById(n);
     formData = new FormData(data);
-    formData.append('pageIndex',pageIndex);
-    formData.append('questionIndex', questionIndex);
+    formData.append('pageId',pageId);
+    formData.append('questionId', questionId);
 
     $.ajax({
         type: "POST",
@@ -93,6 +113,7 @@ function showElement(page, question = null, answer = null){
     }
 
     $('.admin-form-container').addClass('hidden')
+    $('.new-answer-form').addClass('hidden')
 
     $.each(elements, function(){        
         if ($(this).hasClass('hidden')){ 
@@ -111,8 +132,12 @@ function showElement(page, question = null, answer = null){
             }
         }    
     })   
+}
 
-
+function showAddAnswer(pageIndex,questionIndex){
+    $('.new-answer-form').addClass('hidden')
+    $('.admin-form-container').addClass('hidden')
+    $('.new-answer-form[data-page="' + pageIndex + '"][data-question="' + questionIndex + '"]').removeClass("hidden")         
 }
 
 
