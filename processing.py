@@ -2,7 +2,7 @@ from models import Page,Question,Answer
 import json
 
 def process(config_name):
-    json_data = json.load(open(config_name, 'r'))    
+    json_data = json.load(open(config_name, 'r', encoding='utf-8'))    
     pages = parse_pages(json_data['pages'])
     return pages
 
@@ -46,7 +46,7 @@ def parse_page(page):
 
 def edit_page_json(config_name,id,index,title):
     try:        
-        config_data = json.load(open(config_name,'r'))
+        config_data = json.load(open(config_name,'r', encoding='utf-8'))
         
         found_index, page_idx = get_id_json(config_data['pages'], id)        
         if found_index == False: raise Exception("Page id not found.")
@@ -69,7 +69,7 @@ def edit_page_json(config_name,id,index,title):
 
 def edit_question_json(config_name, page_identifier, question_identifier, question_index, question, answer_type):
     try:        
-        config_data = json.load(open(config_name,'r'))
+        config_data = json.load(open(config_name,'r', encoding='utf-8'))
         
         found_index, page_idx = get_id_json(config_data['pages'], page_identifier)        
         if found_index == False: raise Exception("Page id not found.")
@@ -94,7 +94,7 @@ def edit_question_json(config_name, page_identifier, question_identifier, questi
 
 def edit_answer_json(config_name, page_identifier, question_identifier, answer_identifier, answer_index, answer, weight):
     try:        
-        config_data = json.load(open(config_name,'r'))
+        config_data = json.load(open(config_name,'r', encoding='utf-8'))
         
         found_index, page_idx = get_id_json(config_data['pages'], page_identifier)        
         if found_index == False: raise Exception("Page id not found.")
@@ -161,7 +161,7 @@ def edit_answer_json(config_name, page_identifier, question_identifier, answer_i
 
 def add_answer_to_json(config_name,page_identifier,question_identifier,answer_index,text,weight):
     try:
-        config_data = json.load(open(config_name,'r'))        
+        config_data = json.load(open(config_name,'r'), encoding='utf-8')        
 
         print(config_data, flush=True)
 

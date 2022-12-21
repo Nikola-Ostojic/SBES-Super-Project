@@ -1,0 +1,60 @@
+body{
+    margin: 0px;
+    background-color: #CBEAED;
+    font-size: 1rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(57, 57, 57);
+    /* background-image: url('../images/blue_background.png');
+    background-size: cover;
+    background-attachment: fixed; */
+}
+
+
+.result-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.result{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    background-color: white;
+    margin: 3rem;
+    padding: 3rem;
+    box-shadow: 2px 2px 5px gray;
+}
+
+.title{
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.company{
+    margin: 3rem;
+    margin-bottom: 4rem;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.result-text{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.result-value{
+    background-color: #006A71;
+    border-radius: 1rem;
+    color: white;
+    margin: 1rem;
+    padding: 1rem 2rem;
+    font-size: 2.3rem;
+    font-weight: 600;
+}
+
+span{
+    width: fit-content;
+}

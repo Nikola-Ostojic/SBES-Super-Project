@@ -63,6 +63,11 @@ $('.button-submit').click(function(e){
 
 
 function submitForm(){
+    if(!validate()){
+        alert('Niste uneli sve odgovore')
+        return
+    }
+
     data = document.getElementById("question-form");
     formData = new FormData(data);
 
@@ -77,6 +82,19 @@ function submitForm(){
             window.location.href = "/result"
         }
     })
+}
+
+function validate(){
+    let valid = true
+    $("#question-form :input").each(function(){
+        let input = $(this)
+        if(input.val() == '' && input.attr('type') != undefined){
+            $(input).parent().addClass('error');
+            valid = false
+        }
+    })
+
+    return valid
 }
 
 function goToPage(page, last){
@@ -95,6 +113,8 @@ function goToPage(page, last){
     $('.page-title').text(pageText)
 
     switchButtons(currentPage, lastPage)
+
+    window.scrollTo(0, 0);
 }
 
 function switchButtons(page, lastPage){

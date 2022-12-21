@@ -16,6 +16,10 @@ body{
     top: 7rem;
 }
 
+.error{
+    border: solid 2px red !important;
+}
+
 .questions-wrapper{
     position: relative;
     margin-left: 20%;
@@ -166,6 +170,10 @@ input[type=number]{
     width: 100%;
     -moz-appearance:textfield;
     color: rgb(57, 57, 57);
+}
+
+input[type=checkbox]{
+    pointer-events: none;
 }
 
 input::-webkit-outer-spin-button,

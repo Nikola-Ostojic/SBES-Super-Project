@@ -7,7 +7,9 @@ def calculate_result(result):
     F4 = calculate_fourth_page(result)
     F5, F6 = calculate_fifth_page(result)
 
-    return BP * F1 * F2 * F3 * F4 * F5 * F6
+    result = BP * F1 * F2 * F3 * F4 * F5 * F6
+    result = "{:,.2f}".format(result)
+    return  result
 
 def calculate_first_page(result):
     temp = int(result['answer-1-4-1']) or 0

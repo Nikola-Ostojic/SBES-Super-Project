@@ -123,7 +123,7 @@ def result():
 
     if request.method == 'GET':
         if(session['result']):
-            return render_template('result.html', result=session['result'])
+            return render_template('result.html', result=session['result'], company=session['company'])
         else:
             return redirect('home.html', pages=pages)    
 
@@ -137,8 +137,10 @@ def result():
                 res[name] = request.form.get(name)
 
     result = calculate_result(res)
+    company = res['answer-1-1-1']
 
     session['result'] = result
+    session['company'] = company
     response = app.response_class(response="OK" if result else "ERR",status=200 if res else 400)
     return response
 
