@@ -2,7 +2,7 @@
 
 {% block styles %}
     {{ super() }}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/questionnaire.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
 {% endblock %}
 
 {% block scripts %}
@@ -16,8 +16,17 @@
 
 {% block body %}
 <main>
-    <h1>Result works</h1>
-    {{result}}
+    <div class="result-wrapper">
+        <div class="result">
+            <span class="title">Godisnja premija za firmu</span>
+            <span class="company">{{company}}</span>
+            <div>
+                <span class="result-value">{{result}} eur</span>
+            </div>
+        </div>
+        
+        
+    </div>
 </main>
 
 <script src="{{ url_for('static', filename='js/result.js')}}"></script>
