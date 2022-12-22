@@ -23,12 +23,34 @@ body{
 }
 
 .admin-nav{
-    background-color: #DEE2E6;
     display: flex;
     flex-direction: column;
-    width: 20%;
+    width: 14rem;
     min-width: fit-content;    
-    height: 100%;
+    padding-top: 2rem;
+    border-right: 1px solid black;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 0.3rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #979797;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #818181;
 }
 
 .admin-tabs{
@@ -43,22 +65,31 @@ body{
 }
 
 .admin-page-tab{
+    width: 13rem;
     background-color: #DEE2E6;
+    border: solid 1px black;
+    margin: 0.5rem;
 }
 
 .admin-question-tab{
     background-color: #CED4DA;
-    padding-left: 1em;
+    border: solid black 1px;
+    margin: 0.3rem 0.5rem 0.3rem 2.5rem;
+    height: 3rem;
 }
 
 .admin-answer-tab{
     background-color: #ADB5BD;
-    padding-left: 2em;
+    border: solid black 1px;
+    margin: 0.3rem 0.5rem 0.3rem 3.5rem;
+    height: 3rem;
 }
 
 .admin-add-tab{
     background-color: #6C757D;
-    padding-left: 2.5em;
+    border: solid black 1px;
+    width: fit-content;
+    margin-left: 4rem;
 }
 
 .admin-tooling{
@@ -149,13 +180,18 @@ body{
 }
 
 .tab-description-left{
+    padding: 1rem;
+    display: flex;
+    align-items: center;
     width: 100%;
-    padding: 1.5em; 
     cursor: pointer;
 }
 
-.tab-description-right{    
-    padding: 1.5em; 
+.tab-description-right{   
+    width: auto; 
+    padding: 1rem;
+    display: flex;
+    align-items: center;
     cursor: pointer;
 }
 

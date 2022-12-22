@@ -140,7 +140,7 @@ button{
 .progress{
     height: 0.2rem;
     background-color: #bf1d1d;
-    width: 35%;
+    width: 20%;
     border-top-right-radius: 0.3rem;
     border-bottom-right-radius: 0.3rem;
 }

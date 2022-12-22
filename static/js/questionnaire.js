@@ -86,13 +86,40 @@ function submitForm(){
 
 function validate(){
     let valid = true
+
     $("#question-form :input").each(function(){
         let input = $(this)
-        if(input.val() == '' && input.attr('type') != undefined){
-            $(input).parent().addClass('error');
-            valid = false
+        if(input.attr('type') == 'radio'){
+            $(input).parent().parent().parent().addClass('error');
         }
     })
+
+    $("#question-form :input").each(function(){
+        let input = $(this)
+        if(input.attr('type') == 'text' || input.attr('type') == 'number'){
+            if(input.val() == ''){
+                $(input).parent().parent().parent().addClass('error');
+            }
+            else{
+                $(input).parent().parent().parent().removeClass('error');
+            }   
+        }
+
+        if(input.attr('type') == 'radio'){
+            if(!input.is(':checked')){
+                
+            }
+            else{
+                $(input).parent().parent().parent().removeClass('error');
+            }   
+        }
+    })
+
+    if($('div').hasClass('error')){
+        return false
+    }
+
+    return true
 
     return valid
 }
