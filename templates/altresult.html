@@ -15,13 +15,19 @@
 {% endblock %}
 
 {% block body %}
+<main>
     <div class="result-wrapper">
         <div class="result">
-            <span class="title">Godišnja premija za firmu <b>{{company}}</b>  iznosi: </span>                        
-            <span class="result-value">{{result}} €</span>
-            
-        </div>                
+            <span class="title">Godisnja premija za firmu</span>
+            <span class="company">{{company}}</span>
+            <div>
+                <span class="result-value">{{result}} eur</span>
+            </div>
+        </div>
+        
+        
     </div>
+</main>
 
 <script src="{{ url_for('static', filename='js/result.js')}}"></script>
 
