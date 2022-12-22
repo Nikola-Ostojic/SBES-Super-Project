@@ -1,3 +1,22 @@
+toastr.options = {
+    "closeButton": false,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": false,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "800",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  }
+
+
 function editPage(pageId){
     data = document.getElementById("edit-page-" + pageId);
     formData = new FormData(data);  
@@ -10,7 +29,7 @@ function editPage(pageId){
         contentType: false,
         processData: false,
         success: function (response) {
-            console.log(response)
+            toastr["success"]("Uspešno izvršena akcija!", "Obaveštenje")
         }
     });
 }
@@ -28,7 +47,7 @@ function editQuestion(pageId,questionId){
         contentType: false,
         processData: false,
         success: function (response) {
-            console.log(response)
+            toastr["success"]("Uspešno izvršena akcija!", "Obaveštenje")
         }
     });
 }
@@ -47,7 +66,7 @@ function editAnswer(pageId,questionId,answerId){
         contentType: false,
         processData: false,
         success: function (response) {
-            console.log(response)
+            toastr["success"]("Uspešno izvršena akcija!", "Obaveštenje")
         }
     });
 }
@@ -66,7 +85,7 @@ function addAnswer(pageId,questionId){
         contentType: false,
         processData: false,
         success: function (response) {
-            console.log(response)
+            window.location.reload();
         }
     });
 }
