@@ -54,6 +54,7 @@ button{
     float: right;
     color: white;
     background-color: rgba(170, 170, 170, 50);
+    cursor: pointer;
 }
 
 .button-previous{
@@ -90,7 +91,7 @@ button{
 }
 
 .selected{
-    border: 2px solid black !important;    
+    border: 2px solid rgba(54,54,54,0.5) !important;    
 }
 
 .selected-page{
@@ -115,8 +116,7 @@ button{
 .answer{
     background-color: white;
     margin-bottom: 0.5rem;
-    padding: 0.5rem;
-    border-radius: 0.3rem;
+    padding: 0.5rem;    
     border: 2px solid rgba(170, 170, 170, 0.5);
 
     -webkit-user-select: none; /* Safari */
