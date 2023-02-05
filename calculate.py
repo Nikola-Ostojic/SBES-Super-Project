@@ -147,4 +147,5 @@ def get_factor_by_value(value):
 
 def retrieve_all_answers(result):
     print(result, flush=True)
+    
 
