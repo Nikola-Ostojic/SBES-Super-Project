@@ -1,6 +1,7 @@
 from models import Page,Question,Answer
 
 def calculate_result(result):
+    retrieve_all_answers(result)
     BP, F1 = calculate_first_page(result)
     F2 = calculate_second_page(result)
     F3 = calculate_third_page(result)
@@ -144,4 +145,6 @@ def get_factor_by_value(value):
         return -1
 
 
+def retrieve_all_answers(result):
+    print(result, flush=True)
 

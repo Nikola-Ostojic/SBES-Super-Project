@@ -3,6 +3,7 @@ from flask_session import Session
 from calculate import calculate_result
 from processing import process, edit_page_json,edit_question_json, edit_answer_json, add_answer_to_json
 from models import Page
+from database import get_database_instance, init_database
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
@@ -12,6 +13,11 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 CONFIG_NAME = "config.json"
 
+database = get_database_instance()
+init_database(database)
+
+
+@app.route('/')
 @app.route('/home')
 def home():        
     pages = None
