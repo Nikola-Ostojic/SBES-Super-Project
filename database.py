@@ -4,8 +4,8 @@ from os import getenv
 def get_database_instance():    
     database = mysql.connector.connect(
     host="localhost",
-    user="Aleksej",
-    password="",
+    user="root",
+    password="dragan15",
     database="sbesproject"
     )
 
@@ -19,21 +19,21 @@ def init_database(database):
             Adresa varchar(255),
             Telefon varchar(255),
             GodisnjiPrihodi int,
-            Delatnost int,
+            Delatnost varchar(255),
             BrojZaposlenih int,
             FinansijskiPZ int,
             FinansijskiPK int,
             LicniPK int,
             MedicinskiPK int,
             DeljenjePK int,
-            EksterneUsluge int,
-            EnkripcijaPodataka int,
+            EksterneUsluge varchar(255),
+            EnkripcijaPodataka varchar(255),
             Websajt int,
             BrojJavnihURL int,
-            TehnickeMere int,
+            TehnickeMere varchar(255),
             PolitikaPrivatnosti int,
             PolitikaZadrzavanjaIBrisanja int,
-            PolitikaIB int,
+            PolitikaIB varchar(255),
             BezbednosniTestovi int,
             PlanReagovanjaNaIncident int,
             PlanOporavka int,
@@ -50,15 +50,19 @@ def init_database(database):
 
 def insert_row(database, row_data):
     values = ""
-
+    br = 0
     for column in row_data.keys():
-        if row_data.get(column):
+        br += 1
+        if row_data.get(column) != None:
+            print('printanje: ', row_data[column], flush=True)
             if isinstance(row_data[column], int):
-                values += row_data[column]
+                values += str(row_data[column])
             else:
                 values += "'" + row_data[column] + "'"
             values += ','        
 
+    print('heloooooooooooooooooo', flush=True)
+    print(br, flush=True)
     values = values[:-1]
 
     print(values, flush=True)
@@ -68,3 +72,4 @@ def insert_row(database, row_data):
     statement = "INSERT INTO Results VALUES ({})".format(values)
 
     cursor.execute(statement)
+    database.commit()

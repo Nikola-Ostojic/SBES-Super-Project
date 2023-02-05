@@ -1,4 +1,4 @@
-from models import Page,Question,Answer
+from models import Odgovor, Page,Question,Answer
 from database import insert_row
 from mappings import KeyToColumnNameMappings
 
@@ -152,14 +152,98 @@ def get_factor_by_value(value):
 def retrieve_all_answers(result):
     row = {}
 
-    for key in result.keys():
-        map_key = key[0:10]
-        new_key = KeyToColumnNameMappings.mappings.get(map_key)
+    # Questions 1 - 3
+    for i in range(1, 4):
+        value = result['answer-1-' + str(i) + '-1']
+        row['answer-1-' + str(i)] = value
 
-        # if row.get(new_key):
-        #     row[new_key] = float(row.get(new_key) + result.get(key) if result.get(key) != None else 0)
-        # else:    
-        row[new_key] = result[key]
+    # Question 4
+    value = int(result['answer-1-4-1'] or 0)    
+    row['answer-1-4'] = value
+
+    #Question 5
+    row['answer-1-5'] = multiple_choices_answers(result, 'answer-1-5', 1, 6)
+
+    # Question 6
+    row['answer-1-6'] = int(result['answer-1-6-1'] or 0)
+
+    # Questions 7 - 11
+    for i in range(7, 12):
+        row['answer-1-' + str(i)] = yes_no_answers(result, 'answer-1-' + str(i))
+
+    # Question 12
+    row['answer-1-12'] = multiple_choices_answers(result, 'answer-1-12', 1, 4)
+
+        # PAGE 2
+
+    # Question 1
+    row['answer-2-1'] = ''
+    if result['answer-2-1-1'] == None:
+        row['answer-2-1'] += '1,'
+    if result['answer-2-1-1'] == None:
+        row['answer-2-1'] += '2,'
+
+    if row['answer-2-1'] != '':
+        row['answer-2-1'] = row['answer-2-1'][:-1]
+
+    # Question 2
+    row['answer-2-2'] = yes_no_answers(result, 'answer-2-2')
+
+    # Question 3
+    row['answer-2-3'] = int(result['answer-2-3-1'] or 0)
+
+    # Question 4
+    row['answer-2-4'] = multiple_choices_answers(result, 'answer-2-4', 1, 5)
+
+        # PAGE 3
+
+    # Question 1 - 2
+    for i in range(1, 3):
+        if yes_no_answers(result, 'answer-3-' + str(i)) == Odgovor.Da:
+            row['answer-3-' + str(i)] = Odgovor.Ne.value
+        else:
+            row['answer-3-' + str(i)] = Odgovor.Da.value
+        
+    # Question 3
+    row['answer-3-3'] = multiple_choices_answers(result, 'answer-3-3', 1, 4)
+
+    # Questions 4 - 9
+    for i in range(4, 10):
+        if yes_no_answers(result, 'answer-3-' + str(i)) == Odgovor.Da:
+            row['answer-3-' + str(i)] = Odgovor.Ne.value
+        else:
+            row['answer-3-' + str(i)] = Odgovor.Da.value
+
+        # PAGE 4
+
+    # Qusetion 1  
+    if float(result['answer-4-1']) == 1:
+        row['answer-4-1'] = Odgovor.Da.value
+    else:
+        row['answer-4-1'] = Odgovor.Ne.value
+
+    # Qusetion 2
+    if float(result['answer-4-2']) == 1.5:
+        row['answer-4-2'] = Odgovor.Ne.value
+    else:
+        row['answer-4-2'] = Odgovor.Da.value
+
+    # Qusetion 3
+    if float(result['answer-4-3']) == 1:
+        row['answer-4-3'] = Odgovor.Ne.value
+    else:
+        row['answer-4-3'] = Odgovor.Da.value
+
+
+        # PAGE 5    
+    
+    # Question 1
+    row['answer-5-1'] = int(result['answer-5-1-1'] or 0)
+
+    # Question 2
+    row['answer-5-2'] = int(result['answer-5-2-1'] or 0)
+
+    print(row, flush=True)
 
     return row
 
@@ -174,4 +258,19 @@ def set_calculative_values(row,BP,F1,F2,F3,F4,F5,F6):
     row['Faktor5'] = F5
     row['Faktor6'] = F6
 
+def multiple_choices_answers(result, answer, from_idx, to_idx):
+    res = ''
+    for i in range(from_idx, to_idx + 1):
+        if int(result[str(answer) + '-' + str(i)] or -1) != -1:
+            res += str(i) + ','
+    res = res[:-1]
+    return res
 
+def yes_no_answers(result, answer):
+    print(answer, flush=True)
+    if int(result[answer] or 0) == 0:
+        value = Odgovor.Ne.value
+    else:
+        value = Odgovor.Da.value
+
+    return value
