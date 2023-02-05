@@ -1,7 +1,9 @@
 from models import Page,Question,Answer
+from database import insert_row
+from mappings import KeyToColumnNameMappings
 
-def calculate_result(result):
-    retrieve_all_answers(result)
+def calculate_result(database,result):
+    row = retrieve_all_answers(result)
     BP, F1 = calculate_first_page(result)
     F2 = calculate_second_page(result)
     F3 = calculate_third_page(result)
@@ -10,6 +12,8 @@ def calculate_result(result):
 
     result = BP * F1 * F2 * F3 * F4 * F5 * F6
     result = "{:,.2f}".format(result)
+
+    insert_row(database, row)
     return  result
 
 def calculate_first_page(result):
@@ -146,6 +150,28 @@ def get_factor_by_value(value):
 
 
 def retrieve_all_answers(result):
-    print(result, flush=True)
+    row = {}
+
+    for key in result.keys():
+        map_key = key[0:10]
+        new_key = KeyToColumnNameMappings.mappings.get(map_key)
+
+        # if row.get(new_key):
+        #     row[new_key] = float(row.get(new_key) + result.get(key) if result.get(key) != None else 0)
+        # else:    
+        row[new_key] = result[key]
+
+    return row
+
+
     
+def set_calculative_values(row,BP,F1,F2,F3,F4,F5,F6):
+    row['BaznaPremija'] = BP
+    row['Faktor1'] = F1
+    row['Faktor2'] = F2
+    row['Faktor3'] = F3
+    row['Faktor4'] = F4
+    row['Faktor5'] = F5
+    row['Faktor6'] = F6
+
 

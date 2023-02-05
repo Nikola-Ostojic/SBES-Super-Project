@@ -142,7 +142,7 @@ def result():
                     name += '-' + str(answer.id)
                 res[name] = request.form.get(name)
 
-    result = calculate_result(res)
+    result = calculate_result(database,res)
     company = res['answer-1-1-1']
 
     session['result'] = result

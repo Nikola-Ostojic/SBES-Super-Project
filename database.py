@@ -4,8 +4,8 @@ from os import getenv
 def get_database_instance():    
     database = mysql.connector.connect(
     host="localhost",
-    user="root",
-    password="dragan15",
+    user="Aleksej",
+    password="",
     database="sbesproject"
     )
 
@@ -47,3 +47,24 @@ def init_database(database):
             BrojIncidenata int
         )
     ''')
+
+def insert_row(database, row_data):
+    values = ""
+
+    for column in row_data.keys():
+        if row_data.get(column):
+            if isinstance(row_data[column], int):
+                values += row_data[column]
+            else:
+                values += "'" + row_data[column] + "'"
+            values += ','        
+
+    values = values[:-1]
+
+    print(values, flush=True)
+
+    cursor = database.cursor()
+
+    statement = "INSERT INTO Results VALUES ({})".format(values)
+
+    cursor.execute(statement)
