@@ -13,7 +13,7 @@ def calculate_result(database,result):
     F5, F6 = calculate_fifth_page(result)
 
     res = BP * F1 * F2 * F3 * F4 * F5 * F6
-    res = "{:,.2f}".format(result)    
+    res = "{:,.2f}".format(res)    
 
     ret_val = {
         "result" : res,
