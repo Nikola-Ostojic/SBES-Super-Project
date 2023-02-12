@@ -21,13 +21,11 @@ init_database(database)
 @app.route('/home')
 def home():        
     pages = None
-    # if not session.get("pages"):
-    #     _, pages = process(CONFIG_NAME)            
-    #     session['pages'] = pages
-    # else:  
-    #     pages = session.get('pages')
-    
-    pages = process(CONFIG_NAME)
+    if not session.get("pages"):
+        pages = process(CONFIG_NAME)            
+        session['pages'] = pages
+    else:  
+        pages = session.get('pages')        
     
     app.logger.info(pages)
     app.logger.info(type(pages))
@@ -122,16 +120,17 @@ def add_answer():
 
 @app.route('/result', methods=["POST", "GET"])
 def result():
-    # if not session.get("pages"):
-    #     return "Session expired, please fill out the form again. Sorry for the inconvenience."
-
-    pages = process(CONFIG_NAME)
 
     if request.method == 'GET':
-        if(session['result']):
+        if session.get('result'):
             return render_template('result.html', result=session['result'], company=session['company'])
         else:
             return redirect('home.html', pages=pages)    
+        
+    if not session.get("pages"):
+        return "Session expired, please fill out the form again. Sorry for the inconvenience."
+
+    pages = session.get("pages") 
 
     res = {}
     for page in pages:

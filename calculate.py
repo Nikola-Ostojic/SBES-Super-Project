@@ -4,17 +4,29 @@ from mappings import KeyToColumnNameMappings
 
 def calculate_result(database,result):
     row = retrieve_all_answers(result)
+    insert_row(database, row)
+
     BP, F1 = calculate_first_page(result)
     F2 = calculate_second_page(result)
     F3 = calculate_third_page(result)
     F4 = calculate_fourth_page(result)
     F5, F6 = calculate_fifth_page(result)
 
-    result = BP * F1 * F2 * F3 * F4 * F5 * F6
-    result = "{:,.2f}".format(result)
+    res = BP * F1 * F2 * F3 * F4 * F5 * F6
+    res = "{:,.2f}".format(result)    
 
-    insert_row(database, row)
-    return  result
+    ret_val = {
+        "result" : res,
+        "BP" : BP,
+        "Factor1" : F1,
+        "Factor2" : F2,
+        "Factor3" : F3,
+        "Factor4" : F4,
+        "Factor5" : F5,
+        "Factor6" : F6,
+    }
+
+    return ret_val
 
 def calculate_first_page(result):
     temp = int(result['answer-1-4-1']) or 0
