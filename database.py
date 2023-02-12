@@ -4,8 +4,8 @@ from os import getenv
 def get_database_instance():    
     database = mysql.connector.connect(
     host="localhost",
-    user="root",
-    password="dragan15",
+    user="Aleksej",
+    password="",
     database="sbesproject"
     )
 
@@ -60,12 +60,8 @@ def insert_row(database, row_data):
             else:
                 values += "'" + row_data[column] + "'"
             values += ','        
-
-    print('heloooooooooooooooooo', flush=True)
-    print(br, flush=True)
+    
     values = values[:-1]
-
-    print(values, flush=True)
 
     cursor = database.cursor()
 
