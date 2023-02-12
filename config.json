@@ -1,1 +1,676 @@
-{"formula": "CONST", "pages": [{"id": 1, "index": 1, "title": "Podaci o preduze\u0107u i na\u010dinu poslovanja", "formula": "CONST", "questions": [{"id": 1, "index": 1, "question": "Naziv firme:", "answerType": "text", "answers": [{"id": 1, "index": 1, "text": "", "weight": ""}], "answer_type": "None"}, {"id": 2, "index": 2, "question": "Adresa firme:", "answerType": "text", "answers": [{"id": 1, "index": 1, "text": "", "weight": ""}], "answer_type": "None"}, {"id": 3, "index": 3, "question": "Kontakt telefon:", "answerType": "text", "answers": [{"id": 1, "index": 1, "text": "", "weight": ""}], "answer_type": "None"}, {"id": 4, "index": 4, "question": "Godi\u0161nji prihodi (prose\u010dni) :", "answerType": "number", "answers": [{"id": 1, "index": 1, "text": "", "weight": ""}], "answer_type": "None"}, {"id": 5, "index": 5, "question": "Tip delatnosti:", "answerType": "checkbox", "answers": [{"id": 1, "index": 1, "text": "zemljoradnja, sto\u010darstvo, lov, ribolov, \u0161umarstvo", "weight": 0}, {"id": 2, "index": 2, "text": "industrija, rudarstvo, gra\u0111evinstvo, zanatstvo, saobra\u0107aj", "weight": 2}, {"id": 3, "index": 3, "text": "obrazovanje, nauka, kultura", "weight": 5}, {"id": 4, "index": 4, "text": "trgovina, turizam, ugostiteljstvo, bankarstvo, osiguranje", "weight": 12}, {"id": 5, "index": 5, "text": "zdravstvo, socijalna za\u0161tita, dr\u017eavna uprava", "weight": 10}, {"id": 6, "index": 6, "text": "IKT sektor", "weight": 8}], "answer_type": "None"}, {"id": 6, "index": 6, "question": "Broj zaposlenih:", "answerType": "number", "answers": [{"id": 1, "index": 1, "text": "", "weight": ""}], "answer_type": "None"}, {"id": 7, "index": 7, "question": "Da li se \u010duvaju podaci o li\u010dnosti/finansijski podaci zaposlenih?", "answerType": "radio", "answers": [{"id": 1, "index": 1, "text": "Da", "weight": 10}, {"id": 2, "index": 2, "text": "Ne", "weight": 0}], "answer_type": "None"}, {"id": 8, "index": 8, "question": "Da li se \u010duvaju finansijski podaci klijenata (podaci sa platnim karticama, voza\u010dke dozvole, paso\u0161i, bilo koji identifikacioni dokument)?", "answerType": "radio", "answers": [{"id": 1, "index": 1, "text": "Da", "weight": 15}, {"id": 2, "index": 2, "text": "Ne", "weight": 0}], "answer_type": "None"}, {"id": 9, "index": 9, "question": "Da li se \u010duvaju podaci o li\u010dnosti klijenata (li\u010dne karte, voza\u010dke dozvole, paso\u0161i, bilo koji identifikacioni dokument)?", "answerType": "radio", "answers": [{"id": 1, "index": 1, "text": "Da", "weight": 13}, {"id": 2, "index": 2, "text": "Ne", "weight": 0}]}, {"id": 10, "index": 9, "question": "Da li se \u010duvaju medicinski podaci klijenata?", "answerType": "radio", "answers": [{"id": 1, "index": 1, "text": "Da", "weight": 20}, {"id": 2, "index": 2, "text": "Ne", "weight": 0}]}, {"id": 11, "index": 10, "question": "Da li se podaci klijenata dele/daju na obradu tre\u0107im stranama?", "answerType": "radio", "answers": [{"id": 1, "index": 1, "text": "Da", "weight": 10}, {"id": 2, "index": 2, "text": "Ne", "weight": 0}]}, {"id": 12, "index": 11, "question": "Da li kompanija pla\u0107a eksterne usluge?", "answerType": "checkbox", "answers": [{"id": 1, "index": 1, "text": "Internet", "weight": "3"}, {"id": 2, "index": 2, "text": "Skladi\u0161tenje podataka", "weight": "3"}, {"id": 3, "index": 3, "text": "Marketing", "weight": "2"}, {"id": 4, "index": 4, "text": "Ostalo", "weight": "2"}]}]}, {"id": 2, "index": 2, "title": "Tehni\u010dki podaci", "questions": [{"id": 1, "index": 1, "question": "Da li se vr\u0161i enkripcija podataka?", "answerType": "checkbox", "answers": [{"id": 1, "index": 1, "text": "uskladi\u0161tenih", "weight": 0}, {"id": 2, "index": 2, "text": "u prenosu", "weight": 0}]}, {"id": 2, "index": 2, "question": "Da li kompanija ima websajt?", "answerType": "radio", "answers": [{"id": 1, "index": 1, "text": "Da", "weight": 10}, {"id": 2, "index": 2, "text": "Ne", "weight": 0}]}, {"id": 3, "index": 3, "question": "Koliko ima javnih URL-ova?", "answerType": "number", "answers": [{"id": 1, "index": 1, "text": "", "weight": ""}]}, {"id": 4, "index": 4, "question": "Ispunjene su slede\u0107e tehni\u010dke mere:", "answerType": "checkbox", "answers": [{"id": 1, "index": 1, "text": "Antivirus je instaliran na svim ure\u0111ajima i a\u017eurira se barem jednom nedeljno", "weight": 0}, {"id": 2, "index": 2, "text": "Postoji softver za detekciju/prevenciju upada u sistem", "weight": 0}, {"id": 3, "index": 3, "text": "Mre\u017ea je podeljena i za\u0161ticena firewall-om", "weight": 0}, {"id": 4, "index": 4, "text": "Multifaktorska autentifikacija", "weight": 0}, {"id": 5, "index": 5, "text": "Kontrola pristupa zasnovana na privilegijama", "weight": 0}]}]}, {"id": 3, "index": 3, "title": "Interne politike i procedure", "questions": [{"id": 1, "index": 1, "question": "Da li postoji politika privatnosti i uslovi kori\u0161\u0107enja?", "answerType": "radio", "answers": [{"id": 1, "index": 1, "text": "Da", "weight": 0}, {"id": 2, "index": 2, "text": "Ne", "weight": 8}]}, {"id": 2, "index": 2, "question": "Da li postoji politika za zadr\u017eavanje i brisanje podataka?", "answerType": "radio", "answers": [{"id": 1, "index": 1, "text": "Da", "weight": 0}, {"id": 2, "index": 2, "text": "Ne", "weight": 8}]}, {"id": 3, "index": 3, "question": "Da li postoje politike mre\u017ene i informacione bezbednosti?", "answerType": "checkbox", "answers": [{"id": 1, "index": 1, "text": "Za kori\u0161\u0107enje interneta", "weight": 0}, {"id": 2, "index": 2, "text": "Za kori\u0161\u0107enje dru\u0161tvenih mre\u017ea", "weight": 0}, {"id": 3, "index": 3, "text": "Za kori\u0161\u0107enje elektronske po\u0161te", "weight": 0}, {"id": 4, "index": 4, "text": "Za kreiranje i rukovanje lozinkama", "weight": 0}]}, {"id": 4, "index": 4, "question": "Da li se rade bezbednostni testovi mre\u017ee i sistema?", "answerType": "radio", "answers": [{"id": 1, "index": 1, "text": "Da", "weight": 0}, {"id": 2, "index": 2, "text": "Ne", "weight": 8}]}, {"id": 5, "index": 5, "question": "Da li postoji plan za reagovanje na incident?", "answerType": "radio", "answers": [{"id": 1, "index": 1, "text": "Da", "weight": 0}, {"id": 2, "index": 2, "text": "Ne", "weight": 9}]}, {"id": 6, "index": 6, "question": "Da li postoji plan za oporavak i nastavak poslovanja?", "answerType": "radio", "answers": [{"id": 1, "index": 1, "text": "Da", "weight": 0}, {"id": 2, "index": 2, "text": "Ne", "weight": 8}]}, {"id": 7, "index": 7, "question": "Da li se kreiranje rezervnih kopija podataka vr\u0161i barem jednom nedeljno?", "answerType": "radio", "answers": [{"id": 1, "index": 1, "text": "Da", "weight": 0}, {"id": 2, "index": 2, "text": "Ne", "weight": 9}]}, {"id": 8, "index": 8, "question": "Da li su rezervne kopije uskladi\u0161tene na bezbednoj lokaciji van sistema kompanije?", "answerType": "radio", "answers": [{"id": 1, "index": 1, "text": "Da", "weight": 0}, {"id": 2, "index": 2, "text": "Ne", "weight": 9}]}, {"id": 9, "index": 9, "question": "Da li zaposleni prolaze obuku iz sajber bezbednosti?", "answerType": "radio", "answers": [{"id": 1, "index": 1, "text": "Da", "weight": 0}, {"id": 2, "index": 2, "text": "Ne", "weight": 9}]}]}, {"id": 4, "index": 4, "title": "Usagla\u0161enost sa zakonima i standardima", "questions": [{"id": 1, "index": 1, "question": "Po\u0161tovanje Zakona o za\u0161titi podataka o licnosti/Zakona o pravima pacijenata?", "answerType": "radio", "answers": [{"id": 1, "index": 1, "text": "Da", "weight": 1}, {"id": 2, "index": 2, "text": "Ne", "weight": 1.5}]}, {"id": 2, "index": 2, "question": "Usagla\u0161enost sa PCI DSS?", "answerType": "radio", "answers": [{"id": 1, "index": 1, "text": "Da", "weight": 1}, {"id": 2, "index": 2, "text": "Ne", "weight": 1.5}, {"id": 3, "index": 3, "text": "Nije relevantno", "weight": 1}], "answer_type": "None"}, {"id": 3, "index": 3, "question": "ISO 27001 sertifikacija?", "answerType": "radio", "answers": [{"id": 1, "index": 1, "text": "Da", "weight": 0.8}, {"id": 2, "index": 2, "text": "Ne", "weight": 1}]}]}, {"id": 5, "index": 5, "title": "Naknada i istorija incidenata", "questions": [{"id": 1, "index": 1, "question": "\u017deljeni iznos naknade (standardni iznos je milion eura)? ", "answerType": "number", "answers": [{"id": 1, "index": 1, "text": "", "weight": ""}], "answer_type": "None"}, {"id": 2, "index": 2, "question": "Koliko je sajber incidenata kompanija do\u017eivela u prethodne tri godine?", "answerType": "number", "answers": [{"id": 1, "index": 1, "text": "", "weight": ""}]}]}]}
+{
+    "formula": "CONST",
+    "pages": [
+        {
+            "id": 1,
+            "index": 1,
+            "title": "Podaci o preduze\u0107u i na\u010dinu poslovanja",
+            "formula": "CONST",
+            "questions": [
+                {
+                    "id": 1,
+                    "index": 1,
+                    "question": "Naziv firme:",
+                    "answerType": "text",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "",
+                            "weight": ""
+                        }
+                    ],
+                    "answer_type": "None"
+                },
+                {
+                    "id": 2,
+                    "index": 2,
+                    "question": "Adresa firme:",
+                    "answerType": "text",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "",
+                            "weight": ""
+                        }
+                    ],
+                    "answer_type": "None"
+                },
+                {
+                    "id": 3,
+                    "index": 3,
+                    "question": "Kontakt telefon:",
+                    "answerType": "text",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "",
+                            "weight": ""
+                        }
+                    ],
+                    "answer_type": "None"
+                },
+                {
+                    "id": 4,
+                    "index": 4,
+                    "question": "Godi\u0161nji prihodi (prose\u010dni) :",
+                    "answerType": "number",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "",
+                            "weight": ""
+                        }
+                    ],
+                    "answer_type": "None"
+                },
+                {
+                    "id": 5,
+                    "index": 5,
+                    "question": "Tip delatnosti:",
+                    "answerType": "checkbox",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "zemljoradnja, sto\u010darstvo, lov, ribolov, \u0161umarstvo",
+                            "weight": 0
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "text": "industrija, rudarstvo, gra\u0111evinstvo, zanatstvo, saobra\u0107aj",
+                            "weight": 2
+                        },
+                        {
+                            "id": 3,
+                            "index": 3,
+                            "text": "obrazovanje, nauka, kultura",
+                            "weight": 5
+                        },
+                        {
+                            "id": 4,
+                            "index": 4,
+                            "text": "trgovina, turizam, ugostiteljstvo, bankarstvo, osiguranje",
+                            "weight": 12
+                        },
+                        {
+                            "id": 5,
+                            "index": 5,
+                            "text": "zdravstvo, socijalna za\u0161tita, dr\u017eavna uprava",
+                            "weight": 10
+                        },
+                        {
+                            "id": 6,
+                            "index": 6,
+                            "text": "IKT sektor",
+                            "weight": 8
+                        }
+                    ],
+                    "answer_type": "None"
+                },
+                {
+                    "id": 6,
+                    "index": 6,
+                    "question": "Broj zaposlenih:",
+                    "answerType": "number",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "",
+                            "weight": ""
+                        }
+                    ],
+                    "answer_type": "None"
+                },
+                {
+                    "id": 7,
+                    "index": 7,
+                    "question": "Da li se \u010duvaju podaci o li\u010dnosti/finansijski podaci zaposlenih?",
+                    "answerType": "radio",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "Da",
+                            "weight": 10
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "text": "Ne",
+                            "weight": 0
+                        }
+                    ],
+                    "answer_type": "None"
+                },
+                {
+                    "id": 8,
+                    "index": 8,
+                    "question": "Da li se \u010duvaju finansijski podaci klijenata (podaci sa platnih kartica, voza\u010dke dozvole, paso\u0161i, bilo koji identifikacioni dokument)?",
+                    "answerType": "radio",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "Da",
+                            "weight": 15
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "text": "Ne",
+                            "weight": 0
+                        }
+                    ],
+                    "answer_type": "None"
+                },
+                {
+                    "id": 9,
+                    "index": 9,
+                    "question": "Da li se \u010duvaju podaci o li\u010dnosti klijenata (li\u010dne karte, voza\u010dke dozvole, paso\u0161i, bilo koji identifikacioni dokumenti)?",
+                    "answerType": "radio",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "Da",
+                            "weight": 13
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "text": "Ne",
+                            "weight": 0
+                        }
+                    ],
+                    "answer_type": "None"
+                },
+                {
+                    "id": 10,
+                    "index": 9,
+                    "question": "Da li se \u010duvaju medicinski podaci klijenata?",
+                    "answerType": "radio",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "Da",
+                            "weight": 20
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "text": "Ne",
+                            "weight": 0
+                        }
+                    ]
+                },
+                {
+                    "id": 11,
+                    "index": 10,
+                    "question": "Da li se podaci klijenata dele/daju na obradu tre\u0107im stranama?",
+                    "answerType": "radio",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "Da",
+                            "weight": 10
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "text": "Ne",
+                            "weight": 0
+                        }
+                    ]
+                },
+                {
+                    "id": 12,
+                    "index": 11,
+                    "question": "Da li kompanija pla\u0107a eksterne usluge?",
+                    "answerType": "checkbox",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "Internet",
+                            "weight": "3"
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "text": "Skladi\u0161tenje podataka",
+                            "weight": "3"
+                        },
+                        {
+                            "id": 3,
+                            "index": 3,
+                            "text": "Marketing",
+                            "weight": "2"
+                        },
+                        {
+                            "id": 4,
+                            "index": 4,
+                            "text": "Ostalo",
+                            "weight": "2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "index": 2,
+            "title": "Tehni\u010dki podaci",
+            "questions": [
+                {
+                    "id": 1,
+                    "index": 1,
+                    "question": "Da li se vr\u0161i enkripcija podataka?",
+                    "answerType": "checkbox",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "uskladi\u0161tenih",
+                            "weight": 0
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "text": "u prenosu",
+                            "weight": 0
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "index": 2,
+                    "question": "Da li kompanija ima websajt?",
+                    "answerType": "radio",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "Da",
+                            "weight": 10
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "text": "Ne",
+                            "weight": 0
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "index": 3,
+                    "question": "Koliko ima javnih URL-ova?",
+                    "answerType": "number",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "",
+                            "weight": ""
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "index": 4,
+                    "question": "Ispunjene su slede\u0107e tehni\u010dke mere:",
+                    "answerType": "checkbox",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "Antivirus je instaliran na svim ure\u0111ajima i a\u017eurira se barem jednom nedeljno",
+                            "weight": 0
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "text": "Postoji softver za detekciju/prevenciju upada u sistem",
+                            "weight": 0
+                        },
+                        {
+                            "id": 3,
+                            "index": 3,
+                            "text": "Mre\u017ea je podeljena i za\u0161ticena firewall-om",
+                            "weight": 0
+                        },
+                        {
+                            "id": 4,
+                            "index": 4,
+                            "text": "Multifaktorska autentifikacija",
+                            "weight": 0
+                        },
+                        {
+                            "id": 5,
+                            "index": 5,
+                            "text": "Kontrola pristupa zasnovana na privilegijama",
+                            "weight": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "index": 3,
+            "title": "Interne politike i procedure",
+            "questions": [
+                {
+                    "id": 1,
+                    "index": 1,
+                    "question": "Da li postoji politika privatnosti i uslovi kori\u0161\u0107enja?",
+                    "answerType": "radio",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "Da",
+                            "weight": 0
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "text": "Ne",
+                            "weight": 8
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "index": 2,
+                    "question": "Da li postoji politika za zadr\u017eavanje i brisanje podataka?",
+                    "answerType": "radio",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "Da",
+                            "weight": 0
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "text": "Ne",
+                            "weight": 8
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "index": 3,
+                    "question": "Da li postoje politike mre\u017ene i informacione bezbednosti?",
+                    "answerType": "checkbox",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "Za kori\u0161\u0107enje interneta",
+                            "weight": 0
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "text": "Za kori\u0161\u0107enje dru\u0161tvenih mre\u017ea",
+                            "weight": 0
+                        },
+                        {
+                            "id": 3,
+                            "index": 3,
+                            "text": "Za kori\u0161\u0107enje elektronske po\u0161te",
+                            "weight": 0
+                        },
+                        {
+                            "id": 4,
+                            "index": 4,
+                            "text": "Za kreiranje i rukovanje lozinkama",
+                            "weight": 0
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "index": 4,
+                    "question": "Da li se rade bezbednostni testovi mre\u017ee i sistema?",
+                    "answerType": "radio",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "Da",
+                            "weight": 0
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "text": "Ne",
+                            "weight": 8
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "index": 5,
+                    "question": "Da li postoji plan za reagovanje na incident?",
+                    "answerType": "radio",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "Da",
+                            "weight": 0
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "text": "Ne",
+                            "weight": 9
+                        }
+                    ]
+                },
+                {
+                    "id": 6,
+                    "index": 6,
+                    "question": "Da li postoji plan za oporavak i nastavak poslovanja?",
+                    "answerType": "radio",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "Da",
+                            "weight": 0
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "text": "Ne",
+                            "weight": 8
+                        }
+                    ]
+                },
+                {
+                    "id": 7,
+                    "index": 7,
+                    "question": "Da li se kreiranje rezervnih kopija podataka vr\u0161i barem jednom nedeljno?",
+                    "answerType": "radio",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "Da",
+                            "weight": 0
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "text": "Ne",
+                            "weight": 9
+                        }
+                    ]
+                },
+                {
+                    "id": 8,
+                    "index": 8,
+                    "question": "Da li su rezervne kopije uskladi\u0161tene na bezbednoj lokaciji van sistema kompanije?",
+                    "answerType": "radio",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "Da",
+                            "weight": 0
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "text": "Ne",
+                            "weight": 9
+                        }
+                    ]
+                },
+                {
+                    "id": 9,
+                    "index": 9,
+                    "question": "Da li zaposleni prolaze obuku iz sajber bezbednosti?",
+                    "answerType": "radio",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "Da",
+                            "weight": 0
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "text": "Ne",
+                            "weight": 9
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "index": 4,
+            "title": "Usagla\u0161enost sa zakonima i standardima",
+            "questions": [
+                {
+                    "id": 1,
+                    "index": 1,
+                    "question": "Po\u0161tovanje Zakona o za\u0161titi podataka o licnosti/Zakona o pravima pacijenata?",
+                    "answerType": "radio",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "Da",
+                            "weight": 1
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "text": "Ne",
+                            "weight": 1.5
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "index": 2,
+                    "question": "Usagla\u0161enost sa PCI DSS?",
+                    "answerType": "radio",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "Da",
+                            "weight": 1
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "text": "Ne",
+                            "weight": 1.5
+                        },
+                        {
+                            "id": 3,
+                            "index": 3,
+                            "text": "Nije relevantno",
+                            "weight": 1
+                        }
+                    ],
+                    "answer_type": "None"
+                },
+                {
+                    "id": 3,
+                    "index": 3,
+                    "question": "ISO 27001 sertifikacija?",
+                    "answerType": "radio",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "Da",
+                            "weight": 0.8
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "text": "Ne",
+                            "weight": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "index": 5,
+            "title": "Naknada i istorija incidenata",
+            "questions": [
+                {
+                    "id": 1,
+                    "index": 1,
+                    "question": "\u017deljeni iznos naknade (standardni iznos je milion eura)? ",
+                    "answerType": "number",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "",
+                            "weight": ""
+                        }
+                    ],
+                    "answer_type": "None"
+                },
+                {
+                    "id": 2,
+                    "index": 2,
+                    "question": "Koliko je sajber incidenata kompanija do\u017eivela u prethodne tri godine?",
+                    "answerType": "number",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "text": "",
+                            "weight": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
