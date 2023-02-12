@@ -59,3 +59,21 @@ body{
 span{
     width: fit-content;
 }
+
+.result-table-container{
+    display: flex;
+    width: 100%;    
+}
+
+.result-table{
+    background-color: white;   
+    margin: 3rem;
+    padding: 3rem;
+    box-shadow: 2px 2px 4px rgb(128 128 128 / 20%);
+    width: 100%;
+}
+
+.result-table tr td{
+    padding: 0.5rem;
+    border: 1px solid rgb(128 128 128 / 20%);
+}
