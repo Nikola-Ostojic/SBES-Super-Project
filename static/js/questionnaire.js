@@ -35,21 +35,34 @@ $(document).ready(function () {
 });
 
 $('.page').click(function (e) { 
+    if(!validatePage(currentPage)){
+        alert('Niste odgovorili na sva obavezna pitanja!')
+        return false;
+    }
     let pageClass = $(this).attr('class').split(' ')[1]
     lastPage = currentPage
     currentPage = pageClass.split('-')[1]
     if(lastPage != currentPage){
-       goToPage(currentPage, lastPage)
+        goToPage(currentPage, lastPage)
     }
 });
 
 $('.button-next').click(function (e) { 
-    goToPage(parseInt( currentPage ) + 1, currentPage)
     e.preventDefault();
+    if(!validatePage(currentPage)){
+        alert('Niste odgovorili na sva obavezna pitanja!')
+        return false;
+    }
+        
+    goToPage(parseInt( currentPage ) + 1, currentPage)
 });
 
 $('.button-previous').click(function (e) {
     if(currentPage > 1){
+        if(!validatePage(currentPage)){
+            alert('Niste odgovorili na sva obavezna pitanja!')
+            return false;
+        }
         goToPage(parseInt(currentPage) - 1, currentPage)
     }
     e.preventDefault()
@@ -63,11 +76,6 @@ $('.button-submit').click(function(e){
 
 
 function submitForm(){
-    if(!validate()){
-        alert('Niste uneli sve odgovore')
-        return
-    }
-
     data = document.getElementById("question-form");
     formData = new FormData(data);
 
@@ -84,19 +92,30 @@ function submitForm(){
     })
 }
 
-function validate(){
+function validatePage(page){
     let valid = true
 
     $("#question-form :input").each(function(){
         let input = $(this)
-        if(input.attr('type') == 'radio'){
+
+        let questionPageName = input.attr('name')
+        let questionPage = -1
+        if(questionPageName != undefined)
+            questionPage = questionPageName.split('-')[1]
+
+        if(questionPage == page && input.attr('type') == 'radio'){
             $(input).parent().parent().parent().addClass('error');
         }
     })
 
     $("#question-form :input").each(function(){
         let input = $(this)
-        if(input.attr('type') == 'text' || input.attr('type') == 'number'){
+        let questionPageName = input.attr('name')
+        let questionPage = -1
+        if(questionPageName != undefined)
+            questionPage = questionPageName.split('-')[1]
+
+        if(questionPage == page && (input.attr('type') == 'text' || input.attr('type') == 'number')){
             if(input.val() == ''){
                 $(input).parent().parent().parent().addClass('error');
             }
@@ -105,7 +124,7 @@ function validate(){
             }   
         }
 
-        if(input.attr('type') == 'radio'){
+        if(questionPage == page && input.attr('type') == 'radio'){
             if(!input.is(':checked')){
                 
             }
@@ -120,8 +139,6 @@ function validate(){
     }
 
     return true
-
-    return valid
 }
 
 function goToPage(page, last){
