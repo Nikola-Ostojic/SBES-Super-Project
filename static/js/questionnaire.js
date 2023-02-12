@@ -70,6 +70,10 @@ $('.button-previous').click(function (e) {
 
 $('.button-submit').click(function(e){
     e.preventDefault()
+    if(!validatePage(currentPage)){
+        alert('Niste odgovorili na sva obavezna pitanja!')
+        return false;
+    }
     var answers = $('input').val()
     submitForm()
 })
@@ -121,7 +125,7 @@ function validatePage(page){
             }
             else{
                 $(input).parent().parent().parent().removeClass('error');
-            }   
+            }
         }
 
         if(questionPage == page && input.attr('type') == 'radio'){
@@ -173,5 +177,15 @@ function switchButtons(page, lastPage){
             $('.button-next').removeClass('hidden')
         }
         
+    }
+}
+
+function checkLength(e){    
+    let value = $(e).val()
+    let length = value.length
+    
+    if(length > 9){
+        $(e).val(value.slice(0, 9))
+        alert('Maksimalna vrednost je 1 milijarda.')
     }
 }

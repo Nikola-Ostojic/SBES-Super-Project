@@ -15,7 +15,6 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
     justify-content: center;
 }
 
@@ -28,6 +27,18 @@ body{
     margin: 3rem;
     padding: 3rem;
     box-shadow: 2px 2px 4px rgb(128 128 128 / 20%);
+}
+
+.back{
+    display: flex;
+    flex-direction: row;
+    align-items: center;    
+    width: fit-content;
+    background-color: white;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 2px 2px 4px rgb(128 128 128 / 20%);
+    cursor: pointer;
 }
 
 .title{
