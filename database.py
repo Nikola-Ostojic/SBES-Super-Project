@@ -4,8 +4,8 @@ from os import getenv
 def get_database_instance():    
     database = mysql.connector.connect(
     host="localhost",
-    user="Aleksej",
-    password="",
+    user="root",
+    password="dragan15",
     database="sbesproject"
     )
 
