@@ -3,30 +3,33 @@ from database import insert_row
 from mappings import KeyToColumnNameMappings
 
 def calculate_result(database,result):
-    row = retrieve_all_answers(result)
-    insert_row(database, row)
+    if database:
+        row = retrieve_all_answers(result)
+        insert_row(database, row)
 
-    BP, F1 = calculate_first_page(result)
-    F2 = calculate_second_page(result)
-    F3 = calculate_third_page(result)
-    F4 = calculate_fourth_page(result)
-    F5, F6 = calculate_fifth_page(result)
+        BP, F1 = calculate_first_page(result)
+        F2 = calculate_second_page(result)
+        F3 = calculate_third_page(result)
+        F4 = calculate_fourth_page(result)
+        F5, F6 = calculate_fifth_page(result)
 
-    res = BP * F1 * F2 * F3 * F4 * F5 * F6
-    res = "{:,.2f}".format(res)    
+        res = BP * F1 * F2 * F3 * F4 * F5 * F6
+        res = "{:,.2f}".format(res)
 
-    ret_val = {
-        "result" : res,
-        "BP" : BP,
-        "Factor1" : F1,
-        "Factor2" : F2,
-        "Factor3" : F3,
-        "Factor4" : F4,
-        "Factor5" : F5,
-        "Factor6" : F6,
-    }
+        ret_val = {
+            "result" : res,
+            "BP" : BP,
+            "Factor1" : F1,
+            "Factor2" : F2,
+            "Factor3" : F3,
+            "Factor4" : F4,
+            "Factor5" : F5,
+            "Factor6" : F6,
+        }
 
-    return ret_val
+        return ret_val
+    else:
+        return None
 
 def calculate_first_page(result):
     temp = int(result['answer-1-4-1']) or 0
@@ -170,7 +173,7 @@ def retrieve_all_answers(result):
         row['answer-1-' + str(i)] = value
 
     # Question 4
-    value = int(result['answer-1-4-1'] or 0)    
+    value = int(result['answer-1-4-1'] or 0)
     row['answer-1-4'] = value
 
     #Question 5
@@ -215,7 +218,7 @@ def retrieve_all_answers(result):
             row['answer-3-' + str(i)] = Odgovor.Ne.value
         else:
             row['answer-3-' + str(i)] = Odgovor.Da.value
-        
+
     # Question 3
     row['answer-3-3'] = multiple_choices_answers(result, 'answer-3-3', 1, 4)
 
@@ -228,7 +231,7 @@ def retrieve_all_answers(result):
 
         # PAGE 4
 
-    # Qusetion 1  
+    # Qusetion 1
     if float(result['answer-4-1']) == 1:
         row['answer-4-1'] = Odgovor.Da.value
     else:
@@ -247,8 +250,8 @@ def retrieve_all_answers(result):
         row['answer-4-3'] = Odgovor.Da.value
 
 
-        # PAGE 5    
-    
+        # PAGE 5
+
     # Question 1
     row['answer-5-1'] = int(result['answer-5-1-1'] or 0)
 
@@ -260,7 +263,7 @@ def retrieve_all_answers(result):
     return row
 
 
-    
+
 def set_calculative_values(row,BP,F1,F2,F3,F4,F5,F6):
     row['BaznaPremija'] = BP
     row['Faktor1'] = F1

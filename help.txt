@@ -1,0 +1,5 @@
+docker terminal access sql
+mysql -h localhost -P 3306 -u sbes -p sbesproject
+pass : sbesftn
+dalje sql query sa ; na kraju
+

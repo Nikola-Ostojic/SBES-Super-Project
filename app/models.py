@@ -5,7 +5,7 @@ class Page:
     def __init__(self, id, index,title, questions = None):
         self.id = id
         self.index = index
-        self.title = title                
+        self.title = title
         self.questions = questions if questions else []
 
 
@@ -16,7 +16,7 @@ class Question:
         self.question = question
         self.answer_type = answer_type
         self.answers = answers if answers else []
-        
+
 
 class Answer:
     def __init__(self, id, index, text, weight):

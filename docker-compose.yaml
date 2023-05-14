@@ -1,0 +1,29 @@
+version: "3"
+services:
+  app:
+    build: ./app
+    depends_on:
+      db:
+        condition: service_healthy
+    links:
+      - db
+    ports:
+      - "5000:5000"
+
+  db:
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: sbes
+      MYSQL_DATABASE: sbesproject
+      MYSQL_PASSWORD: sbesftn
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -p'${MYSQL_ROOT_PASSWORD}' || echo 'Health check failed'"]
+      interval: 10s
+      timeout: 3s
+      retries: 5

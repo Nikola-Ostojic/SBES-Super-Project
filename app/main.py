@@ -19,14 +19,14 @@ init_database(database)
 
 @app.route('/')
 @app.route('/home')
-def home():        
+def home():
     pages = None
     if not session.get("pages"):
-        pages = process(CONFIG_NAME)            
+        pages = process(CONFIG_NAME)
         session['pages'] = pages
-    else:  
-        pages = session.get('pages')        
-    
+    else:
+        pages = session.get('pages')
+
     app.logger.info(pages)
     app.logger.info(type(pages))
 
@@ -35,9 +35,10 @@ def home():
 
 
 @app.route('/admin')
-def admin():    
+def admin():
     pages = process(CONFIG_NAME)
     return render_template("admin.html", pages=pages)
+
 
 @app.route('/editPage', methods=["POST"])
 def edit_page():
@@ -47,8 +48,9 @@ def edit_page():
 
     success = edit_page_json(CONFIG_NAME, page_id, index, title)
 
-    response = app.response_class(response="OK" if success else "ERR",status=200 if success else 400)
-    return response    
+    response = app.response_class(response="OK" if success else "ERR", status=200 if success else 400)
+    return response
+
 
 @app.route('/editQuestion', methods=["POST"])
 def edit_question():
@@ -58,9 +60,10 @@ def edit_question():
     question = request.form.get('question')
     answer_type = request.form.get('answerType')
 
-    success = edit_question_json(CONFIG_NAME, page_id, question_id,question_index,question,answer_type)
-    response = app.response_class(response="OK" if success else "ERR",status=200 if success else 400)
-    return response    
+    success = edit_question_json(CONFIG_NAME, page_id, question_id, question_index, question,answer_type)
+    response = app.response_class(response="OK" if success else "ERR", status=200 if success else 400)
+    return response
+
 
 @app.route('/editAnswer', methods=['POST'])
 def edit_answer():
@@ -70,39 +73,12 @@ def edit_answer():
     answer_index = request.form.get('index')
     text = request.form.get('answer')
     weight = request.form.get('weight')
- 
 
     success = edit_answer_json(CONFIG_NAME, page_id,question_id, answer_id,answer_index,text,weight)
 
     response = app.response_class(response="OK" if success else "ERR",status=200 if success else 400)
-    return response       
+    return response
 
-
-# @app.route('/addPage', methods=["POST"])
-# def add_page():
-#     index = request.form.get('pageIndex')
-#     title = request.form.get('title')
-#     formula = request.form.get('formula')
-
-#     success = add_page_to_json(CONFIG_NAME,index,title,formula)
-
-#     response = app.response_class(response="OK" if success else "ERR",status=200 if success else 400)
-#     return response
-
-# @app.route('/addQuestion', methods=["POST"])
-# def add_question():
-#     page_index = request.form.get('pageIndex')
-#     question_index = request.form.get('questionIndex')
-#     question = request.form.get('question')
-#     answer_type = request.form.get('answerType')
-#     weight_type = request.form.get('weightType')
-
-#     app.logger.info(page_index)    
-
-#     success = add_question_to_json(CONFIG_NAME,page_index,question_index,question,answer_type,weight_type)
-
-#     response = app.response_class(response="OK" if success else "ERR",status=200 if success else 400)
-#     return response
 
 @app.route('/addAnswer', methods=["POST"])
 def add_answer():
@@ -112,7 +88,7 @@ def add_answer():
     text = request.form.get('answer')
     weight = request.form.get('weight')
 
-    success = add_answer_to_json(CONFIG_NAME, page_id,question_id,answer_index,text,weight)
+    success = add_answer_to_json(CONFIG_NAME, page_id, question_id, answer_index, text, weight)
 
     response = app.response_class(response="OK" if success else "ERR",status=200 if success else 400)
     return response
@@ -125,30 +101,30 @@ def result():
         if session.get('result'):
             return render_template('result.html', result=session['result'], company=session['company'])
         else:
-            return redirect('home.html', pages=pages)    
-        
+            return redirect('home.html')
+
     if not session.get("pages"):
         return "Session expired, please fill out the form again. Sorry for the inconvenience."
 
-    pages = session.get("pages") 
+    pages = session.get("pages")
 
     res = {}
     for page in pages:
         for question in page.questions:
-            for answer in question.answers:                
+            for answer in question.answers:
                 name = 'answer-' + str(page.id) + '-' + str(question.id)
                 if question.answer_type != 'radio':
                     name += '-' + str(answer.id)
                 res[name] = request.form.get(name)
 
-    result = calculate_result(database,res)
+    result = calculate_result(database, res)
     company = res['answer-1-1-1']
 
     session['result'] = result
     session['company'] = company
-    response = app.response_class(response="OK" if result else "ERR",status=200 if res else 400)
+    response = app.response_class(response="OK" if result else "ERR", status=200 if res else 400)
     return response
 
 
-if __name__ == '__main__':    
+if __name__ == '__main__':
     app.run(debug=True, port=5000, host='0.0.0.0')
