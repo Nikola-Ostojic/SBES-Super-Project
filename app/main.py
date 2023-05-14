@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for,request, session, redirect
 from flask_session import Session
+from flask_login import LoginManager
 from calculate import calculate_result
 from processing import process, edit_page_json,edit_question_json, edit_answer_json, add_answer_to_json
 from models import Page
@@ -11,18 +12,24 @@ app.config["SESSION_PERMANENT"] = True
 app.config["PERMANENT_SESSION_LIFETIME"] = 1800
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
+login_manager = LoginManager()
+login_manager.init_app(app)
 CONFIG_NAME = "config.json"
 
 database = get_database_instance()
 init_database(database)
 
 
+#@login_manager.user_loader
+#def load_user(user_id):
+ #   return User.get(user_id)
+
 @app.route('/')
 @app.route('/home')
 def home():
     pages = None
     if not session.get("pages"):
-        pages = process(CONFIG_NAME)
+        pages = process(CONFIG_NAME, "small")
         session['pages'] = pages
     else:
         pages = session.get('pages')
@@ -36,7 +43,7 @@ def home():
 
 @app.route('/admin')
 def admin():
-    pages = process(CONFIG_NAME)
+    pages = process(CONFIG_NAME, "small")
     return render_template("admin.html", pages=pages)
 
 
@@ -46,7 +53,7 @@ def edit_page():
     index = request.form.get('index')
     title = request.form.get('title')
 
-    success = edit_page_json(CONFIG_NAME, page_id, index, title)
+    success = edit_page_json(CONFIG_NAME, 'small', page_id, index, title)
 
     response = app.response_class(response="OK" if success else "ERR", status=200 if success else 400)
     return response
@@ -60,7 +67,7 @@ def edit_question():
     question = request.form.get('question')
     answer_type = request.form.get('answerType')
 
-    success = edit_question_json(CONFIG_NAME, page_id, question_id, question_index, question,answer_type)
+    success = edit_question_json(CONFIG_NAME, 'small', page_id, question_id, question_index, question,answer_type)
     response = app.response_class(response="OK" if success else "ERR", status=200 if success else 400)
     return response
 
@@ -74,7 +81,7 @@ def edit_answer():
     text = request.form.get('answer')
     weight = request.form.get('weight')
 
-    success = edit_answer_json(CONFIG_NAME, page_id,question_id, answer_id,answer_index,text,weight)
+    success = edit_answer_json(CONFIG_NAME, 'small', page_id,question_id, answer_id,answer_index,text,weight)
 
     response = app.response_class(response="OK" if success else "ERR",status=200 if success else 400)
     return response
@@ -88,7 +95,7 @@ def add_answer():
     text = request.form.get('answer')
     weight = request.form.get('weight')
 
-    success = add_answer_to_json(CONFIG_NAME, page_id, question_id, answer_index, text, weight)
+    success = add_answer_to_json(CONFIG_NAME, 'small', page_id, question_id, answer_index, text, weight)
 
     response = app.response_class(response="OK" if success else "ERR",status=200 if success else 400)
     return response
