@@ -4,7 +4,7 @@ from flask_login import LoginManager
 from calculate import calculate_result
 from processing import process, edit_page_json,edit_question_json, edit_answer_json, add_answer_to_json
 from models import Page
-from database import get_database_instance, init_database
+from database import get_database_instance, get_db_engine, init_tables
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
@@ -16,13 +16,12 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 CONFIG_NAME = "config.json"
 
-database = get_database_instance()
-init_database(database)
-
+engine = get_db_engine()
+init_tables(engine)
 
 #@login_manager.user_loader
 #def load_user(user_id):
- #   return User.get(user_id)
+#    return User.get(user_id)
 
 @app.route('/')
 @app.route('/home')

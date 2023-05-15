@@ -1,17 +1,34 @@
 import mysql.connector
 from logging import error
 import traceback
+from sqlalchemy import create_engine
+from sqlalchemy.orm import Session
+from db_models import User, Base
+import os
 
 
+def get_db_engine():
+    engine = create_engine('mysql+mysqlconnector://{}:{}@db:3306/{}'
+                           .format(os.getenv('MYSQL_USER'),
+                                   os.getenv('MYSQL_PASSWORD'),
+                                   os.getenv('MYSQL_DATABASE')))
+    return engine
+
+
+def init_tables(engine):
+    Base.metadata.create_all(engine)
+
+
+# DEPRICATED - ovde je samo zbog inserta
 def get_database_instance():
     try:
         database = mysql.connector.connect(
-            host="db",
-            user="root",
-            password="root",
-            port="3306",
-            database="sbesproject"
-        )
+                host="db",
+                user="root",
+                password="root",
+                port="3306",
+                database="sbesproject"
+                )
 
         return database
     except Exception as e:
@@ -19,45 +36,8 @@ def get_database_instance():
         return None
 
 
-def init_database(database):
-    if database:
-        cursor = database.cursor()
-        cursor.execute('''
-            create TABLE if not exists Results(
-                Naziv varchar(255),
-                Adresa varchar(255),
-                Telefon varchar(255),
-                GodisnjiPrihodi int,
-                Delatnost varchar(255),
-                BrojZaposlenih int,
-                FinansijskiPZ int,
-                FinansijskiPK int,
-                LicniPK int,
-                MedicinskiPK int,
-                DeljenjePK int,
-                EksterneUsluge varchar(255),
-                EnkripcijaPodataka varchar(255),
-                Websajt int,
-                BrojJavnihURL int,
-                TehnickeMere varchar(255),
-                PolitikaPrivatnosti int,
-                PolitikaZadrzavanjaIBrisanja int,
-                PolitikaIB varchar(255),
-                BezbednosniTestovi int,
-                PlanReagovanjaNaIncident int,
-                PlanOporavka int,
-                KreiranjeRezervnihKopija int,
-                BezbednoSkladistenjePodataka int,
-                ObukaIB int,
-                ZakonPOLPP int,
-                PCIDSS int,
-                ISO27001 int,
-                ZeljeniIznosNaknade int,
-                BrojIncidenata int
-            )
-        ''')
-
-
+# DEPRICATED - ovo mozda ni ne radi jer sam promenio
+# pcidss i iso27001 u mala slova treba testirati
 def insert_row(database, row_data):
     values = ""
     br = 0
@@ -79,4 +59,3 @@ def insert_row(database, row_data):
 
     cursor.execute(statement)
     database.commit()
-
