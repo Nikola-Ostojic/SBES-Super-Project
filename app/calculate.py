@@ -1,11 +1,13 @@
 from models import Odgovor, Page,Question,Answer
-from database import insert_row
+from database import insert_row, write_to_database
 from mappings import KeyToColumnNameMappings
+from logging import info
+from db_models import Result, CheckedItem, Factor
 
-def calculate_result(database,result):
-    if database:
-        row = retrieve_all_answers(result)
-        insert_row(database, row)
+def calculate_result(engine, result):
+    if engine:
+        info(result)
+        res_obj = retrieve_all_answers(result)
 
         BP, F1 = calculate_first_page(result)
         F2 = calculate_second_page(result)
@@ -17,15 +19,28 @@ def calculate_result(database,result):
         res = "{:,.2f}".format(res)
 
         ret_val = {
-            "result" : res,
-            "BP" : BP,
-            "Factor1" : F1,
-            "Factor2" : F2,
-            "Factor3" : F3,
-            "Factor4" : F4,
-            "Factor5" : F5,
-            "Factor6" : F6,
+            "result": res,
+            "BP": BP,
+            "Factor1": F1,
+            "Factor2": F2,
+            "Factor3": F3,
+            "Factor4": F4,
+            "Factor5": F5,
+            "Factor6": F6,
         }
+
+        info(result)
+
+        factor = Factor()
+        factor.BaznaPremija = BP
+        factor.Faktor1 = F1
+        factor.Faktor2 = F2
+        factor.Faktor3 = F3
+        factor.Faktor4 = F4
+        factor.Faktor5 = F5
+        factor.Faktor6 = F6
+
+        write_to_database(engine, res_obj, factor)
 
         return ret_val
     else:
@@ -164,103 +179,125 @@ def get_factor_by_value(value):
         return -1
 
 
-def retrieve_all_answers(result):
-    row = {}
+def retrieve_all_answers(q_result):
+    result = Result()
+    checked_items = []
 
     # Questions 1 - 3
-    for i in range(1, 4):
-        value = result['answer-1-' + str(i) + '-1']
-        row['answer-1-' + str(i)] = value
+    # for i in range(1, 4):
+    #    value = result['answer-1-' + str(i) + '-1']
+    #    row['answer-1-' + str(i)] = value
 
     # Question 4
-    value = int(result['answer-1-4-1'] or 0)
-    row['answer-1-4'] = value
+    # value = int(result['answer-1-4-1'] or 0)
+    # row['answer-1-4'] = value
 
-    #Question 5
-    row['answer-1-5'] = multiple_choices_answers(result, 'answer-1-5', 1, 6)
+    result.Naziv = q_result.get('answer-1-1-1')
+    result.Adresa = q_result.get('answer-1-2-1')
+    result.Telefon = q_result.get('answer-1-3-1')
+    result.GodisnjiPrihodi = int(q_result.get('asnwer-1-4-1')) or 0
+
+    # Question 5 TODO
+    # row['answer-1-5'] = multiple_choices_answers(result, 'answer-1-5', 1, 6)
 
     # Question 6
-    row['answer-1-6'] = int(result['answer-1-6-1'] or 0)
+    result.BrojZaposlenih = int(q_result.get('answer-1-6-1')) or 0
 
     # Questions 7 - 11
-    for i in range(7, 12):
-        row['answer-1-' + str(i)] = yes_no_answers(result, 'answer-1-' + str(i))
+    # for i in range(7, 12):
+    #     row['answer-1-' + str(i)] = yes_no_answers(result, 'answer-1-' + str(i))
+    # result.
+
+    result.FinansijskiPZ = not ((q_result.get('answer-1-7-1') or 0) == 0)
+    result.FinansijskiPK = not ((q_result.get('answer-1-8-1') or 0) == 0)
+    result.LicniPK = not ((q_result.get('answer-1-9-1') or 0) == 0)
+    result.MedicinskiPK = not ((q_result.get('answer-1-10-1') or 0) == 0)
+    result.DeljenjePK = not ((q_result.get('answer-1-11-1') or 0) == 0)
 
     # Question 12
-    row['answer-1-12'] = multiple_choices_answers(result, 'answer-1-12', 1, 4)
+    # row['answer-1-12'] = multiple_choices_answers(result, 'answer-1-12', 1, 4)
 
-        # PAGE 2
+    # PAGE 2
 
     # Question 1
-    row['answer-2-1'] = ''
-    if result['answer-2-1-1'] == None:
-        row['answer-2-1'] += '1,'
-    if result['answer-2-1-1'] == None:
-        row['answer-2-1'] += '2,'
+    # row['answer-2-1'] = ''
+    # if result['answer-2-1-1'] == None:
+    #     row['answer-2-1'] += '1,'
+    # if result['answer-2-1-1'] == None:
+    #     row['answer-2-1'] += '2,'
 
-    if row['answer-2-1'] != '':
-        row['answer-2-1'] = row['answer-2-1'][:-1]
+    # if row['answer-2-1'] != '':
+    #    row['answer-2-1'] = row['answer-2-1'][:-1]
 
     # Question 2
-    row['answer-2-2'] = yes_no_answers(result, 'answer-2-2')
+    result.Websajt = not ((q_result.get('answer-2-2-1') or 0) == 0)
 
     # Question 3
-    row['answer-2-3'] = int(result['answer-2-3-1'] or 0)
+    result.BrojJavnihURL = int(q_result.get('answer-2-3-1') or 0)
 
     # Question 4
-    row['answer-2-4'] = multiple_choices_answers(result, 'answer-2-4', 1, 5)
+    # row['answer-2-4'] = multiple_choices_answers(result, 'answer-2-4', 1, 5)
 
-        # PAGE 3
+    # PAGE 3
 
     # Question 1 - 2
-    for i in range(1, 3):
-        if yes_no_answers(result, 'answer-3-' + str(i)) == Odgovor.Da:
-            row['answer-3-' + str(i)] = Odgovor.Ne.value
-        else:
-            row['answer-3-' + str(i)] = Odgovor.Da.value
+    # for i in range(1, 3):
+    #     if yes_no_answers(result, 'answer-3-' + str(i)) == Odgovor.Da:
+    #         row['answer-3-' + str(i)] = Odgovor.Ne.value
+    #     else:
+    #         row['answer-3-' + str(i)] = Odgovor.Da.value
+    result.PolitikaPrivatnosti = not ((q_result.get('answer-3-1-1') or 0) == 0)
+    result.PolitikaZadrzavanjaIBrisanja = not ((q_result.get('answer-3-2-1') or 0) == 0)
 
     # Question 3
-    row['answer-3-3'] = multiple_choices_answers(result, 'answer-3-3', 1, 4)
+    # row['answer-3-3'] = multiple_choices_answers(result, 'answer-3-3', 1, 4)
 
     # Questions 4 - 9
-    for i in range(4, 10):
-        if yes_no_answers(result, 'answer-3-' + str(i)) == Odgovor.Da:
-            row['answer-3-' + str(i)] = Odgovor.Ne.value
-        else:
-            row['answer-3-' + str(i)] = Odgovor.Da.value
+    # for i in range(4, 10):
+    #     if yes_no_answers(result, 'answer-3-' + str(i)) == Odgovor.Da:
+    #         row['answer-3-' + str(i)] = Odgovor.Ne.value
+    #     else:
+    #         row['answer-3-' + str(i)] = Odgovor.Da.value
+    result.BezbednosniTestovi = not ((q_result.get('answer-3-3-1') or 0) == 0)
+    result.PlanReagovanjaNaIncident = not ((q_result.get('answer-3-4-1') or 0) == 0)
+    result.PlanOporavka = not ((q_result.get('answer-3-5-1') or 0) == 0)
+    result.KreiranjeRezervnihKopija = not ((q_result.get('answer-3-6-1') or 0) == 0)
+    result.BezbednoSkladistenjePodataka = not ((q_result.get('answer-3-7-1') or 0) == 0)
+    result.ObukaIB = not ((q_result.get('answer-3-8-1') or 0) == 0)
 
-        # PAGE 4
+    # PAGE 4
 
     # Qusetion 1
-    if float(result['answer-4-1']) == 1:
-        row['answer-4-1'] = Odgovor.Da.value
-    else:
-        row['answer-4-1'] = Odgovor.Ne.value
+    # if float(result['answer-4-1']) == 1:
+    #     row['answer-4-1'] = Odgovor.Da.value
+    # else:
+    #     row['answer-4-1'] = Odgovor.Ne.value
 
-    # Qusetion 2
-    if float(result['answer-4-2']) == 1.5:
-        row['answer-4-2'] = Odgovor.Ne.value
-    else:
-        row['answer-4-2'] = Odgovor.Da.value
+    # # Qusetion 2
+    # if float(result['answer-4-2']) == 1.5:
+    #     row['answer-4-2'] = Odgovor.Ne.value
+    # else:
+    #     row['answer-4-2'] = Odgovor.Da.value
 
-    # Qusetion 3
-    if float(result['answer-4-3']) == 1:
-        row['answer-4-3'] = Odgovor.Ne.value
-    else:
-        row['answer-4-3'] = Odgovor.Da.value
+    # # Qusetion 3
+    # if float(result['answer-4-3']) == 1:
+    #     row['answer-4-3'] = Odgovor.Ne.value
+    # else:
+    #     row['answer-4-3'] = Odgovor.Da.value
 
+    result.ObukaIB = not ((q_result.get('answer-4-1-1') or 0) == 0)
+    result.ZakonPOLPP = not ((q_result.get('answer-4-2-1') or 0) == 0)
+    result.Pcidss = not ((q_result.get('answer-4-3-1') or 0) == 0)
 
-        # PAGE 5
+    # PAGE 5
 
     # Question 1
-    row['answer-5-1'] = int(result['answer-5-1-1'] or 0)
+    result.ZeljeniIznosNaknade = int(q_result.get('answer-5-1-1') or 0)
 
     # Question 2
-    row['answer-5-2'] = int(result['answer-5-2-1'] or 0)
+    result.BrojIncidenata = int(q_result.get('answer-5-2-1') or 0)
 
-    print(row, flush=True)
-
-    return row
+    return result
 
 
 
@@ -282,10 +319,15 @@ def multiple_choices_answers(result, answer, from_idx, to_idx):
     return res
 
 def yes_no_answers(result, answer):
-    print(answer, flush=True)
     if int(result[answer] or 0) == 0:
-        value = Odgovor.Ne.value
+        return False
     else:
-        value = Odgovor.Da.value
+        return True
 
-    return value
+#   print(answer, flush=True)
+#   if int(result[answer] or 0) == 0:
+#       value = Odgovor.Ne.value
+#   else:
+#       value = Odgovor.Da.value
+#
+#     return value

@@ -2,9 +2,10 @@ import mysql.connector
 from logging import error
 import traceback
 from sqlalchemy import create_engine
-from sqlalchemy.orm import Session
-from db_models import User, Base
+from sqlalchemy.orm import Session, sessionmaker
+from db_models import Result, Base, Factor
 import os
+from logging import info
 
 
 def get_db_engine():
@@ -17,23 +18,6 @@ def get_db_engine():
 
 def init_tables(engine):
     Base.metadata.create_all(engine)
-
-
-# DEPRICATED - ovde je samo zbog inserta
-def get_database_instance():
-    try:
-        database = mysql.connector.connect(
-                host="db",
-                user="root",
-                password="root",
-                port="3306",
-                database="sbesproject"
-                )
-
-        return database
-    except Exception as e:
-        traceback.print_exception(e)
-        return None
 
 
 # DEPRICATED - ovo mozda ni ne radi jer sam promenio
@@ -59,3 +43,13 @@ def insert_row(database, row_data):
 
     cursor.execute(statement)
     database.commit()
+
+
+def write_to_database(engine, result: Result, factor:Factor):
+    result.Factor = factor
+
+    session: Session = sessionmaker(engine)
+
+    with session.begin() as s:
+        s.add(result)
+        session.commit()

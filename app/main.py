@@ -4,7 +4,7 @@ from flask_login import LoginManager
 from calculate import calculate_result
 from processing import process, edit_page_json,edit_question_json, edit_answer_json, add_answer_to_json
 from models import Page
-from database import get_database_instance, get_db_engine, init_tables
+from database import get_db_engine, init_tables
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
@@ -123,7 +123,7 @@ def result():
                     name += '-' + str(answer.id)
                 res[name] = request.form.get(name)
 
-    result = calculate_result(database, res)
+    result = calculate_result(engine, res)
     company = res['answer-1-1-1']
 
     session['result'] = result
