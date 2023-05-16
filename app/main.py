@@ -12,8 +12,8 @@ app.config["SESSION_PERMANENT"] = True
 app.config["PERMANENT_SESSION_LIFETIME"] = 1800
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
-login_manager = LoginManager()
-login_manager.init_app(app)
+#login_manager = LoginManager()
+#login_manager.init_app(app)
 CONFIG_NAME = "config.json"
 
 engine = get_db_engine()
