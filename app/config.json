@@ -677,7 +677,1171 @@
 
         },
         "medium":{
-
+            "pages": [
+                {
+                    "id": 1,
+                    "index": 1,
+                    "title": "Zaposleni",
+                    "formula": "CONST",
+                    "questions": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "question": "Broj zaposlenih:",
+                            "answerType": "checkbox",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "0-4",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "5-20",
+                                    "weight": 1
+                                },
+                                {
+                                    "id": 3,
+                                    "index": 3,
+                                    "text": "21-50",
+                                    "weight": 2
+                                },
+                                {
+                                    "id": 4,
+                                    "index": 4,
+                                    "text": "52-100",
+                                    "weight": 5
+                                },
+                                {
+                                    "id": 5,
+                                    "index": 5,
+                                    "text": "100-",
+                                    "weight": 5
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "question": "Da li ikt ima implementirano upravljanje pristupom bazirano na ulogama zaposlenih u poslovnim procesima?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 20
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 3,
+                            "index": 3,
+                            "question": "Da li ikt ima mogucnost pracenja aktivnosti zaposlenih?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 15
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 4,
+                            "index": 4,
+                            "question": "Da li se edukuju novozaposleni o bezbednosti IKT sistema?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 15
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 5,
+                            "index": 5,
+                            "question": "Da li novozaposleni potpisuje NDA (Zakon o poverljivosti)?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 20
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 6,
+                            "index": 6,
+                            "question": "Da li se organizuju obuke za stalne zaposlene u redovnim vremenskim intervalima u vezi bezbednosti ikt?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 20
+                                }
+                            ],
+                            "answer_type": "None"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "index": 2,
+                    "title": "Zastita podataka",
+                    "formula": "CONST",
+                    "questions": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "question": "Da li postoji klasifikacija podataka po nivoima zastite u zavisnosti od njihove osetljivosti i važnosti?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 15
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "question": "Da li su definisani dozvoljeni nosači podataka u okviru IKT-a?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 15
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 3,
+                            "index": 3,
+                            "question": "Da li je zaposlenima dozvoljeno da koriste svoje privatne nosače podataka?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 10
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 0
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 4,
+                            "index": 4,
+                            "question": "Da li se podaci šifruju?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 20
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 5,
+                            "index": 5,
+                            "question": "Da li se kriptografski ključevi čuvaju u enkriptovanoj bazi sa strogom kontrolom pristupa?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 15
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 6,
+                            "index": 6,
+                            "question": "Da li se koristi end-to-end enkripcija? (Podaci enkriptuju na izvoru, dekriptuju na destinaciji)",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 15
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 7,
+                            "index": 7,
+                            "question": "Da li ikt (distribuirani sistem) koristi VPN (Virtual Private Network) za bezbedan rad na daljinu?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 15
+                                }
+                            ],
+                            "answer_type": "None"
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "index": 3,
+                    "title": "Pristup sistemu",
+                    "formula": "CONST",
+                    "questions": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "question": "Da li operator IKT sistema od posebnog značaja ima mehanizam kreiranja i ukidanja korisničkih naloga kao i njihovih prava?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 10
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "question": "Da li je potrebna lozinka za pristup sistemu?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 10
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 3,
+                            "index": 3,
+                            "question": "Da li postoji dvofaktorska autentifikacija u fizickom i u virtuelnom prostoru?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 10
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 4,
+                            "index": 4,
+                            "question": "Da li je za pristup sistemu potreban digitalni sertifikat?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 10
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 5,
+                            "index": 5,
+                            "question": "Da li su definisana pravila za kreiranje bezbednih šifri? (Zaštićene od Dictionary napada)",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 10
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 6,
+                            "index": 6,
+                            "question": "Da li se nalozi prave sa inicijalnom šifrom?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 10
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 0
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 7,
+                            "index": 7,
+                            "question": "Da li je za promenu naloga potreban digitalni sertifikat?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 10
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 8,
+                            "index": 8,
+                            "question": "Da li je pristup sistemu omogucen samo licima koji odrzavaju sistem i licima kojima je potreban pojedinacni pristup (na zahtev ikt sistema)?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 10
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 9,
+                            "index": 9,
+                            "question": "Prilikom razvoja i testiranja sistema, korisnik ima najniže privilegije i može da pristupi samo delu sistema koji mu je potreban za rad?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 10
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 10,
+                            "index": 10,
+                            "question": "Da li zaposleni imaju mogucnost instaliranja dodatnog softvera? (samo admin bi trebao da ima dozvolu)",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 10
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 0
+                                }
+                            ],
+                            "answer_type": "None"
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "index": 4,
+                    "title": "Fizicka bezbednost",
+                    "formula": "CONST",
+                    "questions": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "question": "Da li su svi serveri lokalizovani? (na istom mestu, trebali bi da budu)",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 15
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "question": "Da li je pristup serverskoj prostoriji ograničen?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 20
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 3,
+                            "index": 3,
+                            "question": "Da li je pristup serverskoj prostoriji ograničen?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 20
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 4,
+                            "index": 4,
+                            "question": "Da li je prostorija adekvatno zaključana (zaštićena)?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 20
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 5,
+                            "index": 5,
+                            "question": "Da li su serveri zaštićeni od fizičkih oštećenja, prirodnih nepogoda i neadekvatnih klimatskih uslova?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 15
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 6,
+                            "index": 6,
+                            "question": "Da li su zaštićeni od elektromagnetnog zračenja?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 15
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 7,
+                            "index": 7,
+                            "question": "Da li su postavljeni uređaji za neprekidno napajanje električnom energijom (Uninterruptible Power Supplies - UPS)?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 15
+                                }
+                            ],
+                            "answer_type": "None"
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "index": 5,
+                    "title": "Otpor na napade",
+                    "formula": "CONST",
+                    "questions": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "question": "Da li je sistem konfigurisan tako da se neaktivne sesije gase nakon određenog vremena?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 15
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "question": "Da li su ažuriranja softvera redovna?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 15
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 3,
+                            "index": 3,
+                            "question": "Da li se koriste softverska rešenja za zaštitu od zlonamernog softvera (anitivirus i firewall)?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 15
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 4,
+                            "index": 4,
+                            "question": "Da li su blokirani nepotrebni portovi na nivou hardvera?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 15
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 5,
+                            "index": 5,
+                            "question": "Da li sistem sadrzi DMZ (demilitarised zone)? - sluzi da bi se privukao napad da bi ostatak sistema ostao bezbedan",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 15
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 6,
+                            "index": 6,
+                            "question": "Da li se koriste bastion serveri? - prepoznavanje i sprecavanje napada?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 15
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 7,
+                            "index": 7,
+                            "question": "Da li postoji IDS ili IPS?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 10
+                                }
+                            ],
+                            "answer_type": "None"
+                        }
+                    ]
+                },
+                {
+                    "id": 6,
+                    "index": 6,
+                    "title": "Redudantnost",
+                    "formula": "CONST",
+                    "questions": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "question": "Da li se redovno (dnevno) kreiraju rezervne kopije podataka?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 20
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "question": "Da li se dnevne kopije cuvaju barem sedam dana?(trebalo bi nedelju dana)",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 20
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 3,
+                            "index": 3,
+                            "question": "Da li se sedmicne kopije cuvaju barem mesec dana? (trebalo bi mesec dana)",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 20
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 4,
+                            "index": 4,
+                            "question": "Da li se mesecne kopije cuvaju barem godinu dana?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 20
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 5,
+                            "index": 5,
+                            "question": "Da li se godisnje kopije cuvaju neograničeno dugo?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 20
+                                }
+                            ],
+                            "answer_type": "None"
+                        }
+                    ]
+                },
+                {
+                    "id": 7,
+                    "index": 7,
+                    "title": "Prevencija i oporavak",
+                    "formula": "CONST",
+                    "questions": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "question": "Da li se beleže (loguju) sve aktivnosti korisnika?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 15
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "question": "Da li pristupni logovi sadrže sledeće informacije:",
+                            "answerType": "checkbox",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "korisnik koji je pristupio bazi",
+                                    "weight": 3
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "datum i vreme pristupa",
+                                    "weight": 3
+                                },
+                                {
+                                    "id": 3,
+                                    "index": 3,
+                                    "text": "ip adresa sa koje je pristupljeno",
+                                    "weight": 3
+                                },
+                                {
+                                    "id": 4,
+                                    "index": 4,
+                                    "text": "resurs kome je pristupljeno",
+                                    "weight": 3
+                                },
+                                {
+                                    "id": 5,
+                                    "index": 5,
+                                    "text": "vrsta pristupa (pregled/unos/izmena/brisanje/izvoz)",
+                                    "weight": 3
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 3,
+                            "index": 3,
+                            "question": "Da li se logovi čuvaju najmanje godinu dana?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 10
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 4,
+                            "index": 4,
+                            "question": "Da li se vrše periodični testovi bezbednosti IKT sistema? (penetration testing)",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 10
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 5,
+                            "index": 5,
+                            "question": "Da li postoji procedura upravljanja incidentima?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 10
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 6,
+                            "index": 6,
+                            "question": "Da li je definisana procedura testirana?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 10
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 7,
+                            "index": 7,
+                            "question": "Da li se redovno ažurira?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 10
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 8,
+                            "index": 8,
+                            "question": "Da li je definisana procedura za oporavak sistema?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 10
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 9,
+                            "index": 9,
+                            "question": "Da li se incidenti prijavljuju nacionalnom CERT-u?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 0
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 10
+                                }
+                            ],
+                            "answer_type": "None"
+                        }
+                    ]
+                }
+            ]
         }
     }
 }

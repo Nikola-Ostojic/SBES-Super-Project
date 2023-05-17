@@ -28,7 +28,7 @@ init_tables(engine)
 def home():
     pages = None
     if not session.get("pages"):
-        pages = process(CONFIG_NAME, "small")
+        pages = process(CONFIG_NAME, "medium")
         session['pages'] = pages
     else:
         pages = session.get('pages')
@@ -42,7 +42,7 @@ def home():
 
 @app.route('/admin')
 def admin():
-    pages = process(CONFIG_NAME, "small")
+    pages = process(CONFIG_NAME, "medium")
     return render_template("admin.html", pages=pages)
 
 
