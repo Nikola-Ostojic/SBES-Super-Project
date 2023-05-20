@@ -1,0 +1,121 @@
+body{
+    margin: 0px;
+    background-color: #ebebebeb;
+    font-size: 1rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(57, 57, 57);
+}
+
+.flex{
+    display: flex;
+}
+
+.col {
+    flex-direction: column;
+}
+
+.align-center{
+    align-items: center;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.m-auto{
+    margin: auto;
+}
+
+.min-h-100{
+    min-height: 100vh;
+}
+
+.mb-5{
+    margin-bottom: 5px;
+}
+.mb-10{
+    margin-bottom: 10px;
+}
+.mb-15{
+    margin-bottom: 15px;
+}
+
+
+.p-5{
+    padding: 5px;
+}
+.p-10{
+    padding: 10px;
+}
+.p-15{
+    padding: 15px;
+}
+.p-20{
+    padding: 20px;
+}
+.p-30{
+    padding: 30px;
+}
+
+.w-content{
+    width:fit-content;
+}
+
+.w-logo{
+    width: 200px;
+    height: 200px;
+}
+
+.bg-white{
+    background-color: white;
+}
+
+.inp{
+    background-color: white;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border: 2px solid rgba(170, 170, 170, 0.5);
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: .3s all ease;
+}
+
+
+input[type=number]{
+    border: 0px;
+    font-size: 1rem;
+    outline: 0px;
+    width: 100%;
+    -moz-appearance:textfield;
+    appearance: text;
+    color: rgb(57, 57, 57);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=text]:-webkit-autofill,
+input[type=text]:-webkit-autofill:hover,
+input[type=text]:-webkit-autofill:focus,
+input[type=text]:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+button:hover{
+    background-color: rgba(130, 130, 130, 1);
+}
+
+button{
+    border: none;
+    border-radius: 0%;
+    padding: 0.5rem 1rem;
+    width: 8rem;
+    font-size: 1rem;
+    float: right;
+    color: white;
+    background-color: rgba(170, 170, 170, 50);
+    cursor: pointer;
+}

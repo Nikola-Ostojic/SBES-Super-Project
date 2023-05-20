@@ -25,7 +25,7 @@ body{
     margin-left: calc(215px + 3rem);
     width: 100%;
     display: flex;
-    justify-content: center;  
+    justify-content: center;
     flex-direction: column;
     padding: 1rem 20%;
 }
@@ -78,7 +78,7 @@ button{
     flex-direction: row;
     margin-bottom: 2rem;
     background-color: white;
-    padding: 1rem;    
+    padding: 1rem;
     border: 2px solid rgb(170, 170, 170, 0.5);
 }
 
@@ -91,7 +91,7 @@ button{
 }
 
 .selected{
-    border: 2px solid rgba(54,54,54,0.5) !important;    
+    border: 2px solid rgba(54,54,54,0.5) !important;
 }
 
 .selected-page{
@@ -116,7 +116,7 @@ button{
 .answer{
     background-color: white;
     margin-bottom: 0.5rem;
-    padding: 0.5rem;    
+    padding: 0.5rem;
     border: 2px solid rgba(170, 170, 170, 0.5);
 
     -webkit-user-select: none; /* Safari */
@@ -164,8 +164,8 @@ input[type=text]{
 }
 
 input[type=text]:-webkit-autofill,
-input[type=text]:-webkit-autofill:hover, 
-input[type=text]:-webkit-autofill:focus, 
+input[type=text]:-webkit-autofill:hover,
+input[type=text]:-webkit-autofill:focus,
 input[type=text]:-webkit-autofill:active{
     -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
@@ -186,7 +186,7 @@ input[type=checkbox]{
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    margin: 0; 
+    margin: 0;
 }
 
 /* Animations/hovers... */
@@ -195,11 +195,11 @@ input::-webkit-inner-spin-button {
     color: #bf1d1d;
 }
 
-.answer:hover{    
+.answer:hover{
     box-shadow: 2px 2px 4px rgb(128 128 128 / 20%);
 }
 
-button:hover{    
+button:hover{
     background-color: rgba(130, 130, 130, 1);
 }
 

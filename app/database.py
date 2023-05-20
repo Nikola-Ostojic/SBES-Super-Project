@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine, select, MetaData, Table
 from sqlalchemy.orm import Session, sessionmaker
-from db_models import Result, Base, Factor, CheckedItem, SelectedItem
+from db_models import Result, Base, Factor, CheckedItem, SelectedItem, User
 from models import Answer
 import os
 from logging import info, error
@@ -90,5 +90,17 @@ def get_all_checked_items(session) -> list[CheckedItem]:
     checked_list = session.query(CheckedItem).all()
     return checked_list
 
+
+
+def validate_user_credentials(engine, username, password) -> bool:
+    session = sessionmaker(engine)
+
+    with session.begin() as s:
+        user = s.query(User).filter(User.Username == username and User.Password == password).first()
+
+        if user:
+            return True
+        else:
+            return False
 
 

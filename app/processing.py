@@ -51,11 +51,13 @@ def edit_page_json(config_name, questionnaire, id,index,title):
     try:
         config_data = json.load(open(config_name,'r', encoding='utf-8'))
 
+        print(str(config_data['questionnaire'][questionnaire]['pages']), flush=True)
+
         found_index, page_idx = get_id_json(config_data['questionnaire'][questionnaire]['pages'], id)
 
         if found_index == False: raise Exception("Page id not found.")
 
-        page = config_data['pages'][int(page_idx)]
+        page = config_data['questionnaire'][questionnaire]['pages'][int(page_idx)]
         page['index'] = int(index)
         page['title'] = str(title)
 
@@ -75,13 +77,15 @@ def edit_question_json(config_name, questionnaire, page_identifier, question_ide
     try:
         config_data = json.load(open(config_name,'r', encoding='utf-8'))
 
+        print(str(config_data), flush=True)
+
         found_index, page_idx = get_id_json(config_data['questionnaire'][questionnaire]['pages'], page_identifier)
         if found_index == False: raise Exception("Page id not found.")
 
-        found_index, question_idx = get_id_json(config_data['pages'][int(page_idx)]['questions'], question_identifier)
+        found_index, question_idx = get_id_json(config_data['questionnaire'][questionnaire]['pages'][int(page_idx)]['questions'], question_identifier)
         if found_index == False: raise Exception("Question id not found.")
 
-        quest = config_data['pages'][int(page_idx)]['questions'][int(question_idx)]
+        quest = config_data['questionnaire'][questionnaire]['pages'][int(page_idx)]['questions'][int(question_idx)]
         quest['index'] = int(question_index)
         quest['question'] = str(question)
         quest['answer_type'] = str(answer_type)
@@ -103,7 +107,7 @@ def edit_answer_json(config_name, questionnaire, page_identifier, question_ident
         found_index, page_idx = get_id_json(config_data['questionnaire'][questionnaire]['pages'], page_identifier)
         if found_index == False: raise Exception("Page id not found.")
 
-        found_index, question_idx = get_id_json(config_data['pages'][int(page_idx)]['questions'], question_identifier)
+        found_index, question_idx = get_id_json(config_data['questionnaire'][questionnaire]['pages'][int(page_idx)]['questions'], question_identifier)
         if found_index == False: raise Exception("Question id not found.")
 
 
@@ -111,7 +115,7 @@ def edit_answer_json(config_name, questionnaire, page_identifier, question_ident
 
         #print(answer_idx, flush=True)
 
-        answ = config_data['pages'][int(page_idx)]['questions'][int(question_idx)]['answers'][int(answer_idx)]
+        answ = config_data['questionnaire'][questionnaire]['pages'][int(page_idx)]['questions'][int(question_idx)]['answers'][int(answer_idx)]
 
         answ['index'] = int(answer_index)
         answ['text'] = str(answer)

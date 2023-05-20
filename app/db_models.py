@@ -18,11 +18,9 @@ class User(Base):
     __tablename__ = "users"
     __table_args__ = {'mysql_charset': 'utf8mb4'}
 
-    id: Mapped[int] = mapped_column(primary_key=True)
-    username: Mapped[str] = mapped_column(String(30))
-    enc_password: Mapped[str] = mapped_column(String(50))
-    salt: Mapped[str] = mapped_column(String(50))
-
+    Id: Mapped[int] = mapped_column(primary_key=True)
+    Username: Mapped[str] = mapped_column(String(30), unique=True)
+    Password: Mapped[str] = mapped_column(String(50))
 
 class Result(Base):
     __tablename__ = "results"

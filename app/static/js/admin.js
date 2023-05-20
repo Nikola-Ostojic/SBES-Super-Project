@@ -16,11 +16,25 @@ toastr.options = {
     "hideMethod": "fadeOut"
   }
 
+function logout(){
+    $.ajax({
+        type: "POST",
+        url: "/logout",
+        data: {},
+        contentType: false,
+        processData: false,
+        success: function () {
+            toastr["success"]("Uspešno autentifikovan!", "Obaveštenje")
+            window.location.href = window.location.origin + '/admin';
+        }
+    });
+}
+
 
 function editPage(pageId){
     data = document.getElementById("edit-page-" + pageId);
-    formData = new FormData(data);  
-    formData.append('pageId', pageId)  
+    formData = new FormData(data);
+    formData.append('pageId', pageId)
 
     $.ajax({
         type: "POST",
@@ -36,9 +50,9 @@ function editPage(pageId){
 
 function editQuestion(pageId,questionId){
     data = document.getElementById("edit-question-" + pageId + "-" + questionId);
-    formData = new FormData(data);  
-    formData.append('pageId', pageId)  
-    formData.append('questionId', questionId)  
+    formData = new FormData(data);
+    formData.append('pageId', pageId)
+    formData.append('questionId', questionId)
 
     $.ajax({
         type: "POST",
@@ -54,9 +68,9 @@ function editQuestion(pageId,questionId){
 
 function editAnswer(pageId,questionId,answerId){
     data = document.getElementById("edit-answer-" + pageId + "-" + questionId + "-" + answerId);
-    formData = new FormData(data);  
-    formData.append('pageId', pageId)  
-    formData.append('questionId', questionId)  
+    formData = new FormData(data);
+    formData.append('pageId', pageId)
+    formData.append('questionId', questionId)
     formData.append('answerId', answerId)
 
     $.ajax({
@@ -96,12 +110,12 @@ function collapse(page,question=null){
     if (question){
         elements = $('.admin-tab[data-page="' + page + '"][data-question="' + question + '"]')
 
-        
-    }else{        
+
+    }else{
         elements = $('.admin-tab[data-page="' + page + '"]')
     }
-    $.each(elements, function(){        
-        if ($(this).hasClass('hidden')){ 
+    $.each(elements, function(){
+        if ($(this).hasClass('hidden')){
             if(question){
                 $(this).removeClass('hidden')
             }else{
@@ -112,30 +126,30 @@ function collapse(page,question=null){
         }else{
             if(question){
                 $(this).addClass('hidden')
-            }else{                
-                $(this).addClass('hidden')                
+            }else{
+                $(this).addClass('hidden')
             }
         }
-    })        
+    })
 }
 
 function showElement(page, question = null, answer = null){
     elements = null;
 
     if (answer){
-        elements = $('.admin-form-container[data-page="' + page + '"][data-question="' + question + '"][data-answer="' + answer + '"]')        
+        elements = $('.admin-form-container[data-page="' + page + '"][data-question="' + question + '"][data-answer="' + answer + '"]')
     }
     else if (question){
-        elements = $('.admin-form-container[data-page="' + page + '"][data-question="' + question + '"]')        
-    }else{        
+        elements = $('.admin-form-container[data-page="' + page + '"][data-question="' + question + '"]')
+    }else{
         elements = $('.admin-form-container[data-page="' + page + '"]')
     }
 
     $('.admin-form-container').addClass('hidden')
     $('.new-answer-form').addClass('hidden')
 
-    $.each(elements, function(){        
-        if ($(this).hasClass('hidden')){ 
+    $.each(elements, function(){
+        if ($(this).hasClass('hidden')){
             if(answer){
                 $(this).removeClass('hidden')
             }
@@ -149,14 +163,14 @@ function showElement(page, question = null, answer = null){
                     $(this).removeClass('hidden')
                 }
             }
-        }    
-    })   
+        }
+    })
 }
 
 function showAddAnswer(pageIndex,questionIndex){
     $('.new-answer-form').addClass('hidden')
     $('.admin-form-container').addClass('hidden')
-    $('.new-answer-form[data-page="' + pageIndex + '"][data-question="' + questionIndex + '"]').removeClass("hidden")         
+    $('.new-answer-form[data-page="' + pageIndex + '"][data-question="' + questionIndex + '"]').removeClass("hidden")
 }
 
 

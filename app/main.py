@@ -1,27 +1,24 @@
 from flask import Flask, render_template, url_for,request, session, redirect
 from flask_session import Session
-from flask_login import LoginManager
 from calculate import calculate_result
 from processing import process, edit_page_json,edit_question_json, edit_answer_json, add_answer_to_json
 from models import Page
-from database import get_db_engine, init_tables
+from database import get_db_engine, init_tables, validate_user_credentials
+import os
+from db_models import User
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config["SESSION_PERMANENT"] = True
 app.config["PERMANENT_SESSION_LIFETIME"] = 1800
 app.config["SESSION_TYPE"] = "filesystem"
+app.secret_key = os.getenv('SECRET_KEY')
 Session(app)
-#login_manager = LoginManager()
-#login_manager.init_app(app)
 CONFIG_NAME = "config.json"
 
 engine = get_db_engine()
 init_tables(engine)
 
-#@login_manager.user_loader
-#def load_user(user_id):
-#    return User.get(user_id)
 
 @app.route('/')
 @app.route('/home')
@@ -42,6 +39,8 @@ def home():
 
 @app.route('/admin')
 def admin():
+    if session.get('authenticated') != True:
+        return redirect(url_for('login'))
     pages = process(CONFIG_NAME, "small")
     return render_template("admin.html", pages=pages)
 
@@ -129,6 +128,36 @@ def result():
     session['result'] = result
     session['company'] = company
     response = app.response_class(response="OK" if result else "ERR", status=200 if res else 400)
+    return response
+
+
+@app.route('/login', methods=['POST', 'GET'])
+def login():
+    if request.method == 'GET':
+        if session.get('authenticated') == True:
+            return redirect(url_for('admin'))
+        html = render_template("login.html")
+        return html
+
+    else:
+        username = request.form.get('username')
+        password =  request.form.get('password')
+
+        is_valid = validate_user_credentials(engine, username, password)
+
+        if is_valid:
+            session['authenticated'] = True
+
+        response = app.response_class(response="OK" if is_valid else "ERR", status=200 if is_valid else 400)
+
+        return response
+
+@app.route('/logout', methods=['POST'])
+def logout():
+    if session.get('authenticated'):
+        del session['authenticated']
+
+    response = app.response_class(response="OK", status=200)
     return response
 
 
