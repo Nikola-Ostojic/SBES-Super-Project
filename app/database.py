@@ -1,11 +1,11 @@
-import mysql.connector
-from logging import error
-import traceback
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, select, MetaData, Table
 from sqlalchemy.orm import Session, sessionmaker
-from db_models import Result, Base, Factor
+from db_models import Result, Base, Factor, CheckedItem, SelectedItem
+from models import Answer
 import os
-from logging import info
+from logging import info, error
+import hashlib
+import copy
 
 
 def get_db_engine():
@@ -20,36 +20,75 @@ def init_tables(engine):
     Base.metadata.create_all(engine)
 
 
-# DEPRICATED - ovo mozda ni ne radi jer sam promenio
-# pcidss i iso27001 u mala slova treba testirati
-def insert_row(database, row_data):
-    values = ""
-    br = 0
-    for column in row_data.keys():
-        br += 1
-        if row_data.get(column) is not None:
-            print('printanje: ', row_data[column], flush=True)
-            if isinstance(row_data[column], int):
-                values += str(row_data[column])
-            else:
-                values += "'" + row_data[column] + "'"
-            values += ','
-
-    values = values[:-1]
-
-    cursor = database.cursor()
-
-    statement = "INSERT INTO Results VALUES ({})".format(values)
-
-    cursor.execute(statement)
-    database.commit()
-
-
-def write_to_database(engine, result: Result, factor:Factor):
+def write_to_database(engine, result: Result, factor:Factor, all_answers:list[Answer], selected_answers:list[Answer]):
     result.Factor = factor
 
-    session: Session = sessionmaker(engine)
+    session = sessionmaker(engine)
+
+    with session.begin() as s:
+        all_anw = convert_answers_to_chkim(all_answers)
+        for anw in all_anw:
+            print("WRITING TO DATABASE 4", flush=True)
+            chk_item = check_if_checked_item_exists_in_db(s, anw.Id)
+
+            if not chk_item:
+                print("WRITING TO DATABASE 6", flush=True)
+                s.add(anw)
+
+
+        print("WRITING TO DATABASE", flush=True)
+
+    session = sessionmaker(engine)
 
     with session.begin() as s:
         s.add(result)
-        session.commit()
+        print("PART TWO ", flush=True)
+        all_checked = get_all_checked_items(s)
+        for sl_anw in selected_answers:
+            item = find_item_with_hash(all_checked, sl_anw)
+            if item:
+                si = SelectedItem()
+                si.CheckedItemId = item.Id
+                si.Result = result
+                s.add(si)
+
+
+def hash_text(text:str):
+    h = hashlib.sha256()
+    h.update(bytes(text, 'UTF-8'))
+    return h.hexdigest()
+
+
+def convert_answers_to_chkim(answers: list[Answer]) -> list[CheckedItem]:
+    res = []
+    for anw in answers:
+        print("ANSWER : " + anw.text, flush=True)
+        chk = CheckedItem()
+        chk.Text = anw.text
+        chk.Id = hash_text(anw.text)
+        res.append(chk)
+
+    return res
+
+
+def find_item_with_hash(all_checked_items: list[CheckedItem], sel_answer: Answer) -> CheckedItem|None:
+    sel_hash = hash_text(sel_answer.text)
+    print("FINDING ITEM WITH HASH: " + str(sel_hash), flush=True)
+    for anw in all_checked_items:
+        print("ANW ID " + str(anw.Id), flush=True)
+        if anw.Id == sel_hash:
+            return anw
+
+    return None
+
+def check_if_checked_item_exists_in_db(session, id) -> CheckedItem|None:
+    check_item = session.query(CheckedItem).filter(CheckedItem.Id == id).first()
+    return check_item
+
+
+def get_all_checked_items(session) -> list[CheckedItem]:
+    checked_list = session.query(CheckedItem).all()
+    return checked_list
+
+
+

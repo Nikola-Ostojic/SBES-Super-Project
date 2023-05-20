@@ -1,7 +1,7 @@
 from models import Page,Question,Answer
 import json
 
-def process(config_name, questionnaire):
+def process(config_name, questionnaire) -> list[Page]:
     json_data = json.load(open(config_name, 'r', encoding='utf-8'))
     pages = parse_pages(json_data['questionnaire'][questionnaire]['pages'])
     return pages
@@ -26,6 +26,13 @@ def parse_answer(answer):
     text = answer['text']
     weight = answer['weight']
     return Answer(id,index,text,weight)
+
+def parse_answers(answers, indexes):
+    result = []
+    for index in indexes:
+        result.append(parse_answer(answers[int(index)]))
+
+    return result
 
 def parse_question(question):
     id = question['id']
@@ -89,7 +96,7 @@ def edit_question_json(config_name, questionnaire, page_identifier, question_ide
         print(str(e), flush=True)
         return False
 
-def edit_answer_json(config_name, page_identifier, question_identifier, answer_identifier, answer_index, answer, weight):
+def edit_answer_json(config_name, questionnaire, page_identifier, question_identifier, answer_identifier, answer_index, answer, weight):
     try:
         config_data = json.load(open(config_name,'r', encoding='utf-8'))
 

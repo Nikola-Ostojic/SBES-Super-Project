@@ -27,8 +27,13 @@ services:
       MYSQL_PASSWORD: sbesftn
     volumes:
       - ./db:/docker-entrypoint-initdb.d/:ro
+      - ./app/config.json/:/config.json
+      - sbes-data:/var/lib/mysql
     healthcheck:
       test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -p'${MYSQL_ROOT_PASSWORD}' || echo 'Health check failed'"]
       interval: 10s
       timeout: 3s
       retries: 5
+
+volumes:
+  sbes-data:

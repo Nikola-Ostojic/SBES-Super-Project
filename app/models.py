@@ -6,7 +6,7 @@ class Page:
         self.id = id
         self.index = index
         self.title = title
-        self.questions = questions if questions else []
+        self.questions:list[Question] = questions if questions else []
 
 
 class Question:
@@ -15,7 +15,7 @@ class Question:
         self.index = index
         self.question = question
         self.answer_type = answer_type
-        self.answers = answers if answers else []
+        self.answers:list[Answer] = answers if answers else []
 
 
 class Answer:
@@ -61,3 +61,11 @@ class PolitikaIB(Enum):
     ElektronskePoste = 3
     RukovanjeLozinkama = 4
 
+
+class SelectedAnswersSmall:
+    def __init__(self,pg1_q5, pg1_q12, pg2_q1, pg2_q4, pg3_q3):
+        self.pg1_q5 = pg1_q5
+        self.pg1_q12 = pg1_q12
+        self.pg2_q1 = pg2_q1
+        self.pg2_q4 = pg2_q4
+        self.pg3_q3 = pg3_q3

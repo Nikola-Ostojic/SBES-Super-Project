@@ -21,7 +21,7 @@
         <div class="bar-wrapper">
             <div class="progress-bar">
                 <div class="progress">
-    
+
                 </div>
             </div>
         </div>
@@ -50,6 +50,8 @@
                             <div class="answer">
                                 {% if question.answer_type == 'number' %}
                                     <input type="{{question.answer_type}}" pattern="[1-9]{1}[0-9]{9}" oninput="checkLength(this)" name="answer-{{page.id}}-{{question.id}}{% if question.answer_type != 'radio'%}-{{answer.id}}{%endif%}" value="{{answer.weight}}">
+                                {% elif question.answer_type == 'checkbox' %}
+                                    <input type="{{question.answer_type}}" name="answer-{{page.id}}-{{question.id}}{% if question.answer_type != 'radio'%}-{{answer.id}}{%endif%}" value="{{answer.id}}">
                                 {% else %}
                                     <input type="{{question.answer_type}}" name="answer-{{page.id}}-{{question.id}}{% if question.answer_type != 'radio'%}-{{answer.id}}{%endif%}" value="{{answer.weight}}">
                                 {% endif %}
@@ -68,7 +70,7 @@
                 <button class="button-submit hidden">Izračunaj</button>
             </div>
         </form>
-       
+
     </div>
 </main>
 
