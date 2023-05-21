@@ -28,12 +28,11 @@ The goal of this project was to build a questionnaire system that will calculate
 
 There are some improvements that could be made to make the experience even better:
 1. Making the pages responsive (mobile-ready)
-2. Configuration file should be extended to support multiple questionnaires
-3. There should be an authentication/authorization layer to enter the admin page
-4. Argument could be made that configuration should be kept in the database as well
-5. Application should be dockerized in order to support easy deployments and usage of environment variables and secret keys
+2. ~Configuration file should be extended to support multiple questionnaires~ DONE
+3. ~There should be an authentication/authorization layer to enter the admin page~ DONE
+4. ~Argument could be made that configuration should be kept in the database as well~ We made a way better database
+5. ~Application should be dockerized in order to support easy deployments and usage of environment variables and secret keys~ Killed it
 6. Flask by itself is not production ready and WSGI should be used
-7. Adding schema.org and SEO optimizations
 
 Software development is a continuous process and almost certainly after implementing all of these improvements there would be always something more to add or improve,
 and the effort that should be put into it should be based on the number of users that are accessing and using the application.
