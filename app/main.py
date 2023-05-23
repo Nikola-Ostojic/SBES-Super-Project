@@ -23,6 +23,11 @@ init_tables(engine)
 @app.route('/')
 @app.route('/home')
 def home():
+    html = render_template("landingPage.html")
+    return html
+
+@app.route('/smallBusiness')
+def smallBusiness():
     pages = None
     if not session.get("pages"):
         pages = process(CONFIG_NAME, "small")
@@ -35,6 +40,22 @@ def home():
 
     html = render_template("questionnaire.html", pages=pages)
     return html
+
+@app.route('/criticalBusiness')
+def mediumBusiness():
+    pages = None
+    if not session.get("criticalPages"):
+        pages = process(CONFIG_NAME, "critical")
+        session['criticalPages'] = pages
+    else:
+        pages = session.get('criticalPages')
+
+    app.logger.info(pages)
+    app.logger.info(type(pages))
+
+    html = render_template("questionnaire.html", pages=pages)
+    return html
+
 
 
 @app.route('/admin')

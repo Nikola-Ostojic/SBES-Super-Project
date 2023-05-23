@@ -105,7 +105,7 @@ button{
     font-weight: 600;
     background-color: white;
     margin: 0px;
-    padding: 1rem;
+    padding: 1.5rem;
     color:rgb(57, 57, 57);
 }
 
@@ -203,3 +203,12 @@ button:hover{
     background-color: rgba(130, 130, 130, 1);
 }
 
+.ftn-img{
+    position: fixed;
+    top: 0rem;
+    left: 0rem;
+    margin: 0.5rem 2rem;
+    width: 4rem;
+    cursor: pointer;
+    z-index: 10;
+}

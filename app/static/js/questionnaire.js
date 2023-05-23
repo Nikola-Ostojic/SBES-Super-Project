@@ -6,6 +6,11 @@ pageNumber = $('form').children().length - 1
 currentPage = 1
 lastPage = 1
 
+$('.ftn-img').click(function (e) { 
+    e.preventDefault()
+    window.location.href = "/home"
+ })
+
 $('.answer').click(function (e) { 
     let radio = $(this).find('input[type=radio]')
     if (radio.length != 0){
