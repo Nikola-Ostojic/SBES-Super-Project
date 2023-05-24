@@ -22,6 +22,8 @@ def extract_all_answers(questionnaire) -> list[Answer]:
     return answers
 
 
+#region Small
+
 def calculate_result(engine, result):
     if engine:
         res_obj, selected_answers = retrieve_all_answers(result)
@@ -183,20 +185,6 @@ def calculate_fifth_page(result):
 
     return F5, F6
 
-def get_factor_by_value(value):
-    if value <= 10:
-        return 0.8
-    elif value <= 20:
-        return 0.9
-    elif value <= 50:
-        return 1.0
-    elif value <= 80:
-        return 1.3
-    elif value <= 100:
-        return 1.5
-    else:
-        return -1
-
 def retrieve_all_answers(q_result) -> Tuple[Result, list[Answer]]:
     info(str(q_result))
     result = Result()
@@ -289,8 +277,6 @@ def retrieve_all_answers(q_result) -> Tuple[Result, list[Answer]]:
 
     return result, answers
 
-
-
 def set_calculative_values(row,BP,F1,F2,F3,F4,F5,F6):
     row['BaznaPremija'] = BP
     row['Faktor1'] = F1
@@ -299,6 +285,27 @@ def set_calculative_values(row,BP,F1,F2,F3,F4,F5,F6):
     row['Faktor4'] = F4
     row['Faktor5'] = F5
     row['Faktor6'] = F6
+
+#endregion
+
+
+#region Critical
+
+#endregion
+
+def get_factor_by_value(value):
+    if value <= 10:
+        return 0.8
+    elif value <= 20:
+        return 0.9
+    elif value <= 50:
+        return 1.0
+    elif value <= 80:
+        return 1.3
+    elif value <= 100:
+        return 1.5
+    else:
+        return -1
 
 def get_answer_ids(result, answer, from_idx, to_idx):
     res = []

@@ -69,3 +69,9 @@ class SelectedAnswersSmall:
         self.pg2_q1 = pg2_q1
         self.pg2_q4 = pg2_q4
         self.pg3_q3 = pg3_q3
+
+
+class QuestionareType(Enum):
+    Small = 0
+    Big = 1
+    Critical = 2

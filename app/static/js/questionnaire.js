@@ -95,9 +95,13 @@ function submitForm(){
         contentType: false,
         processData: false,
         success: function (response) {
+            alert('hello')
             result = response
             window.location.href = "/result"
-        }
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) { 
+            alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+        } 
     })
 }
 
