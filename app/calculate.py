@@ -289,9 +289,6 @@ def set_calculative_values(row,BP,F1,F2,F3,F4,F5,F6):
 #endregion
 
 
-#region Critical
-
-#endregion
 
 def get_factor_by_value(value):
     if value <= 10:

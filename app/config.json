@@ -56,7 +56,7 @@
                         {
                             "id": 4,
                             "index": 4,
-                            "question": "Godi\u0161nji prihodi (prose\u010dni) :",
+                            "question": "Godi\u0161nji prihodi u evrima (prose\u010dni) :",
                             "answerType": "number",
                             "answers": [
                                 {
@@ -681,44 +681,20 @@
                 {
                     "id": 1,
                     "index": 1,
-                    "title": "Zaposleni",
+                    "title": "Podaci o preduzeću i zaposlenima",
                     "formula": "CONST",
                     "questions": [
                         {
                             "id": 1,
                             "index": 1,
-                            "question": "Broj zaposlenih:",
-                            "answerType": "checkbox",
+                            "question": "Naziv firme:",
+                            "answerType": "text",
                             "answers": [
                                 {
                                     "id": 1,
                                     "index": 1,
-                                    "text": "0-4",
-                                    "weight": 0
-                                },
-                                {
-                                    "id": 2,
-                                    "index": 2,
-                                    "text": "5-20",
-                                    "weight": 1
-                                },
-                                {
-                                    "id": 3,
-                                    "index": 3,
-                                    "text": "21-50",
-                                    "weight": 2
-                                },
-                                {
-                                    "id": 4,
-                                    "index": 4,
-                                    "text": "52-100",
-                                    "weight": 5
-                                },
-                                {
-                                    "id": 5,
-                                    "index": 5,
-                                    "text": "100-",
-                                    "weight": 5
+                                    "text": "",
+                                    "weight": ""
                                 }
                             ],
                             "answer_type": "None"
@@ -726,6 +702,66 @@
                         {
                             "id": 2,
                             "index": 2,
+                            "question": "Adresa firme:",
+                            "answerType": "text",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "",
+                                    "weight": ""
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 3,
+                            "index": 3,
+                            "question": "Kontakt telefon:",
+                            "answerType": "text",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "",
+                                    "weight": ""
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 4,
+                            "index": 4,
+                            "question": "Godi\u0161nji prihodi u evrima (prose\u010dni) :",
+                            "answerType": "number",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "",
+                                    "weight": ""
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 5,
+                            "index": 5,
+                            "question": "Broj zaposlenih:",
+                            "answerType": "number",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "",
+                                    "weight": ""
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 6,
+                            "index": 6,
                             "question": "Da li ikt ima implementirano upravljanje pristupom bazirano na ulogama zaposlenih u poslovnim procesima?",
                             "answerType": "radio",
                             "answers": [
@@ -745,9 +781,9 @@
                             "answer_type": "None"
                         },
                         {
-                            "id": 3,
-                            "index": 3,
-                            "question": "Da li ikt ima mogucnost pracenja aktivnosti zaposlenih?",
+                            "id": 7,
+                            "index": 7,
+                            "question": "Da li ikt ima mogućnost praćenja aktivnosti zaposlenih?",
                             "answerType": "radio",
                             "answers": [
                                 {
@@ -766,8 +802,8 @@
                             "answer_type": "None"
                         },
                         {
-                            "id": 4,
-                            "index": 4,
+                            "id": 8,
+                            "index": 8,
                             "question": "Da li se edukuju novozaposleni o bezbednosti IKT sistema?",
                             "answerType": "radio",
                             "answers": [
@@ -787,8 +823,8 @@
                             "answer_type": "None"
                         },
                         {
-                            "id": 5,
-                            "index": 5,
+                            "id": 9,
+                            "index": 9,
                             "question": "Da li novozaposleni potpisuje NDA (Zakon o poverljivosti)?",
                             "answerType": "radio",
                             "answers": [
@@ -808,8 +844,8 @@
                             "answer_type": "None"
                         },
                         {
-                            "id": 6,
-                            "index": 6,
+                            "id": 10,
+                            "index": 10,
                             "question": "Da li se organizuju obuke za stalne zaposlene u redovnim vremenskim intervalima u vezi bezbednosti ikt?",
                             "answerType": "radio",
                             "answers": [
@@ -833,13 +869,13 @@
                 {
                     "id": 2,
                     "index": 2,
-                    "title": "Zastita podataka",
+                    "title": "Zaštita podataka",
                     "formula": "CONST",
                     "questions": [
                         {
                             "id": 1,
                             "index": 1,
-                            "question": "Da li postoji klasifikacija podataka po nivoima zastite u zavisnosti od njihove osetljivosti i važnosti?",
+                            "question": "Da li postoji klasifikacija podataka po nivoima zaštite u zavisnosti od njihove osetljivosti i važnosti?",
                             "answerType": "radio",
                             "answers": [
                                 {
@@ -1036,7 +1072,7 @@
                         {
                             "id": 3,
                             "index": 3,
-                            "question": "Da li postoji dvofaktorska autentifikacija u fizickom i u virtuelnom prostoru?",
+                            "question": "Da li postoji dvofaktorska autentifikacija u fizičkom i u virtuelnom prostoru?",
                             "answerType": "radio",
                             "answers": [
                                 {
@@ -1141,7 +1177,7 @@
                         {
                             "id": 8,
                             "index": 8,
-                            "question": "Da li je pristup sistemu omogucen samo licima koji odrzavaju sistem i licima kojima je potreban pojedinacni pristup (na zahtev ikt sistema)?",
+                            "question": "Da li je pristup sistemu omogućen samo licima koji održavaju sistem i licima kojima je potreban pojedinačni pristup (na zahtev ikt sistema)?",
                             "answerType": "radio",
                             "answers": [
                                 {
@@ -1183,7 +1219,7 @@
                         {
                             "id": 10,
                             "index": 10,
-                            "question": "Da li zaposleni imaju mogucnost instaliranja dodatnog softvera? (samo admin bi trebao da ima dozvolu)",
+                            "question": "Da li zaposleni imaju mogućnost instaliranja dodatnog softvera? (samo admin bi trebao da ima dozvolu)",
                             "answerType": "radio",
                             "answers": [
                                 {
@@ -1206,7 +1242,7 @@
                 {
                     "id": 4,
                     "index": 4,
-                    "title": "Fizicka bezbednost",
+                    "title": "Fizička bezbednost",
                     "formula": "CONST",
                     "questions": [
                         {
@@ -1254,7 +1290,7 @@
                         {
                             "id": 3,
                             "index": 3,
-                            "question": "Da li je pristup serverskoj prostoriji ograničen?",
+                            "question": "Da li je prostorija adekvatno zaključana (zaštićena)?",
                             "answerType": "radio",
                             "answers": [
                                 {
@@ -1275,7 +1311,7 @@
                         {
                             "id": 4,
                             "index": 4,
-                            "question": "Da li je prostorija adekvatno zaključana (zaštićena)?",
+                            "question": "Da li su serveri zaštićeni od fizičkih oštećenja, prirodnih nepogoda i neadekvatnih klimatskih uslova?",
                             "answerType": "radio",
                             "answers": [
                                 {
@@ -1288,7 +1324,7 @@
                                     "id": 2,
                                     "index": 2,
                                     "text": "Ne",
-                                    "weight": 20
+                                    "weight": 15
                                 }
                             ],
                             "answer_type": "None"
@@ -1296,7 +1332,7 @@
                         {
                             "id": 5,
                             "index": 5,
-                            "question": "Da li su serveri zaštićeni od fizičkih oštećenja, prirodnih nepogoda i neadekvatnih klimatskih uslova?",
+                            "question": "Da li su zaštićeni od elektromagnetnog zračenja?",
                             "answerType": "radio",
                             "answers": [
                                 {
@@ -1317,27 +1353,6 @@
                         {
                             "id": 6,
                             "index": 6,
-                            "question": "Da li su zaštićeni od elektromagnetnog zračenja?",
-                            "answerType": "radio",
-                            "answers": [
-                                {
-                                    "id": 1,
-                                    "index": 1,
-                                    "text": "Da",
-                                    "weight": 0
-                                },
-                                {
-                                    "id": 2,
-                                    "index": 2,
-                                    "text": "Ne",
-                                    "weight": 15
-                                }
-                            ],
-                            "answer_type": "None"
-                        },
-                        {
-                            "id": 7,
-                            "index": 7,
                             "question": "Da li su postavljeni uređaji za neprekidno napajanje električnom energijom (Uninterruptible Power Supplies - UPS)?",
                             "answerType": "radio",
                             "answers": [
@@ -1451,7 +1466,7 @@
                         {
                             "id": 5,
                             "index": 5,
-                            "question": "Da li sistem sadrzi DMZ (demilitarised zone)? - sluzi da bi se privukao napad da bi ostatak sistema ostao bezbedan",
+                            "question": "Da li sistem sadrzi DMZ (demilitarised zone)?",
                             "answerType": "radio",
                             "answers": [
                                 {
@@ -1472,7 +1487,7 @@
                         {
                             "id": 6,
                             "index": 6,
-                            "question": "Da li se koriste bastion serveri? - prepoznavanje i sprecavanje napada?",
+                            "question": "Da li se koriste bastion serveri? (Prepoznavanje i sprečavanje napada)",
                             "answerType": "radio",
                             "answers": [
                                 {
@@ -1543,7 +1558,7 @@
                         {
                             "id": 2,
                             "index": 2,
-                            "question": "Da li se dnevne kopije cuvaju barem sedam dana?(trebalo bi nedelju dana)",
+                            "question": "Da li se dnevne kopije čuvaju barem sedam dana?",
                             "answerType": "radio",
                             "answers": [
                                 {
@@ -1564,7 +1579,7 @@
                         {
                             "id": 3,
                             "index": 3,
-                            "question": "Da li se sedmicne kopije cuvaju barem mesec dana? (trebalo bi mesec dana)",
+                            "question": "Da li se sedmične kopije čuvaju barem mesec dana?",
                             "answerType": "radio",
                             "answers": [
                                 {
@@ -1585,7 +1600,7 @@
                         {
                             "id": 4,
                             "index": 4,
-                            "question": "Da li se mesecne kopije cuvaju barem godinu dana?",
+                            "question": "Da li se mesečne kopije čuvaju barem godinu dana?",
                             "answerType": "radio",
                             "answers": [
                                 {
@@ -1606,7 +1621,7 @@
                         {
                             "id": 5,
                             "index": 5,
-                            "question": "Da li se godisnje kopije cuvaju neograničeno dugo?",
+                            "question": "Da li se godišnje kopije čuvaju neograničeno dugo?",
                             "answerType": "radio",
                             "answers": [
                                 {
@@ -1716,7 +1731,7 @@
                         {
                             "id": 4,
                             "index": 4,
-                            "question": "Da li se vrše periodični testovi bezbednosti IKT sistema? (penetration testing)",
+                            "question": "Da li se vrše periodični testovi bezbednosti IKT sistema? (Penetration testing)",
                             "answerType": "radio",
                             "answers": [
                                 {
@@ -1779,7 +1794,7 @@
                         {
                             "id": 7,
                             "index": 7,
-                            "question": "Da li se redovno ažurira?",
+                            "question": "Da li se procedure testiranja redovno ažurira?",
                             "answerType": "radio",
                             "answers": [
                                 {
@@ -1838,6 +1853,42 @@
                                 }
                             ],
                             "answer_type": "None"
+                        }
+                    ]
+                },
+                {
+                    "id": 8,
+                    "index": 8,
+                    "title": "Naknada i istorija incidenata",
+                    "questions": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "question": "\u017deljeni iznos naknade (standardni iznos je milion eura)? ",
+                            "answerType": "number",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "",
+                                    "weight": ""
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "question": "Koliko je sajber incidenata kompanija do\u017eivela u prethodne tri godine?",
+                            "answerType": "number",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "",
+                                    "weight": ""
+                                }
+                            ]
                         }
                     ]
                 }

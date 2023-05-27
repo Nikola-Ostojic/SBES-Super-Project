@@ -1,6 +1,25 @@
+toastr.options = {
+    "closeButton": false,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": false,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "800",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  }
+
 var lastPage = 1
 var pageNumber = 0
 var result = 0
+var validatePages = []
 
 pageNumber = $('form').children().length - 1
 currentPage = 1
@@ -41,9 +60,18 @@ $(document).ready(function () {
 
 $('.page').click(function (e) { 
     if(!validatePage(currentPage)){
-        alert('Niste odgovorili na sva obavezna pitanja!')
+        if(validatePages.includes(parseInt(currentPage))){
+            validatePages.pop(parseInt(currentPage))
+        }
+
+        toastr["error"]("Niste odgovorili na sva obavezna pitanja!", "Obaveštenje")
         return false;
     }
+    else{
+        if(!validatePages.includes(parseInt(currentPage)))
+            validatePages.push(parseInt(currentPage))
+    }
+
     let pageClass = $(this).attr('class').split(' ')[1]
     lastPage = currentPage
     currentPage = pageClass.split('-')[1]
@@ -55,8 +83,15 @@ $('.page').click(function (e) {
 $('.button-next').click(function (e) { 
     e.preventDefault();
     if(!validatePage(currentPage)){
-        alert('Niste odgovorili na sva obavezna pitanja!')
+        if(validatePages.includes(parseInt(currentPage))){
+            validatePages.pop(parseInt(currentPage))
+        }
+
+        toastr["error"]("Niste odgovorili na sva obavezna pitanja!", "Obaveštenje")
         return false;
+    }
+    else if(!validatePages.includes(parseInt(currentPage))){
+        validatePages.push(parseInt(currentPage))
     }
         
     goToPage(parseInt( currentPage ) + 1, currentPage)
@@ -65,8 +100,15 @@ $('.button-next').click(function (e) {
 $('.button-previous').click(function (e) {
     if(currentPage > 1){
         if(!validatePage(currentPage)){
-            alert('Niste odgovorili na sva obavezna pitanja!')
+            if(validatePages.includes(parseInt(currentPage))){
+                validatePages.pop(parseInt(currentPage))
+            }
+
+            toastr["error"]("Niste odgovorili na sva obavezna pitanja!", "Obaveštenje")
             return false;
+        }
+        else if(!validatePages.includes(parseInt(currentPage))){
+            validatePages.push(parseInt(currentPage))
         }
         goToPage(parseInt(currentPage) - 1, currentPage)
     }
@@ -76,9 +118,24 @@ $('.button-previous').click(function (e) {
 $('.button-submit').click(function(e){
     e.preventDefault()
     if(!validatePage(currentPage)){
-        alert('Niste odgovorili na sva obavezna pitanja!')
+        if(validatePages.includes(parseInt(currentPage))){
+            validatePages.pop(parseInt(currentPage))
+        }
+
+        toastr["error"]("Niste odgovorili na sva obavezna pitanja!", "Obaveštenje")
         return false;
     }
+    else if(!validatePages.includes(parseInt(currentPage))){
+        validatePages.push(parseInt(currentPage))
+    }
+
+    for(let i = 1; i<=currentPage; i++){
+        if(!validatePages.includes(i)){
+            toastr["error"]("Niste odgovorili na sva obavezna pitanja sa " + i.toString() + ". strane!", "Obaveštenje")
+            return false;
+        }
+    }
+
     var answers = $('input').val()
     submitForm()
 })
@@ -106,8 +163,8 @@ function submitForm(){
 }
 
 function validatePage(page){
+    console.log(page + " validating...")
     let valid = true
-
     $("#question-form :input").each(function(){
         let input = $(this)
 

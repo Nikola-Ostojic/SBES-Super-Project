@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for,request, session, redirect
 from flask_session import Session
 from calculate import calculate_result
+from calculateCritical import calculate_result_critical
 from processing import process, edit_page_json,edit_question_json, edit_answer_json, add_answer_to_json
 from models import Page, QuestionareType
 from database import get_db_engine, init_tables, validate_user_credentials
@@ -124,14 +125,18 @@ def add_answer():
 
 @app.route('/result', methods=["POST", "GET"])
 def result():
+    print('Da li se ista ispisuje?', flush=True)
     questionareType = session.get('questionareType')
-    
+    typeValue = questionareType.value
     if request.method == 'GET':
         if session.get('result'):
-            return render_template('result.html', result=session['result'], company=session['company'])
+            return render_template('result.html', result=session['result'], 
+                                   company=session['company'],
+                                   questionareType=typeValue)
         else:
             return redirect('home')
 
+    print('Da li se ista ispisuje 22222222?', flush=True)
     if not session.get("pages") and not session.get("criticalPages"):
         return "Session expired, please fill out the form again. Sorry for the inconvenience."
 
@@ -139,6 +144,8 @@ def result():
         pages = session.get("pages")
     elif questionareType == QuestionareType.Critical:
         pages = session.get("criticalPages")
+
+    print('Da li se ista ispisuje 333333333333333?', flush=True)
 
     res = {}
     for page in pages:
@@ -156,7 +163,8 @@ def result():
         result = calculate_result(engine, res)
         company = res['answer-1-1-1']
     elif questionareType == QuestionareType.Critical:
-        return app.response_class(response='OK', status=200)
+        result = calculate_result_critical(engine, res)
+        company = res['answer-1-1-1']
 
     session['result'] = result
     session['company'] = company
