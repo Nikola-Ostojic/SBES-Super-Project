@@ -125,7 +125,6 @@ def add_answer():
 
 @app.route('/result', methods=["POST", "GET"])
 def result():
-    print('Da li se ista ispisuje?', flush=True)
     questionareType = session.get('questionareType')
     typeValue = questionareType.value
     if request.method == 'GET':
@@ -136,7 +135,6 @@ def result():
         else:
             return redirect('home')
 
-    print('Da li se ista ispisuje 22222222?', flush=True)
     if not session.get("pages") and not session.get("criticalPages"):
         return "Session expired, please fill out the form again. Sorry for the inconvenience."
 
@@ -145,7 +143,6 @@ def result():
     elif questionareType == QuestionareType.Critical:
         pages = session.get("criticalPages")
 
-    print('Da li se ista ispisuje 333333333333333?', flush=True)
 
     res = {}
     for page in pages:
