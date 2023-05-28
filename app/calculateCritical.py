@@ -15,8 +15,6 @@ def calculate_result_critical(engine, result):
     if engine:
         res_obj = retrieve_all_answers(result)
 
-        print(*res_obj, " ovo je res obj.......", flush=True)
-
         BP, F1 = calculate_first_page_critical(result)
         F2 = calculate_second_page_critical(result)
         F3 = calculate_third_page_critical(result)

@@ -158,7 +158,6 @@ function submitForm(){
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { 
             toastr["error"](errorThrown, "Obaveštenje")
-            alert("Status: " + textStatus); alert("Error: " + errorThrown); 
         } 
     })
 }
@@ -253,6 +252,6 @@ function checkLength(e){
     
     if(length > 9){
         $(e).val(value.slice(0, 9))
-        alert('Maksimalna vrednost je 1 milijarda.')
+        toastr["warning"]("Maksimalna vrednost je 1 milijarda.", "Obaveštenje")
     }
 }
