@@ -38,7 +38,7 @@ def calculate_result(engine, result):
         res = "{:,.2f}".format(res)
 
         ret_val = {
-                "result": res,
+                "result": round(res, 2),
                 "BP": BP,
                 "Factor1": F1,
                 "Factor2": F2,

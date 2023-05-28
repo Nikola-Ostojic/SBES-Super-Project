@@ -72,7 +72,7 @@ class ResultCritical(Base):
     NDAZakon: Mapped[int] = mapped_column(Integer)
     ObukeZapos: Mapped[int] = mapped_column(Integer)
  
-    KasifPodataka: Mapped[int] = mapped_column(Integer)
+    KlasifPodataka: Mapped[int] = mapped_column(Integer)
     DozvoljeniNosaci: Mapped[int] = mapped_column(Integer)
     PrivatniNosaci: Mapped[int] = mapped_column(Integer)
     SifrovanjePodat: Mapped[int] = mapped_column(Integer)
@@ -139,6 +139,8 @@ class Factor(Base):
     Factor4: Mapped[float] = mapped_column(Float)
     Factor5: Mapped[float] = mapped_column(Float)
     Factor6: Mapped[float] = mapped_column(Float)
+    Factor7: Mapped[float] = mapped_column(Float)
+    Factor8: Mapped[float] = mapped_column(Float)
     ResultId: Mapped[Result] = mapped_column(ForeignKey("results.Id"), unique=True)
     Result = relationship("Result", back_populates="Factor")
 

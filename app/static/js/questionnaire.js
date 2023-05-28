@@ -152,11 +152,12 @@ function submitForm(){
         contentType: false,
         processData: false,
         success: function (response) {
-            alert('hello')
+            toastr["success"]("", "Obaveštenje")
             result = response
             window.location.href = "/result"
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { 
+            toastr["error"](errorThrown, "Obaveštenje")
             alert("Status: " + textStatus); alert("Error: " + errorThrown); 
         } 
     })
