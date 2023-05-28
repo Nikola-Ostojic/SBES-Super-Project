@@ -309,7 +309,7 @@ def get_answer_ids(result, answer, from_idx, to_idx):
     for i in range(from_idx, to_idx + 1):
         r = result.get(str(answer) + '-' + str(i))
         if r:
-            res.append(int(r))
+            res.append(int(i))
     return res
 
 def yes_no_answers(result, answer):

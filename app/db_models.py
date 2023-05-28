@@ -71,7 +71,7 @@ class ResultCritical(Base):
     EdukacijaZapos: Mapped[int] = mapped_column(Integer)
     NDAZakon: Mapped[int] = mapped_column(Integer)
     ObukeZapos: Mapped[int] = mapped_column(Integer)
- 
+
     KlasifPodataka: Mapped[int] = mapped_column(Integer)
     DozvoljeniNosaci: Mapped[int] = mapped_column(Integer)
     PrivatniNosaci: Mapped[int] = mapped_column(Integer)
@@ -105,7 +105,7 @@ class ResultCritical(Base):
     DMZ: Mapped[int] = mapped_column(Integer)
     BastionServeri: Mapped[int] = mapped_column(Integer)
     IDSIPS: Mapped[int] = mapped_column(Integer)
-    
+
     RezervneKopije: Mapped[int] = mapped_column(Integer)
     DnevneKopije: Mapped[int] = mapped_column(Integer)
     SedmicneKopije: Mapped[int] = mapped_column(Integer)

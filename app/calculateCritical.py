@@ -1,3 +1,4 @@
+from calculate import get_answer_ids, get_answers
 from models import Odgovor, Page,Question,Answer, SelectedAnswersSmall
 from database import write_to_database
 from mappings import KeyToColumnNameMappings
@@ -25,7 +26,7 @@ def calculate_result_critical(engine, result):
         F6 = calculate_sixth_page_critical(result)
         F7 = calculate_seventh_page_critical(result)
         F8, F9 = calculate_eighth_page_critical(result)
-              
+
         res = BP * F1 * F2 * F3 * F4 * F5 * F6 * F7 * F8 * F9
 
         ret_val = {
@@ -41,7 +42,7 @@ def calculate_result_critical(engine, result):
                 "Factor8": F8,
                 "Factor9": F9,
                 }
-        
+
         info(result)
 
         factor = Factor()
@@ -56,7 +57,7 @@ def calculate_result_critical(engine, result):
         factor.Factor8 = F8
 
         return ret_val
-        
+
     else:
         return None
 
@@ -154,8 +155,8 @@ def calculate_seventh_page_critical(result):
     factor += 15
     for i in range(1, 5):
         if result['answer-7-2-' + str(i)]:
-            factor -= int(result['answer-7-2-' + str(i)] or 0) or 0    
-        
+            factor -= int(result['answer-7-2-' + str(i)] or 0) or 0
+
 
     final_factor = get_factor_by_value(factor)
 
@@ -197,7 +198,7 @@ def get_factor_by_value(value):
         return 1.2
     else:
         return -1
-    
+
 def check_answer(answer):
     if answer == None:
         return False
@@ -270,7 +271,8 @@ def retrieve_all_answers(q_result) -> Tuple[ResultCritical, list[Answer]]:
 
     #PAGE 7
     result.LogAktivnostiKoris = True if check_answer(q_result.get('answer-7-1'))  else False
-    # 2. pitanje je checkbox... TODO
+    answer_ids = get_answer_ids(q_result, 'answer-7-2', 1, 6)
+    answers = get_answers("critical", 7, 2, answer_ids)
     result.CuvanjeLogova = True if check_answer(q_result.get('answer-7-3'))  else False
     result.PenetrationTesting = True if check_answer(q_result.get('answer-7-4'))  else False
     result.ProcUpravljanjemIncid = True if check_answer(q_result.get('answer-7-5'))  else False
@@ -284,4 +286,4 @@ def retrieve_all_answers(q_result) -> Tuple[ResultCritical, list[Answer]]:
     result.BrojIncidenata = int(q_result.get('answer-8-2-1')) if check_answer(q_result.get('answer-8-2-1')) else 0
 
 
-    return result
+    return result, answers
