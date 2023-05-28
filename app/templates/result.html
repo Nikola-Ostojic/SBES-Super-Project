@@ -22,6 +22,8 @@
         </div>
 
         <div class="result-table-container">
+
+            {% if questionareType == 0 %}
             <table class="result-table">
                 <tr>
                     <th>
@@ -88,7 +90,102 @@
                     </td>
                 </tr>
             </table>
+            {% endif %}
 
+            {% if questionareType == 2 %}
+            <table class="result-table">
+                <tr>
+                    <th>
+                        Polje
+                    </th>
+                    <th>
+                        Vrednost
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Bazna Premija
+                    </td>
+                    <td>
+                        {{result.BP}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Faktor 1
+                    </td>
+                    <td>
+                        {{result.Factor1}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Faktor 2
+                    </td>
+                    <td>
+                        {{result.Factor2}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Faktor 3
+                    </td>
+                    <td>
+                        {{result.Factor3}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Faktor 4
+                    </td>
+                    <td>
+                        {{result.Factor4}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Faktor 5
+                    </td>
+                    <td>
+                        {{result.Factor5}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Faktor 6
+                    </td>
+                    <td>
+                        {{result.Factor6}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Faktor 7
+                    </td>
+                    <td>
+                        {{result.Factor7}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Faktor 8
+                    </td>
+                    <td>
+                        {{result.Factor8}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Faktor 9
+                    </td>
+                    <td>
+                        {{result.Factor9}}
+                    </td>
+                </tr>
+            </table>
+            {% endif %}
+
+            {% if questionareType == 0 %}
             <table class="result-table">
                 <tr>
                     <th>
@@ -163,6 +260,108 @@
                     </td>
                 </tr>
             </table>
+            {% endif %}
+
+            {% if questionareType == 2 %}
+            <table class="result-table">
+                <tr>
+                    <th>
+                        Polje
+                    </th>
+                    <th>
+                        Kako se računa
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Cena premije
+                    </td>
+                    <td>
+                        Po formuli: <i>Bazna premija * Faktor 1 * Faktor 2 * Faktor 3 * Faktor 4 * Faktor 5 * Faktor 6 * Faktor 7 * Faktor 8 * Faktor 9</i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Bazna Premija
+                    </td>
+                    <td>
+                        Na osnovu prihoda firme.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Faktor 1
+                    </td>
+                    <td>
+                        Na osnovu edukacije i obuke zaposlenih.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Faktor 2
+                    </td>
+                    <td>
+                        Na osnovu nivoa zastite podataka, enkripcije, VPN-a.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Faktor 3
+                    </td>
+                    <td>
+                        Ko sve ima pristup sistemu, kako se dodavaju, menjaju i uklanjaju nalozi.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Faktor 4
+                    </td>
+                    <td>
+                        Koliko su serveri fizicki obezbedjeni.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Faktor 5
+                    </td>
+                    <td>
+                        Kakav je nivo otpora na napade, IDS i IPS, bastion serveri, antivirus i firewall.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Faktor 6
+                    </td>
+                    <td>
+                        Da li se redovno prave rezervne kopije podataka, koliko se dugo cuvaju.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Faktor 7
+                    </td>
+                    <td>
+                        Da li se cuvaju logovi, da li sadrze odgovarajuce informacije, da li postoje procedure za oporavak sistema, da li se prijavljuju incidenti nacionalnom CERT-u.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Faktor 8
+                    </td>
+                    <td>
+                        Na osnovu zeljenog iznosa naknade.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Faktor 9
+                    </td>
+                    <td>
+                        Na osnovu broja sajber incidenata u poslednje 3 godine.
+                    </td>
+                </tr>
+            </table>
+            {% endif %}
         </div>
 
         <div class="back" onclick="window.location = '/home'">

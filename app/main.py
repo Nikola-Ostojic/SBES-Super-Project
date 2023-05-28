@@ -1,8 +1,9 @@
 from flask import Flask, render_template, url_for,request, session, redirect
 from flask_session import Session
 from calculate import calculate_result
+from calculateCritical import calculate_result_critical
 from processing import process, edit_page_json,edit_question_json, edit_answer_json, add_answer_to_json
-from models import Page
+from models import Page, QuestionareType
 from database import get_db_engine, init_tables, validate_user_credentials
 import os
 from db_models import User
@@ -23,7 +24,13 @@ init_tables(engine)
 @app.route('/')
 @app.route('/home')
 def home():
+    html = render_template("landingPage.html")
+    return html
+
+@app.route('/smallBusiness')
+def smallBusiness():
     pages = None
+    session['questionareType'] = QuestionareType.Small
     if not session.get("pages"):
         pages = process(CONFIG_NAME, "small")
         session['pages'] = pages
@@ -35,6 +42,23 @@ def home():
 
     html = render_template("questionnaire.html", pages=pages)
     return html
+
+@app.route('/criticalBusiness')
+def mediumBusiness():
+    pages = None
+    session['questionareType'] = QuestionareType.Critical
+    if not session.get("criticalPages"):
+        pages = process(CONFIG_NAME, "critical")
+        session['criticalPages'] = pages
+    else:
+        pages = session.get('criticalPages')
+
+    app.logger.info(pages)
+    app.logger.info(type(pages))
+
+    html = render_template("questionnaire.html", pages=pages)
+    return html
+
 
 
 @app.route('/admin')
@@ -101,17 +125,24 @@ def add_answer():
 
 @app.route('/result', methods=["POST", "GET"])
 def result():
-
+    questionareType = session.get('questionareType')
+    typeValue = questionareType.value
     if request.method == 'GET':
         if session.get('result'):
-            return render_template('result.html', result=session['result'], company=session['company'])
+            return render_template('result.html', result=session['result'], 
+                                   company=session['company'],
+                                   questionareType=typeValue)
         else:
-            return redirect('home.html')
+            return redirect('home')
 
-    if not session.get("pages"):
+    if not session.get("pages") and not session.get("criticalPages"):
         return "Session expired, please fill out the form again. Sorry for the inconvenience."
 
-    pages = session.get("pages")
+    if questionareType == QuestionareType.Small:
+        pages = session.get("pages")
+    elif questionareType == QuestionareType.Critical:
+        pages = session.get("criticalPages")
+
 
     res = {}
     for page in pages:
@@ -122,8 +153,15 @@ def result():
                     name += '-' + str(answer.id)
                 res[name] = request.form.get(name)
 
-    result = calculate_result(engine, res)
-    company = res['answer-1-1-1']
+    result = ''
+    company = ''
+    
+    if questionareType == QuestionareType.Small:
+        result = calculate_result(engine, res)
+        company = res['answer-1-1-1']
+    elif questionareType == QuestionareType.Critical:
+        result = calculate_result_critical(engine, res)
+        company = res['answer-1-1-1']
 
     session['result'] = result
     session['company'] = company

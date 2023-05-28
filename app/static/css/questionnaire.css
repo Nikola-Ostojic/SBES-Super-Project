@@ -34,7 +34,7 @@ body{
     position: fixed;
     top: 0px;
     padding: 7.5rem 1.5rem 1.5rem;
-    width: 215px;
+    width: 15rem;
     z-index: 3;
     height: 100%;
     border-right: 2px solid #bf1d1d;
@@ -63,6 +63,8 @@ button{
 
 
 .page{
+    display: flex;
+    align-items: center;
     border: 3px solid rgba(100, 194, 136, 0);
     padding: 0.5rem 1rem;
     margin-bottom: 0.5rem;
@@ -105,7 +107,7 @@ button{
     font-weight: 600;
     background-color: white;
     margin: 0px;
-    padding: 1rem;
+    padding: 1.5rem;
     color:rgb(57, 57, 57);
 }
 
@@ -203,3 +205,16 @@ button:hover{
     background-color: rgba(130, 130, 130, 1);
 }
 
+.ftn-img{
+    position: fixed;
+    top: 0rem;
+    left: 0rem;
+    margin: 0.5rem 2rem;
+    width: 4rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.page-number{
+    margin-right: 1rem;
+}

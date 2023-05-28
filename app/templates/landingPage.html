@@ -1,0 +1,38 @@
+
+{% extends 'layout.html' %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landingPage.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/toastr.min.css') }}">
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="{{ url_for('static', filename='js/landingPage.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/toastr.min.js')}}"></script>
+{% endblock %}
+
+{% block head %}
+    <title>Upitnik</title>
+{% endblock %}
+{% block body %}
+
+<div class="main-wrapper">
+    <img src="{{ url_for('static', filename='images/ftn.jpg') }}"/>
+    <span class="main-header">ANKETE SAJBER OSIGURANJA</span>
+    <div class="business-wrapper">
+        <div class="business" id="smallBusiness">
+            <span>MALA I SREDNJA PREDUZECA</span>
+        </div>
+        <div class="business not-implemented">
+            <span>VELIKA PREDUZECA</span>
+        </div>
+        <div class="business" id="criticalBusiness">
+            <span>SISTEMI SA KRITICNOM INFRASTRUKTUROM</span>
+        </div>
+    </div>
+    
+</div>
+<script src="{{ url_for('static', filename='js/landingPage.js')}}"></script>
+{% endblock %}
