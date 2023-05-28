@@ -6,6 +6,12 @@ services:
       MYSQL_USER: sbes
       MYSQL_DATABASE: sbesproject
       MYSQL_PASSWORD: sbesftn
+      SECRET_KEY: ftnsbesquestionnaireproject
+
+    volumes:
+      - ./app/config.json:/app/config.json
+      - ./app/static:/app/static
+      - ./app/templates:/app/templates
 
     depends_on:
       db:
@@ -27,7 +33,6 @@ services:
       MYSQL_PASSWORD: sbesftn
     volumes:
       - ./db:/docker-entrypoint-initdb.d/:ro
-      - ./app/config.json/:/config.json
       - sbes-data:/var/lib/mysql
     healthcheck:
       test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -p'${MYSQL_ROOT_PASSWORD}' || echo 'Health check failed'"]
