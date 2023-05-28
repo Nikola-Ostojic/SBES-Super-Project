@@ -14,7 +14,7 @@ CONFIG_NAME = "config.json"
 
 def calculate_result_critical(engine, result):
     if engine:
-        res_obj = retrieve_all_answers(result)
+        #res_obj = retrieve_all_answers(result)
 
         BP, F1 = calculate_first_page_critical(result)
         F2 = calculate_second_page_critical(result)
@@ -40,19 +40,6 @@ def calculate_result_critical(engine, result):
                 "Factor8": F8,
                 "Factor9": F9,
                 }
-
-        info(result)
-
-        factor = Factor()
-        factor.BaznaPremija = BP
-        factor.Factor1 = F1
-        factor.Factor2 = F2
-        factor.Factor3 = F3
-        factor.Factor4 = F4
-        factor.Factor5 = F5
-        factor.Factor6 = F6
-        factor.Factor7 = F7
-        factor.Factor8 = F8
 
         return ret_val
 

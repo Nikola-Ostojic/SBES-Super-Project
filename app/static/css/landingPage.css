@@ -71,3 +71,7 @@ img{
 .not-implemented{
     cursor: not-allowed;
 }
+
+.not-implemented:hover{
+    border: 2px solid rgb(170, 170, 170, 0.5) !important;
+}

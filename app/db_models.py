@@ -123,8 +123,8 @@ class ResultCritical(Base):
 
     ZeljeniIznosNaknade: Mapped[int] = mapped_column(Integer)
     BrojIncidenata: Mapped[int] = mapped_column(Integer)
-    Factor = relationship("Factor", backref='result', uselist=False)
-    SelectedItem = relationship("SelectedItem", back_populates="Result")
+    #Factor = relationship("Factor", backref='result', uselist=False)
+    #SelectedItem = relationship("SelectedItem", back_populates="Result")
 
 
 class Factor(Base):
@@ -139,8 +139,6 @@ class Factor(Base):
     Factor4: Mapped[float] = mapped_column(Float)
     Factor5: Mapped[float] = mapped_column(Float)
     Factor6: Mapped[float] = mapped_column(Float)
-    Factor7: Mapped[float] = mapped_column(Float)
-    Factor8: Mapped[float] = mapped_column(Float)
     ResultId: Mapped[Result] = mapped_column(ForeignKey("results.Id"), unique=True)
     Result = relationship("Result", back_populates="Factor")
 
