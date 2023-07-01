@@ -1,3 +1,14 @@
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class="flash-messages">
+      {% for message in messages %}
+        <li class="{{ message[1] }}">{{ message[0] }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+
 {% extends 'layout.html' %}
 
 {% block styles %}
@@ -13,20 +24,19 @@
 {% endblock %}
 
 {% block head %}
-    <title>Upitnik - Login</title>
+    <title>Upitnik - Register</title>
 {% endblock %}
-
 
 {% block body %}
 <section class="flex col align-center justify-center m-auto min-h-100">
     <div class="flex col align-center justify-center w-content bg-white p-30">
         <img src="{{ url_for('static', filename='images/ftn.jpg') }}" class="wh-logo" alt="ftn-logo"></img>
-        <form class="flex col align-center justify-center w-content" id="login-form">
-            <input type="text" name="username" class="inp mb-5" placeholder="Korisničko ime">
-            <input type="password" name="password" class="inp mb-5" placeholder="Lozinka">
-            <button type="button" onclick="login()">Prijavi se</button>
+        <form class="flex col align-center justify-center w-content" id="register-form">
+            <input type="text" name="username" class="inp mb-5" placeholder="Username">
+            <input type="password" name="password" class="inp mb-5" placeholder="Password">
+            <button type="button" onclick="register()">Register</button>
         </form>
-        <!-- <a href="/register" class="register-btn">Register</a> -->
+        <a href="/login" class="login-btn">Login</a>
     </div>
 </section>
 {% endblock %}

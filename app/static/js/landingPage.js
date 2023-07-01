@@ -13,3 +13,8 @@ $('#smallBusiness').click(function (e) {
     window.location.href = "/smallBusiness"
 });
 
+$('#individuals').click(function (e) { 
+    e.preventDefault();
+    window.location.href = "/individuals"
+});
+

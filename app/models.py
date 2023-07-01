@@ -75,3 +75,4 @@ class QuestionareType(Enum):
     Small = 0
     Big = 1
     Critical = 2
+    Individual = 3

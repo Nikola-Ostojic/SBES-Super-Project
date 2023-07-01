@@ -1,0 +1,419 @@
+{
+    "questionnaire":{
+        "individuals":{
+            "pages": [
+                {
+                    "id": 1,
+                    "index": 1,
+                    "title": "Pitanja za fizi\u010dko lice",
+                    "formula": "CONST",
+                    "questions": [
+                        {
+                            "id": 1,
+                            "index": 1,
+                            "question": "Da li ste ikada bili \u017ertva sajber prevare ili napada?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 1
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 2
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 2,
+                            "index": 2,
+                            "question": "Koji onlajn servise i dru\u0161tvene mre\u017ee koristite na poslu?:",
+                            "answerType": "checkbox",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Facebook",
+                                    "weight": 1
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Instagram",
+                                    "weight": 2
+                                },
+                                {
+                                    "id": 3,
+                                    "index": 3,
+                                    "text": "TikTok",
+                                    "weight": 3
+                                },
+                                {
+                                    "id": 4,
+                                    "index": 4,
+                                    "text": "LinkedIn",
+                                    "weight": 4
+                                },
+                                {
+                                    "id": 5,
+                                    "index": 5,
+                                    "text": "Twitter",
+                                    "weight": 5
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 3,
+                            "index": 3,
+                            "question": "Kako \u010duvate svoje podatke i primenjujete mere bezbednosti na internetu?",
+                            "answerType": "checkbox",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Jake Lozinke",
+                                    "weight": 1
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Bekapovanje Podataka",
+                                    "weight": 2
+                                },
+                                {
+                                    "id": 3,
+                                    "index": 3,
+                                    "text": "Neprihvatanje kola\u010di\u0107a",
+                                    "weight": 3
+                                },
+                                {
+                                    "id": 4,
+                                    "index": 4,
+                                    "text": "Siguran brovser",
+                                    "weight": 4
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 4,
+                            "index": 4,
+                            "question": "Da li va\u0161a firma koristi klaud za \u010duvanje podataka?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 1
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 2
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 5,
+                            "index": 5,
+                            "question": "Koji od slede\u0107ih postupaka primenjujete za za\u0161titu svojih online naloga? (Molimo ozna\u010dite sve primenjene opcije):",
+                            "answerType": "checkbox",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Kori\u0161\u0107enje sna\u017enih lozinki",
+                                    "weight": 1
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Dvofaktorska autentifikacija",
+                                    "weight": 2
+                                },
+                                {
+                                    "id": 3,
+                                    "index": 3,
+                                    "text": "Redovno a\u017euriranje lozinki",
+                                    "weight": 3
+                                },
+                                {
+                                    "id": 4,
+                                    "index": 4,
+                                    "text": "Kori\u0161\u0107enje sigurnih browsera i VPN-a",
+                                    "weight": 4
+                                },
+                                {
+                                    "id": 5,
+                                    "index": 5,
+                                    "text": "Pra\u0107enje aktivnosti na svojim nalozima",
+                                    "weight": 5
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 6,
+                            "index": 6,
+                            "question": "Da li biste razmotrili sajber osiguranje koje pokriva tro\u0161kove vezane za sajber napade, uklju\u010duju\u0107i forenzi\u010dku analizu, usluge odnosa s javno\u0161\u0107u, obave\u0161tavanje klijenata, pra\u0107enje kredita i gubitak prihoda?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 1
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 2
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 7,
+                            "index": 7,
+                            "question": "Da li na va\u0161 radni i-mejl sti\u017eu mejlovi sa sadr\u017eajem nevezanim za posao?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 1
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 2
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 8,
+                            "index": 8,
+                            "question": "Da li primenjujete preporu\u010dene mere za\u0161tite kao \u0161to su a\u017euriranje softvera, kori\u0161\u0107enje sna\u017enih lozinki, dvofaktorska autentifikacija i redovno bekapovanje podataka?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 1
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 2
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 9,
+                            "index": 9,
+                            "question": "Da li koristite vi\u0161e faktora autentifikacije (npr. SMS kod, mobilnu aplikaciju, fizi\u010dki klju\u010d) za pristup va\u0161im nalozima?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 1
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 2
+                                }
+                            ],
+                            "answer_type": "None"
+                        },
+                        {
+                            "id": 10,
+                            "index": 10,
+                            "question": "Da li koristite javne Wi-Fi mre\u017ee? Kako se \u0161titite od potencijalnih pretnji i neovla\u0161\u0107enog pristupa va\u0161im podacima?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 1
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 2
+                                }
+                            ]
+                        },
+                        {
+                            "id": 11,
+                            "index": 11,
+                            "question": "Da li ste u poslednjoj godini pregledali procedure sajber bezbednosti i preduzeli korake za pobolj\u0161anje istih?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 1
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 2
+                                }
+                            ]
+                        },
+                        {
+                            "id": 12,
+                            "index": 12,
+                            "question": "Kako se za\u0161titite od sajber nasilja? (Molimo ozna\u010dite sve primenjene opcije)?",
+                            "answerType": "checkbox",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Blokiranje i prijavljivanje napada\u010da",
+                                    "weight": 1
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Pove\u0107ana privatnost na dru\u0161tvenim mre\u017eama",
+                                    "weight": 2
+                                },
+                                {
+                                    "id": 3,
+                                    "index": 3,
+                                    "text": "Postavljanje granica i upotreba sigurnih postavki privatnosti",
+                                    "weight": 3
+                                },
+                                {
+                                    "id": 4,
+                                    "index": 4,
+                                    "text": "Edukacija o sajber nasilju i na\u010dinima reagovanja",
+                                    "weight": 4
+                                }
+                            ]
+                        },
+                        {
+                            "id": 13,
+                            "index": 13,
+                            "question": "Koji od slede\u0107ih koraka preduzimate kako biste se za\u0161titili od phishing napada? Molimo ozna\u010dite sve primenjene opcije:",
+                            "answerType": "checkbox",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Provera po\u0161iljaoca pre otvaranja e-po\u0161te ili priloga",
+                                    "weight": 1
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Nepoverenje u nepoznate ili sumnjive veze",
+                                    "weight": 2
+                                },
+                                {
+                                    "id": 3,
+                                    "index": 3,
+                                    "text": "Provera URL adresa pre uno\u0161enja li\u010dnih podataka",
+                                    "weight": 3
+                                },
+                                {
+                                    "id": 4,
+                                    "index": 4,
+                                    "text": "Edukacija o prepoznavanju phishing napada",
+                                    "weight": 4
+                                }
+                                
+                            ]
+                            
+                        },
+                        {
+                            "id": 14,
+                            "index": 14,
+                            "question": "Da li imate uspostavljen sistem za redovno bekapovanje (rezervno kopiranje) va\u017enih podataka?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 1
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 2
+                                }
+                            ]
+                        },
+                        {
+                            "id": 15,
+                            "index": 15,
+                            "question": "Da li ste upoznati sa zakonima i propisima koji se odnose na sajber bezbednost i za\u0161titu li\u010dnih podataka?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 1
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 2
+                                }
+                            ]
+                        },
+                        {
+                            "id": 16,
+                            "index": 16,
+                            "question": "Da li ste svesni potencijalnih rizika pri kori\u0161\u0107enju javnih Wi-Fi mre\u017ea?",
+                            "answerType": "radio",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "index": 1,
+                                    "text": "Da",
+                                    "weight": 1
+                                },
+                                {
+                                    "id": 2,
+                                    "index": 2,
+                                    "text": "Ne",
+                                    "weight": 2
+                                }
+                            ]
+                        }
+                    ]
+                }                                           
+            ]
+        }     
+    }
+}

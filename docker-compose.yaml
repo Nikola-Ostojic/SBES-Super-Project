@@ -3,6 +3,7 @@ services:
   app:
     build: ./app
     environment:
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: sbes
       MYSQL_DATABASE: sbesproject
       MYSQL_PASSWORD: sbesftn

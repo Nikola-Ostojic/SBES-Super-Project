@@ -16,26 +16,24 @@ toastr.options = {
     "hideMethod": "fadeOut"
   }
 
-function login(){
-    data = document.getElementById('login-form');
+function register(){
+    data = document.getElementById('register-form');
     formData = new FormData(data);
 
     $.ajax({
         type: "POST",
-        url: "/login",
+        url: "/register",
         data: formData,
         contentType: false,
         processData: false,
         success: function (response) {
-            if (response == "INDIVIDUAL"){
-                toastr["success"]("Uspešno autentifikovan!", "Obaveštenje")
-                window.location.href = window.location.origin + '/individuals';
+            if (response === "REGISTERED") {
+                toastr["success"]("Uspešno registrovan!", "Obaveštenje");
+                window.location.href = window.location.origin + '/login';
             }
-            else{
-                toastr["success"]("Uspešno autentifikovan!", "Obaveštenje")
-                window.location.href = window.location.origin + '/admin';
-            }
-
+        },
+        error: function () {
+            toastr["error"]("Greška pri autentifikaciji!", "Obaveštenje");
         }
     });
 }

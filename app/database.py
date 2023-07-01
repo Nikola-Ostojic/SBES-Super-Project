@@ -104,3 +104,17 @@ def validate_user_credentials(engine, username, password) -> bool:
             return False
 
 
+ 
+# def validate_user_credentials2(engine, username, password) -> bool:
+#     session = sessionmaker(engine)
+
+#     with session.begin() as s:
+#         user = s.query(User).filter(User.Username == username and User.Password == password).first()
+
+#         # if user.Username == "ftn":
+#         #     return "ADMIN"
+#         # else:
+#         #     return "INDIVIDUAL"
+
+
+

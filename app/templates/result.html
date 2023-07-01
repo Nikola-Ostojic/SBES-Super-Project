@@ -16,353 +16,400 @@
 
 {% block body %}
     <div class="result-wrapper">
-        <div class="result">
-            <span class="title">Godišnja premija za firmu <b>{{company}}</b>  iznosi: </span>
-            <span class="result-value">{{result.result}} €</span>
-        </div>
+        
 
         <div class="result-table-container">
 
             {% if questionareType == 0 %}
-            <table class="result-table">
-                <tr>
-                    <th>
-                        Polje
-                    </th>
-                    <th>
-                        Vrednost
-                    </th>
-                </tr>
-                <tr>
-                    <td>
-                        Bazna Premija
-                    </td>
-                    <td>
-                        {{result.BP}}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 1
-                    </td>
-                    <td>
-                        {{result.Factor1}}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 2
-                    </td>
-                    <td>
-                        {{result.Factor2}}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 3
-                    </td>
-                    <td>
-                        {{result.Factor3}}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 4
-                    </td>
-                    <td>
-                        {{result.Factor4}}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 5
-                    </td>
-                    <td>
-                        {{result.Factor5}}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 6
-                    </td>
-                    <td>
-                        {{result.Factor6}}
-                    </td>
-                </tr>
-            </table>
+                <div class="result">
+                    <span class="title">Godišnja premija za firmu <b>{{company}}</b>  iznosi: </span>
+                    <span class="result-value">{{result.result}} €</span>
+                </div>
+                <table class="result-table">
+                    <tr>
+                        <th>
+                            Polje
+                        </th>
+                        <th>
+                            Vrednost
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Bazna Premija
+                        </td>
+                        <td>
+                            {{result.BP}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 1
+                        </td>
+                        <td>
+                            {{result.Factor1}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 2
+                        </td>
+                        <td>
+                            {{result.Factor2}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 3
+                        </td>
+                        <td>
+                            {{result.Factor3}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 4
+                        </td>
+                        <td>
+                            {{result.Factor4}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 5
+                        </td>
+                        <td>
+                            {{result.Factor5}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 6
+                        </td>
+                        <td>
+                            {{result.Factor6}}
+                        </td>
+                    </tr>
+                </table>
             {% endif %}
 
             {% if questionareType == 2 %}
-            <table class="result-table">
-                <tr>
-                    <th>
-                        Polje
-                    </th>
-                    <th>
-                        Vrednost
-                    </th>
-                </tr>
-                <tr>
-                    <td>
-                        Bazna Premija
-                    </td>
-                    <td>
-                        {{result.BP}}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 1
-                    </td>
-                    <td>
-                        {{result.Factor1}}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 2
-                    </td>
-                    <td>
-                        {{result.Factor2}}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 3
-                    </td>
-                    <td>
-                        {{result.Factor3}}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 4
-                    </td>
-                    <td>
-                        {{result.Factor4}}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 5
-                    </td>
-                    <td>
-                        {{result.Factor5}}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 6
-                    </td>
-                    <td>
-                        {{result.Factor6}}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 7
-                    </td>
-                    <td>
-                        {{result.Factor7}}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 8
-                    </td>
-                    <td>
-                        {{result.Factor8}}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 9
-                    </td>
-                    <td>
-                        {{result.Factor9}}
-                    </td>
-                </tr>
-            </table>
+                <div class="result">
+                    <span class="title">Godišnja premija za firmu <b>{{company}}</b>  iznosi: </span>
+                    <span class="result-value">{{result.result}} €</span>
+                </div>
+                <table class="result-table">
+                    <tr>
+                        <th>
+                            Polje
+                        </th>
+                        <th>
+                            Vrednost
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Bazna Premija
+                        </td>
+                        <td>
+                            {{result.BP}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 1
+                        </td>
+                        <td>
+                            {{result.Factor1}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 2
+                        </td>
+                        <td>
+                            {{result.Factor2}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 3
+                        </td>
+                        <td>
+                            {{result.Factor3}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 4
+                        </td>
+                        <td>
+                            {{result.Factor4}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 5
+                        </td>
+                        <td>
+                            {{result.Factor5}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 6
+                        </td>
+                        <td>
+                            {{result.Factor6}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 7
+                        </td>
+                        <td>
+                            {{result.Factor7}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 8
+                        </td>
+                        <td>
+                            {{result.Factor8}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 9
+                        </td>
+                        <td>
+                            {{result.Factor9}}
+                        </td>
+                    </tr>
+                </table>
             {% endif %}
 
             {% if questionareType == 0 %}
-            <table class="result-table">
-                <tr>
-                    <th>
-                        Polje
-                    </th>
-                    <th>
-                        Kako se računa
-                    </th>
-                </tr>
-                <tr>
-                    <td>
-                        Cena premije
-                    </td>
-                    <td>
-                        Po formuli: <i>Bazna premija * Faktor 1 * Faktor 2 * Faktor 3 * Faktor 4 * Faktor 5 * Faktor 6</i>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Bazna Premija
-                    </td>
-                    <td>
-                        Na osnovu prihoda firme.
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 1
-                    </td>
-                    <td>
-                        Na osnovu tipa delatnosti, broja zaposlenih, količine sačuvanih dokumenata, podela dokumenata sa trećim licima i eksternih usluga koje firma plaća.
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 2
-                    </td>
-                    <td>
-                        Na osnovu postojanja sajta, dostupnih URL-ova, enkripcije podataka i ispunjenja tehničkih mera.
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 3
-                    </td>
-                    <td>
-                        Postojanje planova i politika firme, bezbednosni testovi, reagovanje na incident, planovi oporavka, obuka zasposlenih na temu bezbednosti, rezervne kopije podataka.
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 4
-                    </td>
-                    <td>
-                        Poštovanje zakona o zaštiti podataka o licnosti i/ili zakona o pravima pacijenata, PCI DSS, ISO 27001
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 5
-                    </td>
-                    <td>
-                        Na osnovu željenog iznosa naknade.
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 6
-                    </td>
-                    <td>
-                        Na osnovu broja sajber incidenata u poslednje 3 godine.
-                    </td>
-                </tr>
-            </table>
+                <div class="result">
+                    <span class="title">Godišnja premija za firmu <b>{{company}}</b>  iznosi: </span>
+                    <span class="result-value">{{result.result}} €</span>
+                </div>
+                <table class="result-table">
+                    <tr>
+                        <th>
+                            Polje
+                        </th>
+                        <th>
+                            Kako se računa
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Cena premije
+                        </td>
+                        <td>
+                            Po formuli: <i>Bazna premija * Faktor 1 * Faktor 2 * Faktor 3 * Faktor 4 * Faktor 5 * Faktor 6</i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Bazna Premija
+                        </td>
+                        <td>
+                            Na osnovu prihoda firme.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 1
+                        </td>
+                        <td>
+                            Na osnovu tipa delatnosti, broja zaposlenih, količine sačuvanih dokumenata, podela dokumenata sa trećim licima i eksternih usluga koje firma plaća.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 2
+                        </td>
+                        <td>
+                            Na osnovu postojanja sajta, dostupnih URL-ova, enkripcije podataka i ispunjenja tehničkih mera.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 3
+                        </td>
+                        <td>
+                            Postojanje planova i politika firme, bezbednosni testovi, reagovanje na incident, planovi oporavka, obuka zasposlenih na temu bezbednosti, rezervne kopije podataka.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 4
+                        </td>
+                        <td>
+                            Poštovanje zakona o zaštiti podataka o licnosti i/ili zakona o pravima pacijenata, PCI DSS, ISO 27001
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 5
+                        </td>
+                        <td>
+                            Na osnovu željenog iznosa naknade.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 6
+                        </td>
+                        <td>
+                            Na osnovu broja sajber incidenata u poslednje 3 godine.
+                        </td>
+                    </tr>
+                </table>
             {% endif %}
 
             {% if questionareType == 2 %}
-            <table class="result-table">
-                <tr>
-                    <th>
-                        Polje
-                    </th>
-                    <th>
-                        Kako se računa
-                    </th>
-                </tr>
-                <tr>
-                    <td>
-                        Cena premije
-                    </td>
-                    <td>
-                        Po formuli: <i>Bazna premija * Faktor 1 * Faktor 2 * Faktor 3 * Faktor 4 * Faktor 5 * Faktor 6 * Faktor 7 * Faktor 8 * Faktor 9</i>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Bazna Premija
-                    </td>
-                    <td>
-                        Na osnovu prihoda firme.
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 1
-                    </td>
-                    <td>
-                        Na osnovu edukacije i obuke zaposlenih.
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 2
-                    </td>
-                    <td>
-                        Na osnovu nivoa zastite podataka, enkripcije, VPN-a.
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 3
-                    </td>
-                    <td>
-                        Ko sve ima pristup sistemu, kako se dodavaju, menjaju i uklanjaju nalozi.
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 4
-                    </td>
-                    <td>
-                        Koliko su serveri fizicki obezbedjeni.
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 5
-                    </td>
-                    <td>
-                        Kakav je nivo otpora na napade, IDS i IPS, bastion serveri, antivirus i firewall.
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 6
-                    </td>
-                    <td>
-                        Da li se redovno prave rezervne kopije podataka, koliko se dugo cuvaju.
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 7
-                    </td>
-                    <td>
-                        Da li se cuvaju logovi, da li sadrze odgovarajuce informacije, da li postoje procedure za oporavak sistema, da li se prijavljuju incidenti nacionalnom CERT-u.
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 8
-                    </td>
-                    <td>
-                        Na osnovu zeljenog iznosa naknade.
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Faktor 9
-                    </td>
-                    <td>
-                        Na osnovu broja sajber incidenata u poslednje 3 godine.
-                    </td>
-                </tr>
-            </table>
+                <div class="result">
+                    <span class="title">Godišnja premija za firmu <b>{{company}}</b>  iznosi: </span>
+                    <span class="result-value">{{result.result}} €</span>
+                </div>
+                <table class="result-table">
+                    <tr>
+                        <th>
+                            Polje
+                        </th>
+                        <th>
+                            Kako se računa
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Cena premije
+                        </td>
+                        <td>
+                            Po formuli: <i>Bazna premija * Faktor 1 * Faktor 2 * Faktor 3 * Faktor 4 * Faktor 5 * Faktor 6 * Faktor 7 * Faktor 8 * Faktor 9</i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Bazna Premija
+                        </td>
+                        <td>
+                            Na osnovu prihoda firme.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 1
+                        </td>
+                        <td>
+                            Na osnovu edukacije i obuke zaposlenih.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 2
+                        </td>
+                        <td>
+                            Na osnovu nivoa zastite podataka, enkripcije, VPN-a.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 3
+                        </td>
+                        <td>
+                            Ko sve ima pristup sistemu, kako se dodavaju, menjaju i uklanjaju nalozi.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 4
+                        </td>
+                        <td>
+                            Koliko su serveri fizicki obezbedjeni.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 5
+                        </td>
+                        <td>
+                            Kakav je nivo otpora na napade, IDS i IPS, bastion serveri, antivirus i firewall.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 6
+                        </td>
+                        <td>
+                            Da li se redovno prave rezervne kopije podataka, koliko se dugo cuvaju.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 7
+                        </td>
+                        <td>
+                            Da li se cuvaju logovi, da li sadrze odgovarajuce informacije, da li postoje procedure za oporavak sistema, da li se prijavljuju incidenti nacionalnom CERT-u.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 8
+                        </td>
+                        <td>
+                            Na osnovu zeljenog iznosa naknade.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Faktor 9
+                        </td>
+                        <td>
+                            Na osnovu broja sajber incidenata u poslednje 3 godine.
+                        </td>
+                    </tr>
+                
+                </table>
             {% endif %}
+
+            <div class="result-table-container">       
+                {% if questionareType == 3 %}        
+                    {% if result == "Insurance A" %}
+                        <p class="result-info">
+                            Preporučeno osiguranje za vas je Osiguranje tipa A koje obuhvata:
+                            Limiti pokrivenosti: 250.000 dolara za krađu identiteta, 
+                            100.000 dolara za finansijski gubitak, 
+                            500.000 dolara za krađu podataka 
+                            i 50.000 dolara za pravne troškove.
+                            Odbitak: $1,000. Premija: $400 godišnje.
+                        </p>
+                    {% elif result == "Insurance B" %}
+                        <p class="result-info">
+                            Preporučeno osiguranje za vas je Osiguranje tipa B koje obuhvata:
+                            Limiti pokrivenosti: 300.000 dolara za krađu identiteta,
+                            150.000 dolara za finansijski gubitak,
+                            550.000 dolara za krađu podataka i 60.000 dolara za pravne troškove.
+                            Odbitak: $1,000. Premija: $450 godišnje.
+                        </p>
+                    {% elif result == "Insurance C" %}
+                        <p class="result-info">
+                            Preporučeno osiguranje za vas je Osiguranje tipa C koje obuhvata:
+                            Limiti pokrivenosti: 350.000 dolara za krađu identiteta, 
+                            200.000 dolara za finansijski gubitak, 
+                            600.000 dolara za krađu podataka 
+                            i 70.000 dolara za pravne troškove.
+                            Odbitak: $1,000. Premija: $500 godišnje.
+                        </p>
+                    {% endif %}              
+                {% endif %}
+            </div>         
         </div>
+
 
         <div class="back" onclick="window.location = '/home'">
             <span>Nova anketa</span>
